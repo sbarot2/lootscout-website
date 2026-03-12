@@ -1,19 +1,43 @@
 "use client";
 
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
+
+type State = {
+  hasError: boolean;
+  description: string;
+};
+
+const SUCCESS_DESCRIPTION =
+  "Your account is ready. Open the app to complete your profile.";
+const ERROR_FALLBACK_DESCRIPTION =
+  "The verification link may have expired. Please try signing up again.";
 
 export default function EmailConfirmedPage() {
-  const searchParams = useSearchParams();
-  const error = searchParams.get("error");
-  const errorDescription = searchParams.get("error_description");
-  const hasError = Boolean(error);
+  const [state, setState] = useState<State>({
+    hasError: false,
+    description: SUCCESS_DESCRIPTION,
+  });
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const params = new URLSearchParams(window.location.search);
+    const error = params.get("error");
+    const errorDescription = params.get("error_description");
+    const hasError = Boolean(error);
+
+    setState({
+      hasError,
+      description: hasError
+        ? errorDescription || ERROR_FALLBACK_DESCRIPTION
+        : SUCCESS_DESCRIPTION,
+    });
+  }, []);
+
+  const { hasError, description } = state;
 
   const title = hasError ? "Something went wrong" : "Email Confirmed!";
-  const description = hasError
-    ? errorDescription ||
-      "The verification link may have expired. Please try signing up again."
-    : "Your account is ready. Open the app to complete your profile.";
   const buttonLabel = hasError ? "Back to App" : "Open LootScout";
   const icon = hasError ? "✗" : "✓";
   const iconBgClass = hasError
