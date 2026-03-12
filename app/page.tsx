@@ -99,6 +99,125 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Real Transaction Pricing */}
+      <section className="relative bg-gradient-to-br from-primary-600 via-primary-700 to-accent-600 text-white overflow-hidden">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.05\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-40" />
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
+          <FadeInSection>
+            <h2 className="text-3xl sm:text-4xl font-bold text-center">
+              Real Transaction Pricing, Not Just Estimates
+            </h2>
+            <p className="mt-4 text-lg text-primary-100 text-center max-w-3xl mx-auto">
+              Most pricing tools show you estimates based on national averages or asking prices.
+              LootScout shows you what collectibles <strong>ACTUALLY</strong> sell for in real transactions.
+            </p>
+          </FadeInSection>
+
+          {/* How It Works - subsection */}
+          <FadeInSection>
+            <h3 className="mt-14 sm:mt-16 text-xl sm:text-2xl font-semibold text-center">How It Works</h3>
+            <div className="mt-8 grid md:grid-cols-3 gap-6 lg:gap-8">
+              <div className="p-5 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20">
+                <div className="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center text-lg font-bold">1</div>
+                <h4 className="mt-3 text-lg font-semibold">Starts with Market Data</h4>
+                <p className="mt-2 text-sm text-primary-100">
+                  We pull pricing from trusted sources like PriceCharting to establish baseline values for cards, games, and collectibles.
+                </p>
+              </div>
+              <div className="p-5 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20">
+                <div className="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center text-lg font-bold">2</div>
+                <h4 className="mt-3 text-lg font-semibold">Learns from Real Sales</h4>
+                <p className="mt-2 text-sm text-primary-100">
+                  Every completed transaction on LootScout—whether it matches, exceeds, or comes in below the estimate—gets recorded. Our algorithm tracks what people actually pay, not just what sellers ask for.
+                </p>
+              </div>
+              <div className="p-5 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20">
+                <div className="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center text-lg font-bold">3</div>
+                <h4 className="mt-3 text-lg font-semibold">Discover True Value Through Offers</h4>
+                <p className="mt-2 text-sm text-primary-100">
+                  List without a fixed price and let buyers make offers. You might discover your item is worth more than you thought! Real marketplace activity reveals true value better than any algorithm.
+                </p>
+              </div>
+            </div>
+          </FadeInSection>
+
+          {/* Why This Matters */}
+          <FadeInSection>
+            <h3 className="mt-14 sm:mt-16 text-xl sm:text-2xl font-semibold text-center">Why This Matters</h3>
+            <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div className="p-4 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20">
+                <span className="text-2xl" aria-hidden>💰</span>
+                <h4 className="mt-2 font-semibold">Real Money, Not Estimates</h4>
+                <p className="mt-1 text-sm text-primary-100">See what collectibles actually sell for, not theoretical values based on incomplete data.</p>
+              </div>
+              <div className="p-4 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20">
+                <span className="text-2xl" aria-hidden>🔍</span>
+                <h4 className="mt-2 font-semibold">Price Discovery</h4>
+                <p className="mt-1 text-sm text-primary-100">List items and receive offers to find their true market value. You might be surprised by what buyers are willing to pay.</p>
+              </div>
+              <div className="p-4 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20">
+                <span className="text-2xl" aria-hidden>📊</span>
+                <h4 className="mt-2 font-semibold">Trust Real Data</h4>
+                <p className="mt-1 text-sm text-primary-100">Our prices improve with every transaction. More sales = more accurate pricing for everyone.</p>
+              </div>
+              <div className="p-4 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20">
+                <span className="text-2xl" aria-hidden>⚡</span>
+                <h4 className="mt-2 font-semibold">No Guesswork</h4>
+                <p className="mt-1 text-sm text-primary-100">Stop wondering if national averages apply to your specific item. See real transaction history.</p>
+              </div>
+            </div>
+          </FadeInSection>
+
+          {/* Visual: Comparison cards + chart */}
+          <div className="mt-14 sm:mt-16 grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+            <FadeInSection className="space-y-6">
+              <div className="p-6 rounded-xl bg-slate-800/50 backdrop-blur-sm border border-white/10">
+                <h4 className="text-lg font-semibold text-slate-300">Traditional Pricing Tools</h4>
+                <ul className="mt-3 space-y-2 text-sm text-slate-400">
+                  <li><strong className="text-slate-300">Based on:</strong> Asking prices, estimates, aggregated data</li>
+                  <li><strong className="text-slate-300">Problem:</strong> You never know what items ACTUALLY sell for</li>
+                  <li><strong className="text-slate-300">Result:</strong> Guesswork when pricing your collection</li>
+                </ul>
+              </div>
+              <div className="p-6 rounded-xl bg-white/15 backdrop-blur-sm border border-white/30">
+                <h4 className="text-lg font-semibold text-white">LootScout Transaction Data</h4>
+                <ul className="mt-3 space-y-2 text-sm text-primary-100">
+                  <li><strong className="text-white">Based on:</strong> Real completed sales, actual offers accepted</li>
+                  <li><strong className="text-white">Benefit:</strong> See what people actually paid</li>
+                  <li><strong className="text-white">Result:</strong> Confidence in your pricing, potential for better offers</li>
+                </ul>
+              </div>
+            </FadeInSection>
+            <FadeInSection>
+              <div className="p-6 rounded-xl bg-slate-800/50 backdrop-blur-sm border border-white/10">
+                <h4 className="text-sm font-semibold text-slate-300 mb-4">Actual sale price vs estimate</h4>
+                <p className="text-xs text-slate-400 mb-4">Some sell for more, some for less—see real data.</p>
+                <div className="space-y-3">
+                  {[
+                    { label: "Estimate", value: 100, isBaseline: true },
+                    { label: "Sale -15%", value: 85, isHigher: false },
+                    { label: "Sale +5%", value: 105, isHigher: true },
+                    { label: "Sale +22%", value: 122, isHigher: true },
+                    { label: "Sale -8%", value: 92, isHigher: false },
+                  ].map((bar) => (
+                    <div key={bar.label} className="flex items-center gap-3">
+                      <span className="w-20 text-xs text-slate-400 shrink-0">{bar.label}</span>
+                      <div className="flex-1 h-6 rounded bg-slate-700/60 overflow-hidden max-w-full">
+                        <div
+                          className={`h-full rounded ${bar.isBaseline ? "bg-primary-400" : bar.isHigher ? "bg-emerald-400" : "bg-amber-400/90"}`}
+                          style={{ width: `${(bar.value / 130) * 100}%` }}
+                        />
+                      </div>
+                      <span className="text-xs text-slate-400 w-8 text-right">{bar.value}%</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </FadeInSection>
+          </div>
+        </div>
+      </section>
+
       {/* Features */}
       <section className="py-16 sm:py-24 bg-slate-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
