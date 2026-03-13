@@ -250,32 +250,287 @@ export default function Home() {
       <section className="py-16 sm:py-24 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <FadeInSection>
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 text-center">Simple Pricing</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 text-center">
+              Choose Your Plan
+            </h2>
             <p className="mt-4 text-slate-600 text-center max-w-2xl mx-auto">
-              Start free. Upgrade when you need more listings or shop tools.
+              Whether you&apos;re a casual collector or running a shop, LootScout has a plan for you.
             </p>
           </FadeInSection>
-          <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-6">
-            {[
-              { name: "Free", price: "$0", listings: "5 listings", highlight: false },
-              { name: "Plus", price: "$4.99/mo", listings: "25 listings", highlight: true },
-              { name: "Pro", price: "$9.99/mo", listings: "Unlimited", highlight: false },
-              { name: "Pro Shop", price: "$29/mo", listings: "For shops", highlight: false },
-              { name: "Enterprise", price: "$99/mo", listings: "Premium shops", highlight: false },
-            ].map((tier) => (
-              <FadeInSection key={tier.name}>
-                <div
-                  className={`p-6 rounded-xl border-2 ${
-                    tier.highlight ? "border-primary-500 bg-primary-50" : "border-slate-200 bg-slate-50"
-                  }`}
-                >
-                  <h3 className="font-semibold text-slate-900">{tier.name}</h3>
-                  <p className="mt-2 text-2xl font-bold text-slate-900">{tier.price}</p>
-                  <p className="mt-1 text-sm text-slate-600">{tier.listings}</p>
+
+          {/* Beta launch banner */}
+          <FadeInSection>
+            <div className="mt-10 rounded-2xl bg-gradient-to-r from-primary-500 via-primary-600 to-accent-500 text-white px-4 sm:px-6 py-4 sm:py-5 flex flex-col sm:flex-row items-center gap-3 sm:gap-4 shadow-lg animate-fade-in">
+              <span className="text-2xl sm:text-3xl" aria-hidden>
+                🎉
+              </span>
+              <div className="text-center sm:text-left">
+                <p className="font-semibold">
+                  Beta Launch Pricing - Lock in these rates forever!
+                </p>
+                <p className="text-sm text-primary-100">
+                  Limited-time pricing while we&apos;re in beta. Keep your rate as long as you stay subscribed.
+                </p>
+              </div>
+            </div>
+          </FadeInSection>
+
+          {/* Individual Plans */}
+          <FadeInSection>
+            <h3 className="mt-14 sm:mt-16 text-2xl font-semibold text-slate-900">
+              Individual Plans
+            </h3>
+            <div className="mt-8 grid gap-6 lg:gap-8 md:grid-cols-3">
+              {/* Free */}
+              <div className="relative flex flex-col rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-lg transition-shadow hover:-translate-y-1">
+                <div className="p-6 sm:p-7 flex-1 flex flex-col">
+                  <h4 className="text-lg font-semibold text-slate-900">Free</h4>
+                  <p className="mt-1 text-sm text-slate-500">Perfect for getting started</p>
+                  <div className="mt-4">
+                    <span className="block text-4xl font-bold text-slate-900">$0</span>
+                    <span className="text-sm text-slate-600">/month</span>
+                  </div>
+                  <ul className="mt-6 space-y-2 text-sm text-slate-700">
+                    {[
+                      "Browse marketplace",
+                      "Message buyers and sellers",
+                      "Up to 10 active listings",
+                      "Basic pricing data",
+                      "Real transaction history",
+                      "Accept offers on your listings",
+                      "Create want lists",
+                    ].map((feature) => (
+                      <li key={feature} className="flex gap-2">
+                        <span className="mt-0.5 text-emerald-500" aria-hidden>
+                          ✓
+                        </span>
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <button className="mt-6 inline-flex justify-center rounded-lg bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white hover:bg-slate-800 transition-colors">
+                    Get Started
+                  </button>
                 </div>
-              </FadeInSection>
-            ))}
-          </div>
+              </div>
+
+              {/* Plus - Most Popular */}
+              <div className="relative flex flex-col rounded-2xl border-2 border-primary-500 bg-primary-50/80 shadow-lg hover:shadow-xl transition-shadow hover:-translate-y-1">
+                <div className="absolute -top-3 right-4 rounded-full bg-primary-600 px-3 py-1 text-xs font-semibold text-white shadow-md">
+                  Most Popular
+                </div>
+                <div className="p-6 sm:p-7 flex-1 flex flex-col">
+                  <h4 className="text-lg font-semibold text-slate-900">LootScout Plus</h4>
+                  <p className="mt-1 text-sm text-slate-600">For active collectors</p>
+                  <div className="mt-4 flex flex-col gap-1">
+                    <span className="text-gray-400 line-through text-sm">$9.99</span>
+                    <div className="flex items-baseline gap-1">
+                      <span className="text-4xl font-bold text-primary-600">$4.99</span>
+                      <span className="text-sm text-slate-700">/month</span>
+                    </div>
+                  </div>
+                  <ul className="mt-6 space-y-2 text-sm text-slate-800">
+                    {[
+                      "Everything in Free, plus:",
+                      "Up to 25 active listings",
+                      "Priority support",
+                      "Early access to new features",
+                      "Full transaction analytics",
+                      "Hot sellers tracking",
+                      "Barcode scanning",
+                      "Price alerts",
+                      "And more!",
+                    ].map((feature) => (
+                      <li key={feature} className="flex gap-2">
+                        <span className="mt-0.5 text-emerald-500" aria-hidden>
+                          ✓
+                        </span>
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <button className="mt-6 inline-flex justify-center rounded-lg bg-primary-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-primary-700 transition-colors">
+                    Start Plus
+                  </button>
+                </div>
+              </div>
+
+              {/* Pro */}
+              <div className="relative flex flex-col rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-lg transition-shadow hover:-translate-y-1">
+                <div className="p-6 sm:p-7 flex-1 flex flex-col">
+                  <h4 className="text-lg font-semibold text-slate-900">LootScout Pro</h4>
+                  <p className="mt-1 text-sm text-slate-500">For serious collectors and traders</p>
+                  <div className="mt-4 flex flex-col gap-1">
+                    <span className="text-gray-400 line-through text-sm">$19.99</span>
+                    <div className="flex items-baseline gap-1">
+                      <span className="text-4xl font-bold text-primary-600">$14.99</span>
+                      <span className="text-sm text-slate-700">/month</span>
+                    </div>
+                  </div>
+                  <ul className="mt-6 space-y-2 text-sm text-slate-700">
+                    {[
+                      "Everything in Plus, plus:",
+                      "Up to 50 active listings",
+                      "Early access to premium features",
+                      "Featured listings (boost visibility)",
+                      "Advanced analytics dashboard",
+                      "Collection portfolio tracking",
+                      "Bulk listing tools",
+                      "And more!",
+                    ].map((feature) => (
+                      <li key={feature} className="flex gap-2">
+                        <span className="mt-0.5 text-emerald-500" aria-hidden>
+                          ✓
+                        </span>
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <button className="mt-6 inline-flex justify-center rounded-lg bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white hover:bg-slate-800 transition-colors">
+                    Start Pro
+                  </button>
+                </div>
+              </div>
+            </div>
+          </FadeInSection>
+
+          {/* Shop Plans */}
+          <FadeInSection>
+            <h3 className="mt-16 text-2xl font-semibold text-slate-900">
+              Shop Plans
+            </h3>
+            <div className="mt-8 grid gap-6 lg:gap-8 md:grid-cols-2">
+              {/* Pro Shop */}
+              <div className="relative flex flex-col rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-lg transition-shadow hover:-translate-y-1">
+                <div className="p-6 sm:p-7 flex-1 flex flex-col">
+                  <h4 className="text-lg font-semibold text-slate-900">LootScout Pro Shop</h4>
+                  <p className="mt-1 text-sm text-slate-500">For card vendors and small businesses</p>
+                  <div className="mt-4 flex flex-col gap-1">
+                    <span className="text-gray-400 line-through text-sm">$44.99</span>
+                    <div className="flex items-baseline gap-1">
+                      <span className="text-4xl font-bold text-primary-600">$29</span>
+                      <span className="text-sm text-slate-700">/month</span>
+                    </div>
+                  </div>
+                  <ul className="mt-6 space-y-2 text-sm text-slate-700">
+                    {[
+                      "Everything in Pro, plus:",
+                      "Unlimited listings",
+                      "Shop profile with custom branding",
+                      "Multiple staff accounts (up to 3)",
+                      "Inventory management tools",
+                      "Point-of-sale integration (coming soon)",
+                      "Sales analytics dashboard",
+                      "Customer management",
+                      "Shop verification badge",
+                      "Promoted shop listings",
+                    ].map((feature) => (
+                      <li key={feature} className="flex gap-2">
+                        <span className="mt-0.5 text-emerald-500" aria-hidden>
+                          ✓
+                        </span>
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <button className="mt-6 inline-flex justify-center rounded-lg bg-primary-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-primary-700 transition-colors">
+                    Start Pro Shop
+                  </button>
+                </div>
+              </div>
+
+              {/* Enterprise */}
+              <div className="relative flex flex-col rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-lg transition-shadow hover:-translate-y-1">
+                <div className="p-6 sm:p-7 flex-1 flex flex-col">
+                  <h4 className="text-lg font-semibold text-slate-900">LootScout Enterprise</h4>
+                  <p className="mt-1 text-sm text-slate-500">For established collectible shops and chains</p>
+                  <div className="mt-4 flex flex-col gap-1">
+                    <span className="text-gray-400 line-through text-sm">$149.99</span>
+                    <div className="flex items-baseline gap-1">
+                      <span className="text-4xl font-bold text-primary-600">$99</span>
+                      <span className="text-sm text-slate-700">/month</span>
+                    </div>
+                  </div>
+                  <ul className="mt-6 space-y-2 text-sm text-slate-700">
+                    {[
+                      "Everything in Pro Shop, plus:",
+                      "Unlimited staff accounts",
+                      "Custom integrations",
+                      "Dedicated account manager",
+                      "White-label options (coming soon)",
+                      "Custom feature development",
+                      "Advanced reporting & analytics",
+                      "Multi-location support",
+                      "Priority feature requests",
+                      "Direct line to product team",
+                    ].map((feature) => (
+                      <li key={feature} className="flex gap-2">
+                        <span className="mt-0.5 text-emerald-500" aria-hidden>
+                          ✓
+                        </span>
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <button className="mt-6 inline-flex justify-center rounded-lg bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white hover:bg-slate-800 transition-colors">
+                    Contact Sales
+                  </button>
+                </div>
+              </div>
+            </div>
+          </FadeInSection>
+
+          {/* FAQ */}
+          <FadeInSection>
+            <h3 className="mt-16 text-2xl font-semibold text-slate-900">
+              Pricing FAQ
+            </h3>
+            <div className="mt-6 grid gap-6 md:grid-cols-2 text-sm text-slate-700">
+              <div className="space-y-4">
+                <div>
+                  <h4 className="font-semibold text-slate-900">Why the discount?</h4>
+                  <p className="mt-1">
+                    We&apos;re in beta! Help us build the best collectibles marketplace and lock in this pricing forever—even after we raise
+                    prices for new users.
+                  </p>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-slate-900">Can I switch plans anytime?</h4>
+                  <p className="mt-1">
+                    Yes. Upgrade or downgrade your plan at any time. Changes take effect immediately, and we&apos;ll prorate the difference.
+                  </p>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-slate-900">What payment methods do you accept?</h4>
+                  <p className="mt-1">
+                    We accept all major credit cards and debit cards via Stripe. Payments are secure and simple.
+                  </p>
+                </div>
+              </div>
+              <div className="space-y-4">
+                <div>
+                  <h4 className="font-semibold text-slate-900">What happens when I hit my listing limit?</h4>
+                  <p className="mt-1">
+                    You can still browse and buy, but you&apos;ll need to upgrade or remove old listings to create new ones. We&apos;ll notify you
+                    before you hit your limit.
+                  </p>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-slate-900">Can I try before I buy?</h4>
+                  <p className="mt-1">
+                    Start with our Free plan to explore LootScout. When you&apos;re ready for more listings and features, upgrade with one click.
+                  </p>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-slate-900">Is this really beta pricing forever?</h4>
+                  <p className="mt-1">
+                    Yes. If you subscribe during beta, you keep this price as long as you stay subscribed. When we launch publicly, new users will
+                    pay the higher prices.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </FadeInSection>
         </div>
       </section>
 
