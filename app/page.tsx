@@ -73,7 +73,7 @@ export default function Home() {
                 <div className="w-12 h-12 rounded-lg bg-primary-600 text-white flex items-center justify-center text-xl font-bold">1</div>
                 <h3 className="mt-4 text-xl font-semibold text-slate-900">For Buyers</h3>
                 <p className="mt-2 text-slate-600">
-                  Browse local listings, message sellers, and meet in person. Find trading cards, comics, vinyl, and more near you.
+                  Find the item you&apos;re looking for near you. Browse local listings, message sellers, and meet in person—trading cards, comics, vinyl, and more.
                 </p>
               </div>
             </FadeInSection>
@@ -91,7 +91,7 @@ export default function Home() {
                 <div className="w-12 h-12 rounded-lg bg-primary-600 text-white flex items-center justify-center text-xl font-bold">3</div>
                 <h3 className="mt-4 text-xl font-semibold text-slate-900">For Shops</h3>
                 <p className="mt-2 text-slate-600">
-                  Manage inventory, connect with customers, and grow your business. Shop profiles and kiosk mode for in-store use.
+                  Forget manual sticker updates—put a QR code on each item that pulls up your live price (set it yourself or leave it to market). Trades and inventory tracking get easier too. Shop profiles and kiosk mode for in-store use.
                 </p>
               </div>
             </FadeInSection>
@@ -229,11 +229,14 @@ export default function Home() {
           </FadeInSection>
           <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
+              "Find the item you're looking for near you",
               "Real-time market pricing",
               "In-app messaging",
               "Location-based search",
+              "QR codes on items—live price, no manual stickers",
               "Secure transactions",
               "Shop profiles & kiosk mode",
+              "Trades & inventory tracking for shops",
             ].map((feature, i) => (
               <FadeInSection key={feature}>
                 <div className="flex items-center gap-4 p-4 rounded-lg bg-white border border-slate-200 shadow-sm">
@@ -294,7 +297,7 @@ export default function Home() {
                     {[
                       "Browse marketplace",
                       "Message buyers and sellers",
-                      "Up to 10 active listings",
+                      "Up to 5 active listings",
                       "Basic pricing data",
                       "Real transaction history",
                       "Accept offers on your listings",
