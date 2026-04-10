@@ -15,27 +15,29 @@ export default function Home() {
                 Connect with Local Collectors & Shops
               </h1>
               <p className="mt-6 text-lg sm:text-xl text-primary-100 max-w-xl">
-                Buy and sell trading cards, comics, vinyl, and more in your area.
+                The collectibles marketplace powered by real transaction data. Track your collection, price with
+                confidence, and trade locally.
               </p>
               <div className="mt-10 flex flex-wrap gap-4">
                 <a
-                  href="#"
+                  href="#download"
                   className="inline-flex items-center gap-2 px-6 py-3 bg-white text-primary-700 font-semibold rounded-lg hover:bg-primary-50 transition-colors"
-                  aria-label="Download on App Store (coming soon)"
-                >
-                  <span className="text-2xl" aria-hidden>📱</span>
-                  Download on App Store
-                </a>
-                <a
-                  href="#"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-primary-800/80 text-white font-semibold rounded-lg border-2 border-white/30 hover:bg-primary-800 transition-colors"
-                  aria-label="Get it on Google Play (coming soon)"
+                  aria-label="Download Beta for Android"
                 >
                   <span className="text-2xl" aria-hidden>▶</span>
-                  Get it on Google Play
+                  Download Beta (Android)
+                </a>
+                <a
+                  href="#beta"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-primary-800/80 text-white font-semibold rounded-lg border-2 border-white/30 hover:bg-primary-800 transition-colors"
+                  aria-label="Join the Beta"
+                >
+                  <span className="text-2xl" aria-hidden>📱</span>
+                  Join the Beta
                 </a>
               </div>
-              <p className="mt-4 text-sm text-primary-200">App Store & Google Play — coming soon</p>
+              <p className="mt-4 text-sm text-primary-200">Now in beta — Android APK available. iOS coming soon.</p>
+              <div id="download" className="scroll-mt-24 h-0 overflow-hidden" aria-hidden tabIndex={-1} />
             </FadeInSection>
             <FadeInSection className="lg:pl-8">
               <div className="aspect-square max-w-md mx-auto bg-white/10 rounded-2xl flex items-center justify-center backdrop-blur-sm border border-white/20">
@@ -95,6 +97,41 @@ export default function Home() {
                 </p>
               </div>
             </FadeInSection>
+          </div>
+        </div>
+      </section>
+
+      {/* What's Supported */}
+      <section className="py-16 sm:py-20 bg-slate-50 border-y border-slate-200">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <FadeInSection>
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 text-center">
+              What Can You Trade on LootScout?
+            </h2>
+            <p className="mt-4 text-slate-600 text-center max-w-2xl mx-auto">
+              From tabletop TCGs to sealed collectibles — list and discover locally.
+            </p>
+          </FadeInSection>
+          <div className="mt-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3">
+            {[
+              "Pokemon Cards",
+              "Magic: The Gathering",
+              "Yu-Gi-Oh!",
+              "One Piece TCG",
+              "Video Games (all platforms)",
+              "Comics",
+              "Sports Cards",
+              "Funko Pops",
+              "LEGO Sets",
+              "Sealed Products",
+              "And more...",
+            ].map((label) => (
+              <FadeInSection key={label}>
+                <span className="flex w-full items-center justify-center rounded-full border border-slate-200 bg-white px-3 py-2 text-center text-sm font-medium text-slate-800 shadow-sm min-h-[2.5rem]">
+                  {label}
+                </span>
+              </FadeInSection>
+            ))}
           </div>
         </div>
       </section>
@@ -229,19 +266,107 @@ export default function Home() {
           </FadeInSection>
           <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              "Find the item you're looking for near you",
-              "Real-time market pricing",
-              "In-app messaging",
-              "Location-based search",
-              "QR codes on items—live price, no manual stickers",
-              "Secure transactions",
-              "Shop profiles & kiosk mode",
-              "Trades & inventory tracking for shops",
-            ].map((feature, i) => (
-              <FadeInSection key={feature}>
-                <div className="flex items-center gap-4 p-4 rounded-lg bg-white border border-slate-200 shadow-sm">
-                  <span className="flex-shrink-0 w-10 h-10 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center font-semibold">{i + 1}</span>
-                  <span className="font-medium text-slate-800">{feature}</span>
+              {
+                title: "Real Transaction Pricing",
+                desc: "Hybrid pricing from JustTCG (real-time TCG) + PriceCharting (500k+ products). Prices improve with every local sale.",
+              },
+              {
+                title: "Collection Tracker",
+                desc: "Add items via search or image lookup. Track conditions, purchase price vs market value, gain/loss analytics per item.",
+              },
+              {
+                title: "Smart Marketplace",
+                desc: "List from your collection with one tap. Fixed price or open to offers. Auto-reprice when market moves.",
+              },
+              {
+                title: "In-Person Trade System",
+                desc: "Cart-based trades with dual confirmation. Items automatically transfer between collections when both sides agree.",
+              },
+              {
+                title: "AI Market Intelligence",
+                desc: "Price trend predictions, optimal sell timing alerts, and portfolio analytics powered by real market data.",
+              },
+              {
+                title: "CSV Import",
+                desc: "Import collections from TCGPlayer, Collectr, Deckbox, or PriceCharting. Automatic product matching.",
+              },
+              {
+                title: "Shop Tools",
+                desc: "POS checkout, trade-in calculator with custom buy percentages, kiosk mode with QR codes for in-store displays.",
+              },
+              {
+                title: "Grading Cert Verification",
+                desc: "Store PSA, BGS, CGC, SGC cert numbers. One-tap verification links to grading company lookup pages.",
+              },
+            ].map((feature) => (
+              <FadeInSection key={feature.title}>
+                <div className="h-full p-6 rounded-xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                  <h3 className="text-lg font-semibold text-slate-900">{feature.title}</h3>
+                  <p className="mt-2 text-sm text-slate-600 leading-relaxed">{feature.desc}</p>
+                </div>
+              </FadeInSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Coming Soon */}
+      <section className="py-16 sm:py-24 bg-white border-t border-slate-200">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <FadeInSection>
+            <div className="flex flex-col sm:flex-row sm:items-end sm:justify-center gap-3 text-center sm:text-left">
+              <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">Coming Soon</h2>
+              <span className="self-center sm:self-auto inline-flex items-center rounded-full bg-primary-100 text-primary-700 px-3 py-1 text-xs font-semibold uppercase tracking-wide">
+                On the roadmap
+              </span>
+            </div>
+            <p className="mt-4 text-slate-600 text-center max-w-2xl mx-auto">
+              We ship fast — here is what we are building next.
+            </p>
+          </FadeInSection>
+          <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[
+              {
+                icon: "📸",
+                title: "AI Camera Scan",
+                desc: "Point your phone at a card to instantly identify and price it",
+              },
+              {
+                icon: "🏈",
+                title: "Sports Card Pricing",
+                desc: "Full SportsCardsPro integration for baseball, basketball, football cards",
+              },
+              {
+                icon: "🔔",
+                title: "Push Notifications",
+                desc: "Price drop alerts, trade updates, and wishlist matches",
+              },
+              {
+                icon: "🗺️",
+                title: "Map View",
+                desc: "Browse local listings on an interactive map",
+              },
+              {
+                icon: "📦",
+                title: "eBay Price Comparison",
+                desc: "See eBay sold listings alongside local prices",
+              },
+              {
+                icon: "📱",
+                title: "Barcode Scanning",
+                desc: "Scan sealed products and graded slabs for instant lookup",
+              },
+            ].map((item) => (
+              <FadeInSection key={item.title}>
+                <div className="relative h-full rounded-xl border border-slate-200 bg-slate-50 p-4 sm:p-5 shadow-sm">
+                  <span className="absolute top-3 right-3 rounded-md bg-white/90 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-primary-600 ring-1 ring-primary-200">
+                    Soon
+                  </span>
+                  <span className="text-2xl" aria-hidden>
+                    {item.icon}
+                  </span>
+                  <h3 className="mt-2 text-base font-semibold text-slate-900">{item.title}</h3>
+                  <p className="mt-1 text-sm text-slate-600 leading-relaxed">{item.desc}</p>
                 </div>
               </FadeInSection>
             ))}
@@ -278,6 +403,13 @@ export default function Home() {
             </div>
           </FadeInSection>
 
+          <div id="beta" className="mt-4 rounded-xl bg-slate-900 text-white px-6 py-4 text-center scroll-mt-24">
+            <p className="font-semibold text-lg">🎁 Beta Pioneer Code: BETAPIONEER</p>
+            <p className="text-sm text-slate-300 mt-1">
+              Enter this code in the app to unlock Plus features free for 60 days. Limited to the first 500 users.
+            </p>
+          </div>
+
           {/* Individual Plans */}
           <FadeInSection>
             <h3 className="mt-14 sm:mt-16 text-2xl font-semibold text-slate-900">
@@ -299,9 +431,8 @@ export default function Home() {
                       "Message buyers and sellers",
                       "Up to 5 active listings",
                       "Basic pricing data",
-                      "Real transaction history",
+                      "Collection tracking",
                       "Accept offers on your listings",
-                      "Create want lists",
                     ].map((feature) => (
                       <li key={feature} className="flex gap-2">
                         <span className="mt-0.5 text-emerald-500" aria-hidden>
@@ -336,13 +467,11 @@ export default function Home() {
                     {[
                       "Everything in Free, plus:",
                       "Up to 25 active listings",
+                      "CSV collection import",
+                      "Price alerts",
+                      "Full transaction analytics",
                       "Priority support",
                       "Early access to new features",
-                      "Full transaction analytics",
-                      "Hot sellers tracking",
-                      "Barcode scanning",
-                      "Price alerts",
-                      "And more!",
                     ].map((feature) => (
                       <li key={feature} className="flex gap-2">
                         <span className="mt-0.5 text-emerald-500" aria-hidden>
@@ -374,12 +503,10 @@ export default function Home() {
                     {[
                       "Everything in Plus, plus:",
                       "Up to 50 active listings",
-                      "Early access to premium features",
-                      "Featured listings (boost visibility)",
-                      "Advanced analytics dashboard",
-                      "Collection portfolio tracking",
                       "Bulk listing tools",
-                      "And more!",
+                      "Advanced analytics dashboard",
+                      "Featured listings (boost visibility)",
+                      "Collection portfolio tracking",
                     ].map((feature) => (
                       <li key={feature} className="flex gap-2">
                         <span className="mt-0.5 text-emerald-500" aria-hidden>
@@ -420,13 +547,12 @@ export default function Home() {
                       "Everything in Pro, plus:",
                       "Unlimited listings",
                       "Shop profile with custom branding",
-                      "Multiple staff accounts (up to 3)",
-                      "Inventory management tools",
-                      "Point-of-sale integration (coming soon)",
+                      "Up to 3 staff accounts",
+                      "POS checkout & trade-in tools",
+                      "Kiosk mode for in-store displays",
+                      "Inventory management",
                       "Sales analytics dashboard",
-                      "Customer management",
                       "Shop verification badge",
-                      "Promoted shop listings",
                     ].map((feature) => (
                       <li key={feature} className="flex gap-2">
                         <span className="mt-0.5 text-emerald-500" aria-hidden>
@@ -458,14 +584,11 @@ export default function Home() {
                     {[
                       "Everything in Pro Shop, plus:",
                       "Unlimited staff accounts",
-                      "Custom integrations",
-                      "Dedicated account manager",
-                      "White-label options (coming soon)",
-                      "Custom feature development",
-                      "Advanced reporting & analytics",
                       "Multi-location support",
-                      "Priority feature requests",
-                      "Direct line to product team",
+                      "API access",
+                      "Customer rewards program",
+                      "Priority support",
+                      "Custom integrations",
                     ].map((feature) => (
                       <li key={feature} className="flex gap-2">
                         <span className="mt-0.5 text-emerald-500" aria-hidden>

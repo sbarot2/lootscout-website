@@ -4,13 +4,13 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "LootScout - Local Marketplace for Collectibles",
   description:
-    "Buy and sell trading cards, comics, vinyl records, and collectibles locally. Connect with collectors and shops in your area.",
+    "The collectibles marketplace powered by real transaction pricing. Track collections, trade locally, and price with confidence. Pokemon, Magic, Yu-Gi-Oh, video games, comics, and more.",
   keywords: ["collectibles", "trading cards", "comics", "vinyl", "local marketplace", "buy", "sell"],
   authors: [{ name: "LootScout", url: "https://lootscout.io" }],
   openGraph: {
     title: "LootScout - Local Marketplace for Collectibles",
     description:
-      "Buy and sell trading cards, comics, vinyl records, and collectibles locally. Connect with collectors and shops in your area.",
+      "The collectibles marketplace powered by real transaction pricing. Track collections, trade locally, and price with confidence. Pokemon, Magic, Yu-Gi-Oh, video games, comics, and more.",
     url: "https://lootscout.io",
     siteName: "LootScout",
     type: "website",
@@ -18,7 +18,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "LootScout - Local Marketplace for Collectibles",
-    description: "Buy and sell trading cards, comics, vinyl, and collectibles locally.",
+    description:
+      "The collectibles marketplace powered by real transaction pricing. Track collections, trade locally, and price with confidence. Pokemon, Magic, Yu-Gi-Oh, video games, comics, and more.",
   },
   robots: "index, follow",
   icons: {
