@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Footer from "./components/Footer";
 import FadeInSection from "./components/FadeInSection";
+import GalleryCarousel from "./components/GalleryCarousel";
 
 export default function Home() {
   return (
@@ -18,42 +19,21 @@ export default function Home() {
                 The collectibles marketplace powered by real transaction data. Track your collection, price with
                 confidence, and trade locally.
               </p>
-              <div className="mt-10 flex flex-wrap gap-4">
-                <a
-                  href="#download"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-white text-primary-700 font-semibold rounded-lg hover:bg-primary-50 transition-colors"
-                  aria-label="Download Beta for Android"
-                >
-                  <span className="text-2xl" aria-hidden>▶</span>
-                  Download Beta (Android)
-                </a>
-                <a
-                  href="#beta"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-primary-800/80 text-white font-semibold rounded-lg border-2 border-white/30 hover:bg-primary-800 transition-colors"
-                  aria-label="Join the Beta"
-                >
-                  <span className="text-2xl" aria-hidden>📱</span>
-                  Join the Beta
-                </a>
-              </div>
               <p className="mt-4 text-sm text-primary-200">Now in beta — Android APK available. iOS coming soon.</p>
-              <div id="download" className="scroll-mt-24 h-0 overflow-hidden" aria-hidden tabIndex={-1} />
+              <p className="mt-6 text-base text-primary-100 max-w-xl">
+                Contact{" "}
+                <a
+                  href="mailto:support@lootscout.io"
+                  className="font-semibold text-white underline decoration-white/40 underline-offset-2 hover:decoration-white"
+                >
+                  support@lootscout.io
+                </a>{" "}
+                to join the beta.
+              </p>
             </FadeInSection>
             <FadeInSection className="lg:pl-8">
-              <div className="aspect-square max-w-md mx-auto bg-white/10 rounded-2xl flex items-center justify-center backdrop-blur-sm border border-white/20">
-                <svg
-                  className="w-3/4 h-3/4 text-white/90"
-                  viewBox="0 0 200 200"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  aria-hidden
-                >
-                  <rect x="40" y="50" width="50" height="70" rx="6" stroke="currentColor" strokeWidth="3" fill="none" />
-                  <rect x="110" y="50" width="50" height="70" rx="6" stroke="currentColor" strokeWidth="3" fill="none" />
-                  <path d="M65 90h30M65 110h20M125 90h30M125 110h20" stroke="currentColor" strokeWidth="2" />
-                  <circle cx="100" cy="140" r="25" stroke="currentColor" strokeWidth="2" fill="none" />
-                  <path d="M95 140l5 5 10-10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
+              <div className="max-w-md mx-auto rounded-2xl border border-white/20 bg-white/5 p-4 backdrop-blur-sm">
+                <GalleryCarousel />
               </div>
             </FadeInSection>
           </div>
@@ -158,7 +138,7 @@ export default function Home() {
                 <div className="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center text-lg font-bold">1</div>
                 <h4 className="mt-3 text-lg font-semibold">Starts with Market Data</h4>
                 <p className="mt-2 text-sm text-primary-100">
-                  We pull pricing from trusted sources like PriceCharting to establish baseline values for cards, games, and collectibles.
+                  We pull pricing from trusted market feeds and live TCG data to establish baseline values for cards, games, and collectibles.
                 </p>
               </div>
               <div className="p-5 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20">
@@ -402,13 +382,6 @@ export default function Home() {
               </div>
             </div>
           </FadeInSection>
-
-          <div id="beta" className="mt-4 rounded-xl bg-slate-900 text-white px-6 py-4 text-center scroll-mt-24">
-            <p className="font-semibold text-lg">🎁 Beta Pioneer Code: BETAPIONEER</p>
-            <p className="text-sm text-slate-300 mt-1">
-              Enter this code in the app to unlock Plus features free for 60 days. Limited to the first 500 users.
-            </p>
-          </div>
 
           {/* Individual Plans */}
           <FadeInSection>
