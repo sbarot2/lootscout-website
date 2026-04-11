@@ -2,6 +2,7 @@ import Link from "next/link";
 import Footer from "./components/Footer";
 import FadeInSection from "./components/FadeInSection";
 import GalleryCarousel from "./components/GalleryCarousel";
+import BetaEmailSignup from "./components/BetaEmailSignup";
 
 export default function Home() {
   return (
@@ -30,6 +31,7 @@ export default function Home() {
                 </a>{" "}
                 to join the beta.
               </p>
+              <BetaEmailSignup />
             </FadeInSection>
             <FadeInSection className="lg:pl-8">
               <div className="max-w-md mx-auto rounded-2xl border border-white/20 bg-white/5 p-4 backdrop-blur-sm">
