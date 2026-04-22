@@ -3,6 +3,7 @@ import Footer from "./components/Footer";
 import FadeInSection from "./components/FadeInSection";
 import GalleryCarousel from "./components/GalleryCarousel";
 import BetaEmailSignup from "./components/BetaEmailSignup";
+import ComingSoonIcon from "./components/ComingSoonIcon";
 
 export default function Home() {
   return (
@@ -20,18 +21,42 @@ export default function Home() {
                 The collectibles marketplace powered by real transaction data. Track your collection, price with
                 confidence, and trade locally.
               </p>
-              <p className="mt-4 text-sm text-primary-200">Now in beta — Android APK available. iOS coming soon.</p>
-              <p className="mt-6 text-base text-primary-100 max-w-xl">
-                Contact{" "}
+              <div className="mt-8 flex flex-wrap gap-4">
                 <a
-                  href="mailto:support@lootscout.io"
-                  className="font-semibold text-white underline decoration-white/40 underline-offset-2 hover:decoration-white"
+                  href="#download"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-white text-primary-700 font-semibold rounded-lg hover:bg-primary-50 transition-colors"
+                  aria-label="Download Beta for Android"
                 >
-                  support@lootscout.io
-                </a>{" "}
-                to join the beta.
-              </p>
-              <BetaEmailSignup />
+                  <span className="text-2xl" aria-hidden>
+                    ▶
+                  </span>
+                  Download Beta (Android)
+                </a>
+                <a
+                  href="#beta"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-primary-800/80 text-white font-semibold rounded-lg border-2 border-white/30 hover:bg-primary-800 transition-colors"
+                  aria-label="Join the Beta"
+                >
+                  <span className="text-2xl" aria-hidden>
+                    📱
+                  </span>
+                  Join the Beta
+                </a>
+              </div>
+              <div id="download" className="scroll-mt-24 mt-6 space-y-4">
+                <p className="text-sm text-primary-200">Now in beta — Android APK available. iOS coming soon.</p>
+                <p className="text-base text-primary-100 max-w-xl">
+                  Contact{" "}
+                  <a
+                    href="mailto:support@lootscout.io"
+                    className="font-semibold text-white underline decoration-white/40 underline-offset-2 hover:decoration-white"
+                  >
+                    support@lootscout.io
+                  </a>{" "}
+                  to join the beta, or enter your email below.
+                </p>
+                <BetaEmailSignup />
+              </div>
             </FadeInSection>
             <FadeInSection className="lg:pl-8">
               <div className="max-w-md mx-auto rounded-2xl border border-white/20 bg-white/5 p-4 backdrop-blur-sm">
@@ -262,7 +287,7 @@ export default function Home() {
               },
               {
                 title: "In-Person Trade System",
-                desc: "Cart-based trades with dual confirmation. Items automatically transfer between collections when both sides agree.",
+                desc: "Cart-based trades with dual confirmation. Items transfer between collections when both sides agree.",
               },
               {
                 title: "AI Market Intelligence",
@@ -274,7 +299,7 @@ export default function Home() {
               },
               {
                 title: "Shop Tools",
-                desc: "POS checkout, trade-in calculator with custom buy percentages, kiosk mode with QR codes for in-store displays.",
+                desc: "POS checkout, trade-in calculator with custom buy percentages, kiosk mode with QR codes for in-store pickup browsing, and a shop-scoped pickup cart.",
               },
               {
                 title: "Grading Cert Verification",
@@ -307,46 +332,46 @@ export default function Home() {
             </p>
           </FadeInSection>
           <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {[
-              {
-                icon: "📸",
-                title: "AI Camera Scan",
-                desc: "Point your phone at a card to instantly identify and price it",
-              },
-              {
-                icon: "🏈",
-                title: "Sports Card Pricing",
-                desc: "Full SportsCardsPro integration for baseball, basketball, football cards",
-              },
-              {
-                icon: "🔔",
-                title: "Push Notifications",
-                desc: "Price drop alerts, trade updates, and wishlist matches",
-              },
-              {
-                icon: "🗺️",
-                title: "Map View",
-                desc: "Browse local listings on an interactive map",
-              },
-              {
-                icon: "📦",
-                title: "eBay Price Comparison",
-                desc: "See eBay sold listings alongside local prices",
-              },
-              {
-                icon: "📱",
-                title: "Barcode Scanning",
-                desc: "Scan sealed products and graded slabs for instant lookup",
-              },
-            ].map((item) => (
+            {(
+              [
+                {
+                  icon: "camera" as const,
+                  title: "AI Camera Scan",
+                  desc: "Point your phone at a card to instantly identify and price it",
+                },
+                {
+                  icon: "map" as const,
+                  title: "Map View",
+                  desc: "Browse local listings on an interactive map",
+                },
+                {
+                  icon: "bell" as const,
+                  title: "Push Notifications",
+                  desc: "Price drop alerts, trade updates, and wishlist matches",
+                },
+                {
+                  icon: "sports" as const,
+                  title: "Sports Card Pricing",
+                  desc: "Expanded sports card pricing and catalog coverage (roadmap)",
+                },
+                {
+                  icon: "barcode" as const,
+                  title: "Barcode Scanning",
+                  desc: "Scan sealed products and graded slabs for instant lookup",
+                },
+                {
+                  icon: "analytics" as const,
+                  title: "Show Analytics",
+                  desc: "Track profit by card show. Know which events make you money.",
+                },
+              ] as const
+            ).map((item) => (
               <FadeInSection key={item.title}>
                 <div className="relative h-full rounded-xl border border-slate-200 bg-slate-50 p-4 sm:p-5 shadow-sm">
                   <span className="absolute top-3 right-3 rounded-md bg-white/90 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-primary-600 ring-1 ring-primary-200">
                     Soon
                   </span>
-                  <span className="text-2xl" aria-hidden>
-                    {item.icon}
-                  </span>
+                  <ComingSoonIcon name={item.icon} />
                   <h3 className="mt-2 text-base font-semibold text-slate-900">{item.title}</h3>
                   <p className="mt-1 text-sm text-slate-600 leading-relaxed">{item.desc}</p>
                 </div>
@@ -385,6 +410,22 @@ export default function Home() {
             </div>
           </FadeInSection>
 
+          <FadeInSection>
+            <div
+              id="beta"
+              className="mt-4 rounded-xl bg-slate-900 text-white px-6 py-4 text-center scroll-mt-24"
+            >
+              <p className="font-semibold text-lg">Join the LootScout beta</p>
+              <p className="text-sm text-slate-300 mt-1">
+                We are not publishing promo codes on the web. Request access with your email above, or write{" "}
+                <a href="mailto:support@lootscout.io" className="text-white font-medium underline underline-offset-2 hover:text-primary-200">
+                  support@lootscout.io
+                </a>
+                . Extended tier trials may be offered in the app when available.
+              </p>
+            </div>
+          </FadeInSection>
+
           {/* Individual Plans */}
           <FadeInSection>
             <h3 className="mt-14 sm:mt-16 text-2xl font-semibold text-slate-900">
@@ -404,7 +445,7 @@ export default function Home() {
                     {[
                       "Browse marketplace",
                       "Message buyers and sellers",
-                      "Up to 5 active listings",
+                      "Up to 10 active listings",
                       "Basic pricing data",
                       "Collection tracking",
                       "Accept offers on your listings",
@@ -522,9 +563,9 @@ export default function Home() {
                       "Everything in Pro, plus:",
                       "Unlimited listings",
                       "Shop profile with custom branding",
-                      "Up to 3 staff accounts",
                       "POS checkout & trade-in tools",
                       "Kiosk mode for in-store displays",
+                      "Up to 3 staff accounts",
                       "Inventory management",
                       "Sales analytics dashboard",
                       "Shop verification badge",
@@ -548,6 +589,9 @@ export default function Home() {
                 <div className="p-6 sm:p-7 flex-1 flex flex-col">
                   <h4 className="text-lg font-semibold text-slate-900">LootScout Enterprise</h4>
                   <p className="mt-1 text-sm text-slate-500">For established collectible shops and chains</p>
+                  <p className="mt-2 text-xs text-amber-900 bg-amber-50 border border-amber-200/80 rounded-lg px-2.5 py-1.5 leading-snug">
+                    Roadmap: some capabilities below are rolling out over time; availability may vary during beta.
+                  </p>
                   <div className="mt-4 flex flex-col gap-1">
                     <span className="text-gray-400 line-through text-sm">$149.99</span>
                     <div className="flex items-baseline gap-1">

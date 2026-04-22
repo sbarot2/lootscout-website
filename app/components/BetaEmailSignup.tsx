@@ -43,7 +43,7 @@ export default function BetaEmailSignup() {
   }
 
   return (
-    <div className="mt-8 max-w-xl">
+    <div className="mt-4 max-w-xl">
       <p className="text-sm text-primary-100 leading-relaxed">
         Enter your email address to gain free beta access to enterprise features.
       </p>
