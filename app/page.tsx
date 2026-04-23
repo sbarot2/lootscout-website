@@ -21,6 +21,13 @@ export default function Home() {
                 The collectibles marketplace powered by real transaction data. Track your collection, price with
                 confidence, and trade locally.
               </p>
+              <p className="mt-3 text-sm text-primary-200/90 max-w-xl">
+                Built for the Raleigh–Durham, NC area — hybrid pricing (live TCG + catalog baselines + local sales over
+                time) and in-person meetups.{" "}
+                <Link href="/features" className="font-medium text-white underline decoration-white/40 underline-offset-2 hover:decoration-white">
+                  Features &amp; guides →
+                </Link>
+              </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <a
                   href="#download"
@@ -82,7 +89,8 @@ export default function Home() {
                 <div className="w-12 h-12 rounded-lg bg-primary-600 text-white flex items-center justify-center text-xl font-bold">1</div>
                 <h3 className="mt-4 text-xl font-semibold text-slate-900">For Buyers</h3>
                 <p className="mt-2 text-slate-600">
-                  Find the item you&apos;re looking for near you. Browse local listings, message sellers, and meet in person—trading cards, comics, vinyl, and more.
+                  Discover listings near you in the Triangle. Home search stays <strong>catalog-first while you type</strong> for speed; a{" "}
+                  <strong>full hybrid search</strong> runs when you submit for deeper product discovery. Message sellers and meet in person — cards, games, comics, and more.
                 </p>
               </div>
             </FadeInSection>
@@ -91,7 +99,7 @@ export default function Home() {
                 <div className="w-12 h-12 rounded-lg bg-primary-600 text-white flex items-center justify-center text-xl font-bold">2</div>
                 <h3 className="mt-4 text-xl font-semibold text-slate-900">For Sellers</h3>
                 <p className="mt-2 text-slate-600">
-                  List items quickly, reach local collectors, and sell with confidence. Real-time market pricing helps you price fairly.
+                  <strong>Collection-first:</strong> track what you own, then list in one tap. Add cards with the <strong>in-app scanner</strong> (single or batch) or search — pricing blends live TCG data, catalog baselines, and local transaction signals over time. Offer discovery helps you learn what the market will pay.
                 </p>
               </div>
             </FadeInSection>
@@ -100,7 +108,7 @@ export default function Home() {
                 <div className="w-12 h-12 rounded-lg bg-primary-600 text-white flex items-center justify-center text-xl font-bold">3</div>
                 <h3 className="mt-4 text-xl font-semibold text-slate-900">For Shops</h3>
                 <p className="mt-2 text-slate-600">
-                  Forget manual sticker updates—put a QR code on each item that pulls up your live price (set it yourself or leave it to market). Trades and inventory tracking get easier too. Shop profiles and kiosk mode for in-store use.
+                  QR-forward kiosk flows, shop-scoped pickup cart, POS checkout, and trade-in tools — same hybrid pricing philosophy, tuned for the sales floor. Staff-friendly builds add inventory and analytics where enabled.
                 </p>
               </div>
             </FadeInSection>
@@ -165,7 +173,7 @@ export default function Home() {
                 <div className="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center text-lg font-bold">1</div>
                 <h4 className="mt-3 text-lg font-semibold">Starts with Market Data</h4>
                 <p className="mt-2 text-sm text-primary-100">
-                  We pull pricing from trusted market feeds and live TCG data to establish baseline values for cards, games, and collectibles.
+                  We combine trusted catalog baselines with live TCG feeds, then let completed local sales refine what similar items are worth — without implying different rules by neighborhood.
                 </p>
               </div>
               <div className="p-5 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20">
@@ -268,18 +276,42 @@ export default function Home() {
           <FadeInSection>
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 text-center">Features</h2>
             <p className="mt-4 text-slate-600 text-center max-w-2xl mx-auto">
-              Everything you need to buy and sell collectibles locally.
+              Everything you need to buy and sell collectibles locally — with a native app built for binders, shops, and in-person trades.
             </p>
           </FadeInSection>
           <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <FadeInSection>
+              <div className="h-full p-6 rounded-xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                <h3 className="text-lg font-semibold text-slate-900">Real Transaction Pricing</h3>
+                <p className="mt-2 text-sm text-slate-600 leading-relaxed">
+                  Hybrid signals: real-time TCG where wired in, broad catalog baselines (e.g. PriceCharting-scale coverage), and local
+                  completed sales that sharpen estimates over time — not a single static sheet.
+                </p>
+              </div>
+            </FadeInSection>
+            <FadeInSection>
+              <div className="h-full p-6 rounded-xl bg-white border-2 border-primary-200 shadow-sm hover:shadow-md transition-shadow ring-1 ring-primary-100/60">
+                <p className="text-xs font-semibold uppercase tracking-wide text-primary-600">In the app (beta)</p>
+                <h3 className="mt-1 text-lg font-semibold text-slate-900">In-app card scanner (TCG)</h3>
+                <p className="mt-2 text-sm text-slate-600 leading-relaxed">
+                  <strong>Single</strong> or <strong>batch</strong> scanning with the phone camera and on-device OCR. Matches land in the
+                  LootScout catalog; pick alternates, open a full match list, or fall back to manual search (catalog-first while typing;
+                  broader hybrid search only on explicit Search / Enter, and only if the catalog returned no rows). Batch review: condition
+                  (including graded grades), variant, folder, approximate prices per row, change match from the thumbnail, remove rows, then
+                  add all to collection. Scanner pauses while sheets are open; Review sits above the thumbnail strip so controls do not
+                  overlap. <strong>Free for every account</strong> — no separate scanner fee.
+                </p>
+                <p className="mt-3 text-sm">
+                  <Link href="/faq#scanner-build" className="font-medium text-primary-600 hover:text-primary-700 hover:underline">
+                    Device &amp; build requirements (FAQ) →
+                  </Link>
+                </p>
+              </div>
+            </FadeInSection>
             {[
               {
-                title: "Real Transaction Pricing",
-                desc: "Hybrid pricing from JustTCG (real-time TCG) + PriceCharting (500k+ products). Prices improve with every local sale.",
-              },
-              {
                 title: "Collection Tracker",
-                desc: "Add items via search or image lookup. Track conditions, purchase price vs market value, gain/loss analytics per item.",
+                desc: "Add items from the scanner, product pages, or search / image lookup where supported. Safe-area and scroll fixes keep primary actions clear of the home indicator. Track conditions, purchase vs market value, and gain/loss per item.",
               },
               {
                 title: "Smart Marketplace",
@@ -291,7 +323,7 @@ export default function Home() {
               },
               {
                 title: "AI Market Intelligence",
-                desc: "Price trend predictions, optimal sell timing alerts, and portfolio analytics powered by real market data.",
+                desc: "Price trend predictions, optimal sell timing alerts, and portfolio analytics powered by real market data (where enabled in your build).",
               },
               {
                 title: "CSV Import",
@@ -314,6 +346,42 @@ export default function Home() {
               </FadeInSection>
             ))}
           </div>
+
+          <FadeInSection>
+            <div
+              id="scanner"
+              className="mt-16 scroll-mt-24 rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm"
+            >
+              <h3 className="text-2xl font-bold text-slate-900">Scan your binder</h3>
+              <p className="mt-3 text-slate-600 max-w-3xl leading-relaxed">
+                Built for collectors who want to log a box or a binder without retyping names. Shop staff can use the same flow for intake
+                during buylist or trade events. Scanning requires a <strong>native build</strong> with camera + OCR — not the marketing site
+                in a browser.{" "}
+                <Link href="/faq#scanner-web" className="font-medium text-primary-600 hover:underline">
+                  Website vs app (FAQ) →
+                </Link>
+              </p>
+              <div className="mt-8 grid sm:grid-cols-2 gap-4">
+                <div className="flex flex-col aspect-[4/3] rounded-xl border-2 border-dashed border-slate-300 bg-slate-100 items-center justify-center p-4 text-center">
+                  <span className="text-xs font-semibold uppercase tracking-wide text-slate-500">Placeholder</span>
+                  <p className="mt-2 text-sm font-medium text-slate-700">Beta UI — batch review</p>
+                  <p className="mt-1 text-xs text-slate-500">Replace with product screenshot when approved.</p>
+                </div>
+                <div className="flex flex-col aspect-[4/3] rounded-xl border-2 border-dashed border-slate-300 bg-slate-100 items-center justify-center p-4 text-center">
+                  <span className="text-xs font-semibold uppercase tracking-wide text-slate-500">Placeholder</span>
+                  <p className="mt-2 text-sm font-medium text-slate-700">Beta UI — single match sheet</p>
+                  <p className="mt-1 text-xs text-slate-500">Replace with product screenshot when approved.</p>
+                </div>
+              </div>
+              <p className="mt-6 text-sm text-slate-500">
+                Full walkthrough:{" "}
+                <Link href="/features#scanner" className="text-primary-600 font-medium hover:underline">
+                  Features &amp; guides — Card scanner
+                </Link>
+                .
+              </p>
+            </div>
+          </FadeInSection>
         </div>
       </section>
 
@@ -334,11 +402,6 @@ export default function Home() {
           <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {(
               [
-                {
-                  icon: "camera" as const,
-                  title: "AI Camera Scan",
-                  desc: "Point your phone at a card to instantly identify and price it",
-                },
                 {
                   icon: "map" as const,
                   title: "Map View",
@@ -417,11 +480,13 @@ export default function Home() {
             >
               <p className="font-semibold text-lg">Join the LootScout beta</p>
               <p className="text-sm text-slate-300 mt-1">
-                We are not publishing promo codes on the web. Request access with your email above, or write{" "}
+                Request access with your email above, or write{" "}
                 <a href="mailto:support@lootscout.io" className="text-white font-medium underline underline-offset-2 hover:text-primary-200">
                   support@lootscout.io
                 </a>
-                . Extended tier trials may be offered in the app when available.
+                . In the app, use code <span className="font-mono font-semibold text-white">BETAPIONEER</span> for a free{" "}
+                <strong className="text-white">7-day</strong> trial of <strong className="text-white">Pro Shop</strong> features (enter the
+                code where the app prompts; subject to availability and account eligibility).
               </p>
             </div>
           </FadeInSection>
@@ -446,6 +511,7 @@ export default function Home() {
                       "Browse marketplace",
                       "Message buyers and sellers",
                       "Up to 10 active listings",
+                      "In-app card scanner (single & batch) — included for every account",
                       "Basic pricing data",
                       "Collection tracking",
                       "Accept offers on your listings",
@@ -627,51 +693,97 @@ export default function Home() {
 
           {/* FAQ */}
           <FadeInSection>
-            <h3 className="mt-16 text-2xl font-semibold text-slate-900">
-              Pricing FAQ
-            </h3>
-            <div className="mt-6 grid gap-6 md:grid-cols-2 text-sm text-slate-700">
-              <div className="space-y-4">
-                <div>
-                  <h4 className="font-semibold text-slate-900">Why the discount?</h4>
-                  <p className="mt-1">
-                    We&apos;re in beta! Help us build the best collectibles marketplace and lock in this pricing forever—even after we raise
-                    prices for new users.
-                  </p>
+            <div id="faq" className="scroll-mt-24">
+              <h3 className="mt-16 text-2xl font-semibold text-slate-900">FAQ</h3>
+              <p className="mt-2 text-sm text-slate-600">
+                Short answers below — full detail on the{" "}
+                <Link href="/faq" className="font-medium text-primary-600 hover:underline">
+                  FAQ page
+                </Link>
+                .
+              </p>
+              <div className="mt-6 grid gap-8 lg:grid-cols-3 text-sm text-slate-700">
+                <div className="space-y-4">
+                  <h4 className="text-xs font-semibold uppercase tracking-wide text-slate-500">Pricing</h4>
+                  <div>
+                    <h4 className="font-semibold text-slate-900">Why the discount?</h4>
+                    <p className="mt-1">
+                      We&apos;re in beta! Help us build the best collectibles marketplace and lock in this pricing forever—even after we raise
+                      prices for new users.
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-slate-900">Can I switch plans anytime?</h4>
+                    <p className="mt-1">
+                      Yes. Upgrade or downgrade your plan at any time. Changes take effect immediately, and we&apos;ll prorate the difference.
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-slate-900">What payment methods do you accept?</h4>
+                    <p className="mt-1">
+                      We accept all major credit cards and debit cards via Stripe. Payments are secure and simple.
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-slate-900">What happens when I hit my listing limit?</h4>
+                    <p className="mt-1">
+                      You can still browse and buy, but you&apos;ll need to upgrade or remove old listings to create new ones. We&apos;ll notify you
+                      before you hit your limit.
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-slate-900">Can I try before I buy?</h4>
+                    <p className="mt-1">
+                      Start with our Free plan to explore LootScout. When you&apos;re ready for more listings and features, upgrade with one click.
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-slate-900">Is this really beta pricing forever?</h4>
+                    <p className="mt-1">
+                      Yes. If you subscribe during beta, you keep this price as long as you stay subscribed. When we launch publicly, new users will
+                      pay the higher prices.
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="font-semibold text-slate-900">Can I switch plans anytime?</h4>
-                  <p className="mt-1">
-                    Yes. Upgrade or downgrade your plan at any time. Changes take effect immediately, and we&apos;ll prorate the difference.
-                  </p>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-slate-900">What payment methods do you accept?</h4>
-                  <p className="mt-1">
-                    We accept all major credit cards and debit cards via Stripe. Payments are secure and simple.
-                  </p>
-                </div>
-              </div>
-              <div className="space-y-4">
-                <div>
-                  <h4 className="font-semibold text-slate-900">What happens when I hit my listing limit?</h4>
-                  <p className="mt-1">
-                    You can still browse and buy, but you&apos;ll need to upgrade or remove old listings to create new ones. We&apos;ll notify you
-                    before you hit your limit.
-                  </p>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-slate-900">Can I try before I buy?</h4>
-                  <p className="mt-1">
-                    Start with our Free plan to explore LootScout. When you&apos;re ready for more listings and features, upgrade with one click.
-                  </p>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-slate-900">Is this really beta pricing forever?</h4>
-                  <p className="mt-1">
-                    Yes. If you subscribe during beta, you keep this price as long as you stay subscribed. When we launch publicly, new users will
-                    pay the higher prices.
-                  </p>
+                <div className="space-y-4 lg:col-span-2">
+                  <h4 className="text-xs font-semibold uppercase tracking-wide text-slate-500">Scanner &amp; search (app)</h4>
+                  <div>
+                    <h4 className="font-semibold text-slate-900">Do I need a special app build to scan?</h4>
+                    <p className="mt-1">
+                      Yes — you need a native iOS/Android build that bundles camera + on-device OCR (not Expo Go or a generic web-only build).{" "}
+                      <Link href="/faq#scanner-build" className="text-primary-600 font-medium hover:underline">
+                        Details →
+                      </Link>
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-slate-900">Does scanning work on the website?</h4>
+                    <p className="mt-1">
+                      No. This site is for marketing and support; scanning and batch review run in the mobile app.{" "}
+                      <Link href="/faq#scanner-web" className="text-primary-600 font-medium hover:underline">
+                        Details →
+                      </Link>
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-slate-900">Does manual search hit external APIs while I type?</h4>
+                    <p className="mt-1">
+                      No. Catalog-first suggestions while typing; broader hybrid / API search only after you tap Search or press Enter, and only if
+                      the catalog returned no rows.{" "}
+                      <Link href="/faq#search-api" className="text-primary-600 font-medium hover:underline">
+                        Details →
+                      </Link>
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-slate-900">Is the card scanner free?</h4>
+                    <p className="mt-1">
+                      Yes — single and batch scanning are included for every account during beta; there is no separate scanner subscription.{" "}
+                      <Link href="/faq#scanner-free" className="text-primary-600 font-medium hover:underline">
+                        Details →
+                      </Link>
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
