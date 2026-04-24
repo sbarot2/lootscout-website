@@ -14,7 +14,19 @@ export default function Home() {
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-24 lg:py-32">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <FadeInSection>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
+              <a
+                href="https://discord.gg/A3nUQRKn"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-2 text-sm font-semibold text-white border border-white/30 hover:bg-white/25 transition-colors"
+                aria-label="Join our Discord community"
+              >
+                <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                  <path d="M20.3 4.37A17.6 17.6 0 0015.9 3c-.2.36-.43.84-.59 1.22a16.2 16.2 0 00-4.63 0A12.2 12.2 0 0010.1 3a17.6 17.6 0 00-4.4 1.37C2.9 8.62 2.1 12.76 2.5 16.84A17.8 17.8 0 007.9 19.5c.43-.59.82-1.22 1.16-1.88-.64-.25-1.25-.56-1.82-.92.15-.11.29-.22.43-.34 3.52 1.63 7.34 1.63 10.82 0 .14.12.28.23.43.34-.57.36-1.18.67-1.82.92.34.66.73 1.29 1.16 1.88a17.7 17.7 0 005.4-2.66c.47-4.73-.8-8.83-3.36-12.47zM9.5 14.3c-1.04 0-1.9-.96-1.9-2.15s.84-2.15 1.9-2.15c1.06 0 1.92.97 1.9 2.15 0 1.19-.84 2.15-1.9 2.15zm5 0c-1.05 0-1.9-.96-1.9-2.15s.84-2.15 1.9-2.15c1.07 0 1.92.97 1.9 2.15 0 1.19-.84 2.15-1.9 2.15z" />
+                </svg>
+                Join our Discord
+              </a>
+              <h1 className="mt-4 text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
                 Connect with Local Collectors & Shops
               </h1>
               <p className="mt-6 text-lg sm:text-xl text-primary-100 max-w-xl">
