@@ -22,8 +22,7 @@ export default function Home() {
                 confidence, and trade locally.
               </p>
               <p className="mt-3 text-sm text-primary-200/90 max-w-xl">
-                Built for the Raleigh–Durham, NC area — hybrid pricing (live TCG + catalog baselines + local sales over
-                time) and in-person meetups.{" "}
+                Hybrid pricing (live TCG + catalog baselines + local sales over time) and in-person meetups.{" "}
                 <Link href="/features" className="font-medium text-white underline decoration-white/40 underline-offset-2 hover:decoration-white">
                   Features &amp; guides →
                 </Link>
@@ -906,3 +905,5 @@ export default function Home() {
     </>
   );
 }
+
+

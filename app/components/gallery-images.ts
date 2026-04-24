@@ -1,5 +1,18 @@
-/** Screenshots served from /public/images (sorted for stable carousel order). */
+/** Screenshots served from /public/images (signal screenshots first). */
 export const GALLERY_IMAGE_PATHS = [
+  "/images/0001-signal-2026-04-24-092345.jpeg",
+  "/images/0002-signal-2026-04-24-092345_002.jpeg",
+  "/images/0003-signal-2026-04-24-092345_003.jpeg",
+  "/images/0004-signal-2026-04-24-092345_004.jpeg",
+  "/images/0005-signal-2026-04-24-092345_005.jpeg",
+  "/images/0006-signal-2026-04-24-092345_006.jpeg",
+  "/images/0007-signal-2026-04-24-092345_007.jpeg",
+  "/images/0008-signal-2026-04-24-092345_008.jpeg",
+  "/images/0009-signal-2026-04-24-092345_009.jpeg",
+  "/images/0010-signal-2026-04-24-092345_010.jpeg",
+  "/images/0011-signal-2026-04-24-092345_011.jpeg",
+  "/images/0012-signal-2026-04-24-092345_012.jpeg",
+  "/images/0013-signal-2026-04-24-092345_013.jpeg",
   "/images/60017.jpg",
   "/images/60019.jpg",
   "/images/60021.jpg",
