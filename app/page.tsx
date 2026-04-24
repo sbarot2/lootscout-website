@@ -99,7 +99,10 @@ export default function Home() {
                 <div className="w-12 h-12 rounded-lg bg-primary-600 text-white flex items-center justify-center text-xl font-bold">2</div>
                 <h3 className="mt-4 text-xl font-semibold text-slate-900">For Sellers</h3>
                 <p className="mt-2 text-slate-600">
-                  <strong>Collection-first:</strong> track what you own, then list in one tap. Add cards with the <strong>in-app scanner</strong> (single or batch) or search — pricing blends live TCG data, catalog baselines, and local transaction signals over time. Offer discovery helps you learn what the market will pay.
+                  <strong>Collection-first:</strong> track what you own, then list in one tap. Add cards with the <strong>in-app scanner</strong>{" "}
+                  (single or batch), search, or <strong>CSV import</strong> from other platforms so you don&apos;t start from scratch — pricing
+                  blends live TCG data, catalog baselines, and local transaction signals over time. Offer discovery helps you learn what the market
+                  will pay.
                 </p>
               </div>
             </FadeInSection>
@@ -277,6 +280,8 @@ export default function Home() {
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 text-center">Features</h2>
             <p className="mt-4 text-slate-600 text-center max-w-2xl mx-auto">
               Everything you need to buy and sell collectibles locally — with a native app built for binders, shops, and in-person trades.
+              Already have your collection in another tool? <strong>CSV import</strong> lets you bring it over so you don&apos;t have to start
+              from scratch.
             </p>
           </FadeInSection>
           <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -311,7 +316,7 @@ export default function Home() {
             {[
               {
                 title: "Collection Tracker",
-                desc: "Add items from the scanner, product pages, or search / image lookup where supported. Safe-area and scroll fixes keep primary actions clear of the home indicator. Track conditions, purchase vs market value, and gain/loss per item.",
+                desc: "Add items from the scanner, product pages, or search / image lookup where supported — or bulk-import a CSV so you pick up where you left off on another platform. Safe-area and scroll fixes keep primary actions clear of the home indicator. Track conditions, purchase vs market value, and gain/loss per item.",
               },
               {
                 title: "Smart Marketplace",
@@ -327,7 +332,7 @@ export default function Home() {
               },
               {
                 title: "CSV Import",
-                desc: "Import collections from TCGPlayer, Collectr, Deckbox, or PriceCharting. Automatic product matching.",
+                desc: "You don't have to start your collection over. Import a spreadsheet from TCGPlayer, Collectr, Deckbox, or PriceCharting — automatic catalog matching pulls rows into LootScout so you can track and list without retyping every card.",
               },
               {
                 title: "Shop Tools",
@@ -354,9 +359,10 @@ export default function Home() {
             >
               <h3 className="text-2xl font-bold text-slate-900">Scan your binder</h3>
               <p className="mt-3 text-slate-600 max-w-3xl leading-relaxed">
-                Built for collectors who want to log a box or a binder without retyping names. Shop staff can use the same flow for intake
-                during buylist or trade events. Scanning requires a <strong>native build</strong> with camera + OCR — not the marketing site
-                in a browser.{" "}
+                Built for collectors who want to log a box or a binder without retyping names. Already have a list in another app?{" "}
+                <strong>CSV import</strong> brings it in so you don&apos;t start from zero — then use the scanner for new pickups. Shop staff
+                can use the same flow for intake during buylist or trade events. Scanning requires a <strong>native build</strong> with camera
+                + OCR — not the marketing site in a browser.{" "}
                 <Link href="/faq#scanner-web" className="font-medium text-primary-600 hover:underline">
                   Website vs app (FAQ) →
                 </Link>
@@ -426,6 +432,26 @@ export default function Home() {
                   icon: "analytics" as const,
                   title: "Show Analytics",
                   desc: "Track profit by card show. Know which events make you money.",
+                },
+                {
+                  icon: "payment" as const,
+                  title: "In-app payments",
+                  desc: "Pay and get paid for local deals without leaving the app (roadmap)",
+                },
+                {
+                  icon: "loyalty" as const,
+                  title: "Shop loyalty points",
+                  desc: "Reward repeat buyers at participating shops with points and perks",
+                },
+                {
+                  icon: "sparkles" as const,
+                  title: "UI improvements",
+                  desc: "Clearer flows, faster screens, and polish across collection, scanner, and marketplace",
+                },
+                {
+                  icon: "sportstack" as const,
+                  title: "More sports card support",
+                  desc: "Deeper catalogs, pricing sources, and tooling for baseball, basketball, football, and beyond",
                 },
               ] as const
             ).map((item) => (

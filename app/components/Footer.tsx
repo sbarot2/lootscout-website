@@ -4,6 +4,7 @@ const footerLinks = [
   { href: "/privacy", label: "Privacy Policy" },
   { href: "/terms", label: "Terms of Service" },
   { href: "/refund", label: "Refund Policy" },
+  { href: "/delete-account", label: "Delete account" },
   { href: "#contact", label: "Contact" },
 ];
 

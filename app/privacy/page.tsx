@@ -17,7 +17,7 @@ export default function PrivacyPage() {
       </header>
       <main className="max-w-3xl mx-auto px-4 py-12">
         <h1 className="text-3xl font-bold text-slate-900">Privacy Policy</h1>
-        <p className="mt-2 text-slate-600">Last updated: March 2025</p>
+        <p className="mt-2 text-slate-600">Last updated: April 2026</p>
 
         <div className="mt-10 space-y-8 text-slate-700">
           <section>
@@ -35,7 +35,23 @@ export default function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="text-xl font-semibold text-slate-900">2. How We Use Your Data</h2>
+            <h2 className="text-xl font-semibold text-slate-900">2. Age requirement and parental consent</h2>
+            <p className="mt-2 border-l-4 border-primary-500 pl-4 py-1 text-slate-800 leading-relaxed">
+              LootScout is intended for users aged 13 and older. Users under 18 should have parental consent before creating an account or
+              conducting transactions.
+            </p>
+            <p className="mt-3 text-slate-600">
+              We do not knowingly collect personal information from children under 13. If you believe a child under 13 has created an account,
+              contact us at{" "}
+              <a href="mailto:support@lootscout.io" className="text-primary-600 hover:underline">
+                support@lootscout.io
+              </a>{" "}
+              so we can take appropriate action.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-semibold text-slate-900">3. How We Use Your Data</h2>
             <p className="mt-2">
               We use your data to:
             </p>
@@ -49,7 +65,7 @@ export default function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="text-xl font-semibold text-slate-900">3. Data Sharing</h2>
+            <h2 className="text-xl font-semibold text-slate-900">4. Data Sharing</h2>
             <p className="mt-2">
               We do not sell your personal data. We share data only as necessary to run the service:
             </p>
@@ -62,7 +78,7 @@ export default function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="text-xl font-semibold text-slate-900">4. Your Rights</h2>
+            <h2 className="text-xl font-semibold text-slate-900">5. Your Rights</h2>
             <p className="mt-2">
               You have the right to:
             </p>
@@ -79,21 +95,21 @@ export default function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="text-xl font-semibold text-slate-900">5. Security</h2>
+            <h2 className="text-xl font-semibold text-slate-900">6. Security</h2>
             <p className="mt-2">
               We use industry-standard measures to protect your data, including encryption in transit and at rest, secure authentication, and access controls. No method of transmission over the internet is 100% secure; we strive to protect your data but cannot guarantee absolute security.
             </p>
           </section>
 
           <section>
-            <h2 className="text-xl font-semibold text-slate-900">6. Changes</h2>
+            <h2 className="text-xl font-semibold text-slate-900">7. Changes</h2>
             <p className="mt-2">
               We may update this Privacy Policy from time to time. We will post the updated policy on this page and update the "Last updated" date. Continued use of the service after changes constitutes acceptance.
             </p>
           </section>
 
           <section>
-            <h2 className="text-xl font-semibold text-slate-900">7. Contact</h2>
+            <h2 className="text-xl font-semibold text-slate-900">8. Contact</h2>
             <p className="mt-2">
               For privacy-related questions or requests: <a href="mailto:support@lootscout.io" className="text-primary-600 hover:underline">support@lootscout.io</a>. We respond within 24 hours.
             </p>

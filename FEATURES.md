@@ -68,6 +68,8 @@ This guide is for **beta testers**, **support**, and **internal teams**. Technic
 
 ### CSV import (when enabled)
 
+**You don’t have to start over:** bring a spreadsheet from another platform and map it into LootScout instead of retyping your whole collection.
+
 1. Use **import CSV** from Collection (exact entry depends on build).
 2. Map columns; preview may show skeleton rows while rows are matched to the catalog.
 3. Confirm **bulk import**; resolve duplicates per app messaging.

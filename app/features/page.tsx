@@ -84,7 +84,8 @@ export default function FeaturesPage() {
                 Recent builds polish <strong>add-to-collection</strong> from scanner and product flows, including safe-area and scroll behavior so primary actions stay clear of the home indicator.
               </p>
               <p>
-                <strong>CSV import</strong> (when enabled): map columns, preview matching, confirm bulk import, resolve duplicates per app messaging.
+                <strong>CSV import</strong> (when enabled): bring an existing spreadsheet from another tool — you don&apos;t have to re-enter your
+                whole collection. Map columns, preview matching, confirm bulk import, resolve duplicates per app messaging.
               </p>
               <p>
                 <strong>List for sale</strong> from a collection item — listing is prefilled from condition, variant, and catalog links; fixed price vs offer-only where supported.
