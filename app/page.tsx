@@ -41,11 +41,11 @@ export default function Home() {
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <a
-                  href="https://play.google.com/apps/internaltest/4700992976057666802"
+                  href="https://play.google.com/apps/test/com.lootscout.app/5"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-6 py-3 bg-white text-primary-700 font-semibold rounded-lg hover:bg-primary-50 transition-colors"
-                  aria-label="Download Beta for Android (Google Play internal test)"
+                  aria-label="Download Beta for Android (Google Play open testing)"
                 >
                   <span className="text-2xl" aria-hidden>
                     ▶
@@ -65,7 +65,7 @@ export default function Home() {
               </div>
               <div id="download" className="scroll-mt-24 mt-6 space-y-4">
                 <p className="text-sm text-primary-200">
-                  Now in beta — Android via Google Play (internal testing; invite may be required). iOS coming soon.
+                  Now in beta — Android on Google Play (open testing). iOS coming soon.
                 </p>
                 <p className="text-base text-primary-100 max-w-xl">
                   Contact{" "}
