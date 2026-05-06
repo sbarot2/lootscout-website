@@ -668,11 +668,10 @@ export default function Home() {
                   <ul className="mt-6 space-y-2 text-sm text-slate-700">
                     {[
                       "Everything in Pro, plus:",
-                      "Unlimited listings",
+                      "Up to 150 active listings",
                       "Shop profile with custom branding",
                       "POS checkout & trade-in tools",
                       "Kiosk mode for in-store displays",
-                      "Up to 3 staff accounts",
                       "Inventory management",
                       "Sales analytics dashboard",
                       "Shop verification badge",
