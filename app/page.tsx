@@ -104,7 +104,7 @@ export default function Home() {
                 <div className="w-12 h-12 rounded-lg bg-primary-600 text-white flex items-center justify-center text-xl font-bold">1</div>
                 <h3 className="mt-4 text-xl font-semibold text-slate-900">For Buyers</h3>
                 <p className="mt-2 text-slate-600">
-                  Discover listings near you in the Triangle. Home search stays <strong>catalog-first while you type</strong> for speed; a{" "}
+                  Discover listings near you. Home search stays <strong>catalog-first while you type</strong> for speed; a{" "}
                   <strong>full hybrid search</strong> runs when you submit for deeper product discovery. Message sellers and meet in person — cards, games, comics, and more.
                 </p>
               </div>

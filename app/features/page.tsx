@@ -33,8 +33,8 @@ export default function FeaturesPage() {
           <h1 className="mt-4 text-3xl sm:text-4xl font-bold text-slate-900">Features &amp; guides</h1>
           <p className="mt-4 text-slate-600 leading-relaxed">
             This page summarizes the in-repo <strong>FEATURES.md</strong> guide for beta testers, support, and teams. LootScout is a{" "}
-            <strong>mobile app</strong> (React Native / Expo) focused on the Raleigh–Durham, NC area, with hybrid pricing (JustTCG, catalog
-            baselines, and local transaction intelligence over time). Some capabilities require a <strong>development build</strong>, not Expo
+            <strong>mobile app</strong> (React Native / Expo) with hybrid pricing (JustTCG, catalog baselines, and local transaction intelligence
+            over time). Some capabilities require a <strong>development build</strong>, not Expo
             Go — especially the card scanner.
           </p>
           <p className="mt-3 text-sm text-slate-500">

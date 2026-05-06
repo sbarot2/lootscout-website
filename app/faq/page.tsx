@@ -6,7 +6,7 @@ import SitePageHeader from "../components/SitePageHeader";
 export const metadata: Metadata = {
   title: "FAQ — LootScout",
   description:
-    "LootScout FAQ: card scanner requirements, Home search behavior, pricing beta, and the Raleigh–Durham local marketplace.",
+    "LootScout FAQ: card scanner requirements, Home search behavior, pricing beta, and the local collectibles marketplace.",
 };
 
 const qa = [
@@ -55,7 +55,7 @@ export default function FaqPage() {
           </p>
           <h1 className="mt-4 text-3xl sm:text-4xl font-bold text-slate-900">Frequently asked questions</h1>
           <p className="mt-4 text-slate-600 leading-relaxed">
-            Answers for beta testers and collectors using LootScout in the Raleigh–Durham area. For step-by-step product flows, see{" "}
+            Answers for beta testers and collectors using LootScout. For step-by-step product flows, see{" "}
             <Link href="/features" className="text-primary-600 font-medium hover:underline">
               Features &amp; guides
             </Link>
