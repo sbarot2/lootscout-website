@@ -20,8 +20,13 @@ import { NextResponse } from "next/server";
  */
 
 // Play Store app signing cert fingerprint.
-// SET BEFORE DEPLOYING — placeholder will fail verification.
-const PLAY_SIGNING_SHA256 = "REPLACE_WITH_PLAY_SIGNING_SHA256_FINGERPRINT";
+// From Google Play Console → LootScout → Setup → App integrity →
+//   App signing key certificate → SHA-256 certificate fingerprint.
+// On Play app transfer, the signing key + this fingerprint stay the
+// same (Play App Signing keeps the cert with Google) — no update needed
+// when the LLC takes ownership.
+const PLAY_SIGNING_SHA256 =
+  "A6:87:08:EC:B3:D2:D0:6C:F3:43:91:B5:A7:B0:94:DC:12:32:28:C7:80:CF:BA:EF:2C:42:4C:F6:45:9E:E9:81";
 
 // If you sign locally with a different upload key for dev builds (EAS does
 // this for development profiles), add it here too. The Play Store signing

@@ -18,12 +18,20 @@ import { NextResponse } from "next/server";
  * the app or running `xcrun simctl openurl` after the cache window passes.
  */
 
-// Apple Team ID (10-char alphanumeric, e.g. "ABC1234DEF").
-// Get from: developer.apple.com → Account → Membership → Team ID.
-// SET BEFORE DEPLOYING — placeholder will fail validation.
-const APPLE_TEAM_ID = "REPLACE_WITH_APPLE_TEAM_ID";
+// Apple Team IDs (10-char alphanumeric).
+// LISTING MULTIPLE entries lets installed builds from different Apple
+// Developer teams (e.g. personal account today, LLC org later) both
+// resolve Universal Links without re-deploying this file at transfer time.
+// Apple matches the user's currently-installed app against the appID it
+// shipped under, and ignores the others.
+const APPLE_TEAM_IDS: readonly string[] = [
+  "62T66ZFY6N", // Shriji Barot (personal account — current beta builds)
+  // Add LLC Team ID here after Apple Developer org enrollment lands.
+  // Until then, builds shipped from LLC org won't deep-link until this
+  // file is updated + redeployed (Apple CDN refresh ~24h).
+];
 
-const APP_ID = `${APPLE_TEAM_ID}.com.lootscout.app`;
+const BUNDLE_ID = "com.lootscout.app";
 
 const APP_PATHS = [
   // Stripe Checkout / Customer Portal return URLs (bridge pages serve as
@@ -51,12 +59,10 @@ export async function GET() {
   const body = {
     applinks: {
       apps: [],
-      details: [
-        {
-          appID: APP_ID,
-          paths: APP_PATHS,
-        },
-      ],
+      details: APPLE_TEAM_IDS.map((teamId) => ({
+        appID: `${teamId}.${BUNDLE_ID}`,
+        paths: APP_PATHS,
+      })),
     },
   };
 
