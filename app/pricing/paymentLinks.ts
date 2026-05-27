@@ -29,4 +29,3 @@ export const paymentLinks = {
 } as const;
 
 export type PaidTierKey = keyof typeof paymentLinks;
-https://lootscout.io/subscription-success?session_id={CHECKOUT_SESSION_ID}
