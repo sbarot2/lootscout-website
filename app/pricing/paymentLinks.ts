@@ -22,10 +22,11 @@
 // the pricing page (falls back to "Email support" CTA for that tier only).
 
 export const paymentLinks = {
-  plus: '',
-  pro: '',
-  pro_shop: '',
-  enterprise: '',
+  plus: 'https://buy.stripe.com/eVqeVfctb0gRaWz1xf2Nq00',
+  pro: 'https://buy.stripe.com/7sY14p78RgfP9Svfo52Nq03',
+  pro_shop: 'https://buy.stripe.com/dRmaEZbp7aVvc0Da3L2Nq04',
+  enterprise: 'https://buy.stripe.com/28E3cx78RaVvaWz0tb2Nq05',
 } as const;
 
 export type PaidTierKey = keyof typeof paymentLinks;
+https://lootscout.io/subscription-success?session_id={CHECKOUT_SESSION_ID}
