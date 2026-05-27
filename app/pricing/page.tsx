@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Footer from "../components/Footer";
 import SitePageHeader from "../components/SitePageHeader";
+import { paymentLinks, type PaidTierKey } from "./paymentLinks";
 
 export const metadata: Metadata = {
   title: "Pricing — LootScout",
@@ -23,6 +24,8 @@ interface Plan {
   cadence: string;
   highlight?: boolean;
   features: PlanFeature[];
+  /** If set, Subscribe button uses the matching paymentLinks[paidTier] URL. */
+  paidTier?: PaidTierKey;
 }
 
 const individualPlans: Plan[] = [
@@ -48,6 +51,7 @@ const individualPlans: Plan[] = [
     price: "$4.99",
     cadence: "per month",
     highlight: true,
+    paidTier: "plus",
     features: [
       { label: "Active listings", value: "25" },
       { label: "Price alerts", value: "10" },
@@ -63,6 +67,7 @@ const individualPlans: Plan[] = [
     retailPrice: "$21.99",
     price: "$14.99",
     cadence: "per month",
+    paidTier: "pro",
     features: [
       { label: "Active listings", value: "50" },
       { label: "Price alerts", value: "Unlimited" },
@@ -97,6 +102,7 @@ const shopPlans: Plan[] = [
     price: "$29",
     cadence: "per month",
     highlight: true,
+    paidTier: "pro_shop",
     features: [
       { label: "Active listings", value: "150" },
       { label: "Price alerts", value: "Unlimited" },
@@ -113,6 +119,7 @@ const shopPlans: Plan[] = [
     retailPrice: "$149.99",
     price: "$99",
     cadence: "per month",
+    paidTier: "enterprise",
     features: [
       { label: "Active listings", value: "Unlimited" },
       { label: "Price alerts", value: "Unlimited" },
@@ -172,7 +179,35 @@ function PlanCard({ plan }: { plan: Plan }) {
           </li>
         ))}
       </ul>
+
+      {plan.paidTier ? <SubscribeCta tier={plan.paidTier} planName={plan.name} /> : null}
     </div>
+  );
+}
+
+function SubscribeCta({ tier, planName }: { tier: PaidTierKey; planName: string }) {
+  const url = paymentLinks[tier];
+  if (url) {
+    return (
+      <a
+        href={url}
+        className="mt-6 inline-flex items-center justify-center rounded-lg bg-primary-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-primary-700"
+      >
+        Subscribe to {planName}
+      </a>
+    );
+  }
+  return (
+    <a
+      href={`mailto:support@lootscout.io?subject=${encodeURIComponent(
+        `Subscribe to ${planName}`,
+      )}&body=${encodeURIComponent(
+        `Hi LootScout,\n\nI'd like to subscribe to ${planName} at the beta lock-in rate. My account email is: <your-email-here>\n\nThanks!`,
+      )}`}
+      className="mt-6 inline-flex items-center justify-center rounded-lg border border-primary-600 px-4 py-2.5 text-sm font-semibold text-primary-700 transition hover:bg-primary-50"
+    >
+      Email support to subscribe
+    </a>
   );
 }
 
@@ -227,16 +262,16 @@ export default function PricingPage() {
             </h2>
             <div className="mt-4 space-y-4 text-slate-700 leading-relaxed">
               <p>
-                <strong>To start a new subscription:</strong> open the LootScout
-                app on Android and tap your tier in Profile → Subscription. iOS
-                subscriptions are in beta — email{" "}
-                <a
-                  href="mailto:support@lootscout.io"
-                  className="text-primary-600 font-medium hover:underline"
-                >
-                  support@lootscout.io
-                </a>{" "}
-                and we&apos;ll set you up at the beta lock-in rate.
+                <strong>To start a new subscription:</strong> tap a{" "}
+                <em>Subscribe</em> button above. Stripe will collect your
+                payment details — <strong>be sure to use the same email
+                address as your LootScout account</strong> so the subscription
+                links automatically. Your tier syncs into the app within a
+                minute.
+              </p>
+              <p>
+                <strong>Already in the app on Android?</strong> Open Profile →
+                Subscription to upgrade from inside the app.
               </p>
               <p>
                 <strong>To change tiers, update billing, or cancel:</strong>{" "}
@@ -247,13 +282,12 @@ export default function PricingPage() {
                 >
                   support@lootscout.io
                 </a>{" "}
-                from the address on your account. We&apos;ll send you a secure
-                Stripe billing link. Cancellations take effect at the end of the
-                current billing period.
+                from the address on your account and we&apos;ll send you a
+                secure Stripe billing link. Cancellations take effect at the
+                end of the current billing period.
               </p>
               <p className="text-sm text-slate-500">
-                A self-serve web portal is on the roadmap; for now we handle
-                subscription changes by email so we can verify the account.
+                A self-serve billing portal on the web is on the roadmap.
               </p>
             </div>
           </section>
