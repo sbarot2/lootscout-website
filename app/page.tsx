@@ -41,16 +41,16 @@ export default function Home() {
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <a
-                  href="https://play.google.com/apps/test/com.lootscout.app/5"
+                  href="https://play.google.com/store/apps/details?id=com.lootscout.app&pcampaignid=web_share"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-6 py-3 bg-white text-primary-700 font-semibold rounded-lg hover:bg-primary-50 transition-colors"
-                  aria-label="Download Beta for Android (Google Play open testing)"
+                  aria-label="Download LootScout for Android on Google Play"
                 >
                   <span className="text-2xl" aria-hidden>
                     ▶
                   </span>
-                  Download Beta (Android)
+                  Download (Android)
                 </a>
                 <a
                   href="#beta"
