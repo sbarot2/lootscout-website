@@ -127,7 +127,8 @@ export default function PrivacyPage() {
               <ul className="mt-2 list-disc list-inside space-y-1">
                 <li>
                   <strong>Pricing data</strong> from JustTCG, PriceCharting,
-                  Pokémon TCG API, and Scryfall. Not personal data about you.
+                  Scrydex, Pokémon TCG API, and Scryfall. Not personal data
+                  about you.
                 </li>
                 <li>
                   <strong>Single sign-on:</strong> when you sign in via Google
@@ -201,8 +202,8 @@ export default function PrivacyPage() {
                     </li>
                     <li>
                       <strong>Pricing data providers</strong> — JustTCG,
-                      PriceCharting, Pokémon TCG API, Scryfall (we send queries;
-                      they do not receive personal info about you).
+                      PriceCharting, Scrydex, Pokémon TCG API, Scryfall (we send
+                      queries; they do not receive personal info about you).
                     </li>
                     <li>
                       <strong>Push notification services</strong> — Apple Push
