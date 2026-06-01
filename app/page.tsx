@@ -15,7 +15,7 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <FadeInSection>
               <a
-                href="https://discord.gg/A3nUQRKn"
+                href="https://discord.gg/HepRRKr4"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-2 text-sm font-semibold text-white border border-white/30 hover:bg-white/25 transition-colors"
