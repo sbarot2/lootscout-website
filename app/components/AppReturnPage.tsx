@@ -11,6 +11,12 @@ interface AppReturnPageProps {
   deepLinkPath: string;
   /** When true, copy any `?session_id=...` (and other Stripe params) into the deep link. */
   forwardQuery?: boolean;
+  /**
+   * When true, copy the URL fragment (`window.location.hash`) into the deep link.
+   * Needed for Supabase auth recovery (legacy implicit flow puts
+   * `#access_token=…&refresh_token=…&type=recovery` after the `#`, not in the query).
+   */
+  forwardHash?: boolean;
   variant?: "success" | "info" | "error";
 }
 
@@ -41,6 +47,7 @@ export default function AppReturnPage({
   buttonLabel,
   deepLinkPath,
   forwardQuery = false,
+  forwardHash = false,
   variant = "success",
 }: AppReturnPageProps) {
   const [deepLink, setDeepLink] = useState<string>(`lootscout://${deepLinkPath}`);
@@ -49,11 +56,9 @@ export default function AppReturnPage({
   useEffect(() => {
     if (typeof window === "undefined") return;
 
-    const params = window.location.search;
-    const target =
-      forwardQuery && params
-        ? `lootscout://${deepLinkPath}${params}`
-        : `lootscout://${deepLinkPath}`;
+    const search = forwardQuery ? window.location.search : "";
+    const hash = forwardHash ? window.location.hash : "";
+    const target = `lootscout://${deepLinkPath}${search}${hash}`;
 
     setDeepLink(target);
 
@@ -65,7 +70,7 @@ export default function AppReturnPage({
     }, 200);
 
     return () => clearTimeout(timer);
-  }, [deepLinkPath, forwardQuery]);
+  }, [deepLinkPath, forwardQuery, forwardHash]);
 
   const styles = useMemo(() => VARIANT_STYLES[variant], [variant]);
 

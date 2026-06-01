@@ -40,6 +40,11 @@ const APP_PATHS = [
   "/subscription-success/*",
   "/subscription-cancel",
   "/profile-return",
+  // Supabase auth password recovery — link in the reset email lands here
+  // and is intercepted by the app. Bridge page is the install-the-app
+  // fallback.
+  "/password-reset",
+  "/password-reset/*",
   // Deep-link surfaces inside the app (shareable links open the app
   // directly when installed, fall back to website pages otherwise).
   "/listing/*",
