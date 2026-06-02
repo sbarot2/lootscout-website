@@ -32,21 +32,32 @@ export default function FeaturesPage() {
           </p>
           <h1 className="mt-4 text-3xl sm:text-4xl font-bold text-slate-900">Features &amp; guides</h1>
           <p className="mt-4 text-slate-600 leading-relaxed">
-            This page summarizes the in-repo <strong>FEATURES.md</strong> guide for beta testers, support, and teams. LootScout is a{" "}
-            <strong>mobile app</strong> (React Native / Expo) with hybrid pricing (JustTCG, catalog baselines, and local transaction intelligence
-            over time). Some capabilities require a <strong>development build</strong>, not Expo
-            Go — especially the card scanner.
-          </p>
-          <p className="mt-3 text-sm text-slate-500">
-            Canonical source: <code className="rounded bg-slate-200/80 px-1.5 py-0.5 text-slate-800">FEATURES.md</code> in the website repo.
-            Scanner implementation notes may also live in app-repo docs such as <code className="rounded bg-slate-200/80 px-1.5 py-0.5">docs/features-card-scanner.md</code>.
+            LootScout is a <strong>mobile marketplace</strong> for trading cards,
+            video games, comics, and other collectibles, with hybrid pricing
+            (JustTCG, Scrydex, PriceCharting / SportsCardsPro catalog baselines,
+            and local transaction intelligence that improves over time). This
+            page summarizes the features available in the current build.
           </p>
 
           <div className="mt-10 space-y-12">
             <Section id="account" title="1. Account & basics">
-              <p>Sign up and sign in with email (Supabase Auth). Confirm email if your project requires it.</p>
               <p>
-                Typical tabs: <strong>Home</strong>, <strong>Collection</strong>, <strong>Profile</strong>, plus beta routes your build exposes (e.g. Scanner, Shop, Pickup). Pull to refresh on supported screens reloads server-backed data.
+                Sign up and sign in with email, <strong>Sign in with Apple</strong>{" "}
+                (iOS), or Google. Email accounts confirm via a link sent to your
+                inbox. Passwords require uppercase, lowercase, a number, and a
+                symbol — and are checked against the HaveIBeenPwned breach
+                database so weak / known-compromised passwords are rejected.
+              </p>
+              <p>
+                Forgot your password? Tap <strong>Forgot password?</strong> on
+                the login screen. We&rsquo;ll email a recovery link that opens
+                straight into the app via Universal Links / App Links.
+              </p>
+              <p>
+                Tabs: <strong>Home</strong>, <strong>Collection</strong>,{" "}
+                <strong>Profile</strong>, with Scanner, Shop dashboard, and
+                Pickup routes available based on your tier and account type.
+                Pull to refresh on supported screens reloads server-backed data.
               </p>
             </Section>
 
@@ -90,6 +101,12 @@ export default function FeaturesPage() {
               <p>
                 <strong>List for sale</strong> from a collection item — listing is prefilled from condition, variant, and catalog links; fixed price vs offer-only where supported.
               </p>
+              <p>
+                <strong>Export CSV</strong> (Plus / Pro): download your full
+                collection — or a single folder — as a spreadsheet with product
+                name, set, card number, condition, variant, quantity, purchase
+                price, current market value, gain/loss, notes, and date added.
+              </p>
             </Section>
 
             <Section id="scanner" title="5. Card scanner (TCG)">
@@ -116,21 +133,98 @@ export default function FeaturesPage() {
             </Section>
 
             <Section id="listings" title="6. Listings & selling">
-              <p>Create listings from collection or listing flows. Fixed vs offer types; auto_price may track catalog prices until you manually override (see product docs).</p>
-              <p>Record sale / sale confirmation flows apply for in-person deals where implemented.</p>
+              <p>Create listings from collection or listing flows. Fixed vs offer types; auto-price tracks catalog prices until you manually override.</p>
+              <p>
+                <strong>Sale confirmations:</strong> in-person deals are
+                confirmed by both parties; either side can propose a final
+                price, and unresolved confirmations auto-time-out after 72
+                hours to keep your listings unblocked.
+              </p>
+              <p>
+                <strong>Reviews:</strong> after a confirmed sale or trade,
+                each party can leave a 1-5 star review. Reviews show on the
+                counterparty&rsquo;s public profile and on shop pages.
+              </p>
+              <p>
+                <strong>Transaction disputes:</strong> if something goes wrong
+                with a confirmed deal, open a dispute. Both parties exchange
+                messages; if you can&rsquo;t resolve it together, escalate to
+                LootScout and a moderator will mediate.
+              </p>
+              <p>
+                <strong>Longer trendlines:</strong> product and listing
+                sparklines now plot a persistent price history that extends
+                beyond the trend window the source APIs report — so you can
+                see how a card actually moved over weeks and months, not just
+                the last seven days.
+              </p>
             </Section>
 
             <Section id="shops" title="7. Shops, trades & pickup">
               <p>
-                Shop-scoped pickup cart on device; Pickup hub and checkout routes; kiosk tablet flow with QR listings; trade/sale drafts from listing QR where enabled. See kiosk/pickup documentation in the app repo for routes and deep links.
+                Shop-scoped pickup cart on device; Pickup hub and checkout
+                routes; kiosk tablet flow with QR listings; trade and sale
+                drafts from a scanned listing QR.
+              </p>
+              <p>
+                <strong>Trade-in cart</strong> (Enterprise): walk-in
+                customers can sell or trade cards into your shop with custom
+                catalog entries (including custom grading slabs) and per-line
+                quantity adjustments.
+              </p>
+              <p>
+                <strong>Transactions CSV export</strong> (Pro Shop /
+                Enterprise): from the shop dashboard, export your
+                transactions for any date range with date, type, counterparty,
+                line items, revenue, cost basis, gross profit, discount, cash
+                difference, and event name — for accounting, taxes, or just
+                clean records.
               </p>
             </Section>
 
             <Section id="profile" title="8. Profile & subscription">
-              <p>Profile shows public info, shop entry points, usage, and settings. Subscription billing may open the Stripe customer portal from Edge Functions. Usage limits refresh on focus in supported builds.</p>
+              <p>
+                Profile shows public info, shop entry points, usage, and
+                settings. <strong>Two payment paths</strong>: on iOS, the in-app
+                upgrade flow uses Apple In-App Purchase (auto-renewable
+                subscriptions with a 14-day free trial); on Android and on{" "}
+                <Link href="/pricing" className="text-primary-600 hover:underline">
+                  lootscout.io/pricing
+                </Link>{" "}
+                subscriptions go through Stripe. Restore Purchases is one tap
+                away on iOS for users coming back after reinstall. Promo codes
+                redeem via Apple&rsquo;s native sheet on iOS (offer codes) or
+                through the in-app promo input on Android / web.
+              </p>
+              <p>
+                <strong>Manage</strong> opens the App Store subscription
+                screen for IAP customers, or the Stripe customer portal for
+                everyone else.
+              </p>
             </Section>
 
-            <Section id="ai" title="9. AI & analytics (where enabled)">
+            <Section id="safety" title="9. Safety: reports, blocking & moderation">
+              <p>
+                LootScout has zero tolerance for objectionable content or
+                abusive behavior. Every user, listing, and message thread has
+                a <strong>Report</strong> option from the menu &mdash; pick a
+                reason, write a 30+ character summary, and optionally attach up
+                to four evidence photos. Moderators triage open reports within
+                24 hours and act on them by removing content and, when
+                warranted, suspending the account responsible.
+              </p>
+              <p>
+                Need someone gone from your feed immediately? Tap{" "}
+                <strong>Block user</strong> from the profile menu. Their
+                listings, reviews, and messages disappear from your view the
+                moment you confirm — and the block also files an automatic
+                moderation report so we see the signal. Manage your block
+                list any time from <strong>Profile → Privacy &amp; safety →
+                Blocked users</strong>.
+              </p>
+            </Section>
+
+            <Section id="ai" title="10. AI & analytics (where enabled)">
               <p>Price trend hints, market opportunities, portfolio analytics — availability depends on build and configuration.</p>
             </Section>
           </div>

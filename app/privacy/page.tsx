@@ -9,8 +9,6 @@ export const metadata: Metadata = {
     "LootScout privacy policy. What data we collect, how it's used, who we share it with, and your rights.",
 };
 
-// TODO: Replace "LootScout" with the registered LLC name (e.g. "LootScout LLC")
-// once the NC Articles are stamped and the company has a final legal name.
 const COMPANY_LEGAL_NAME = "LootScout LLC";
 const COMPANY_MAILING_ADDRESS = "4030 Wake Forest Road STE 349, Raleigh, WAKE COUNTY, NC 27609 USA";
 const SUPPORT_EMAIL = "support@lootscout.io";
