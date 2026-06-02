@@ -15,8 +15,8 @@ export const metadata: Metadata = {
 const COMPANY_LEGAL_NAME = "LootScout LLC";
 const COMPANY_MAILING_ADDRESS = "4030 Wake Forest Road STE 349, Raleigh, WAKE COUNTY, NC 27609 USA";
 const SUPPORT_EMAIL = "support@lootscout.io";
-const LAST_UPDATED = "May 6, 2026";
-const EFFECTIVE_DATE = "May 6, 2026";
+const LAST_UPDATED = "June 2, 2026";
+const EFFECTIVE_DATE = "June 2, 2026";
 
 export default function TermsPage() {
   return (
@@ -243,7 +243,19 @@ export default function TermsPage() {
               <h2 className="text-xl font-semibold text-slate-900">
                 9. Acceptable use
               </h2>
-              <p className="mt-2">You agree not to:</p>
+              <p className="mt-2 border-l-4 border-rose-500 pl-4 py-1 text-slate-800">
+                <strong>Zero tolerance for objectionable content or abusive users.</strong>{" "}
+                LootScout does not tolerate user-generated content that is
+                hateful, harassing, sexually explicit, violent, illegal, or
+                otherwise objectionable, nor does it tolerate users who engage
+                in abusive behavior toward other members. We act on reports of
+                such content or behavior within twenty-four (24) hours by
+                removing the content and, where appropriate, suspending or
+                permanently banning the account responsible. You may report
+                content or block another user at any time from inside the
+                LootScout app.
+              </p>
+              <p className="mt-3">You agree not to:</p>
               <ul className="mt-2 list-disc list-inside space-y-1">
                 <li>violate any law, regulation, or third-party right;</li>
                 <li>
@@ -251,6 +263,11 @@ export default function TermsPage() {
                   otherwise illegal items;
                 </li>
                 <li>impersonate another person or misrepresent your affiliation;</li>
+                <li>
+                  post, upload, or share content that is hateful, harassing,
+                  sexually explicit, violent, threatening, or otherwise
+                  objectionable;
+                </li>
                 <li>harass, threaten, defraud, or stalk other users;</li>
                 <li>
                   attempt to circumvent listing limits, subscription tiers, or
