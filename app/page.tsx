@@ -2,7 +2,6 @@ import Link from "next/link";
 import Footer from "./components/Footer";
 import FadeInSection from "./components/FadeInSection";
 import GalleryCarousel from "./components/GalleryCarousel";
-import BetaEmailSignup from "./components/BetaEmailSignup";
 import ComingSoonIcon from "./components/ComingSoonIcon";
 
 export default function Home() {
@@ -41,6 +40,18 @@ export default function Home() {
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <a
+                  href="https://apps.apple.com/us/app/lootscout-collectibles/id6765471016"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-white text-primary-700 font-semibold rounded-lg hover:bg-primary-50 transition-colors"
+                  aria-label="Download LootScout for iOS on the App Store"
+                >
+                  <span className="text-2xl" aria-hidden>
+                    {"\u{1F34E}"}
+                  </span>
+                  Download (iOS)
+                </a>
+                <a
                   href="https://play.google.com/store/apps/details?id=com.lootscout.app&pcampaignid=web_share"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -52,33 +63,10 @@ export default function Home() {
                   </span>
                   Download (Android)
                 </a>
-                <a
-                  href="#beta"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-primary-800/80 text-white font-semibold rounded-lg border-2 border-white/30 hover:bg-primary-800 transition-colors"
-                  aria-label="Join the Beta"
-                >
-                  <span className="text-2xl" aria-hidden>
-                    📱
-                  </span>
-                  Join the Beta
-                </a>
               </div>
-              <div id="download" className="scroll-mt-24 mt-6 space-y-4">
-                <p className="text-sm text-primary-200">
-                  Now in beta — Android on Google Play (open testing). iOS coming soon.
-                </p>
-                <p className="text-base text-primary-100 max-w-xl">
-                  Contact{" "}
-                  <a
-                    href="mailto:support@lootscout.io"
-                    className="font-semibold text-white underline decoration-white/40 underline-offset-2 hover:decoration-white"
-                  >
-                    support@lootscout.io
-                  </a>{" "}
-                  to join the beta, or enter your email below.
-                </p>
-                <BetaEmailSignup />
-              </div>
+              <p id="download" className="scroll-mt-24 mt-6 text-sm text-primary-200">
+                Available on the App Store and Google Play.
+              </p>
             </FadeInSection>
             <FadeInSection className="lg:pl-8">
               <div className="max-w-md mx-auto rounded-2xl border border-white/20 bg-white/5 p-4 backdrop-blur-sm">
@@ -511,24 +499,6 @@ export default function Home() {
                   Limited-time pricing while we&apos;re in beta. Keep your rate as long as you stay subscribed.
                 </p>
               </div>
-            </div>
-          </FadeInSection>
-
-          <FadeInSection>
-            <div
-              id="beta"
-              className="mt-4 rounded-xl bg-slate-900 text-white px-6 py-4 text-center scroll-mt-24"
-            >
-              <p className="font-semibold text-lg">Join the LootScout beta</p>
-              <p className="text-sm text-slate-300 mt-1">
-                Request access with your email above, or write{" "}
-                <a href="mailto:support@lootscout.io" className="text-white font-medium underline underline-offset-2 hover:text-primary-200">
-                  support@lootscout.io
-                </a>
-                . In the app, use code <span className="font-mono font-semibold text-white">BETAPIONEER</span> for a free{" "}
-                <strong className="text-white">7-day</strong> trial of <strong className="text-white">Pro Shop</strong> features (enter the
-                code where the app prompts; subject to availability and account eligibility).
-              </p>
             </div>
           </FadeInSection>
 
