@@ -1,3 +1,21 @@
 {
-  "framework": "nextjs"
+  "framework": "nextjs",
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+
+  "_comment_redirects": "Replicates Vercel dashboard apex->www auto-redirect, but EXCLUDES the /.well-known/* path so the assetlinks.json (Android App Links) and apple-app-site-association (iOS Universal Links) files are reachable on the apex domain WITHOUT following a redirect. Both verifiers fail when their .well-known file lives behind a 301/307. After deploying this file, disable the dashboard auto-redirect (Settings -> Domains -> lootscout.io -> set to No Redirect / Serve as Production) so these rules are the only thing in front of apex traffic.",
+
+  "redirects": [
+    {
+      "source": "/",
+      "has": [{ "type": "host", "value": "lootscout.io" }],
+      "destination": "https://www.lootscout.io/",
+      "permanent": true
+    },
+    {
+      "source": "/:rest((?!\\.well-known).+)",
+      "has": [{ "type": "host", "value": "lootscout.io" }],
+      "destination": "https://www.lootscout.io/:rest",
+      "permanent": true
+    }
+  ]
 }
