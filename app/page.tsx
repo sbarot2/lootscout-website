@@ -299,8 +299,7 @@ export default function Home() {
             </FadeInSection>
             <FadeInSection>
               <div className="h-full p-6 rounded-xl bg-white border-2 border-primary-200 shadow-sm hover:shadow-md transition-shadow ring-1 ring-primary-100/60">
-                <p className="text-xs font-semibold uppercase tracking-wide text-primary-600">In the app (beta)</p>
-                <h3 className="mt-1 text-lg font-semibold text-slate-900">In-app card scanner (TCG)</h3>
+                <h3 className="text-lg font-semibold text-slate-900">In-app card scanner (TCG)</h3>
                 <p className="mt-2 text-sm text-slate-600 leading-relaxed">
                   <strong>Single</strong> or <strong>batch</strong> scanning with the phone camera and on-device OCR. Matches land in the
                   LootScout catalog; pick alternates, open a full match list, or fall back to manual search (catalog-first while typing;
@@ -331,7 +330,11 @@ export default function Home() {
               },
               {
                 title: "AI Market Intelligence",
-                desc: "Price trend predictions, optimal sell timing alerts, and portfolio analytics powered by real market data (where enabled in your build).",
+                desc: "Price trend predictions, optimal sell timing alerts, and portfolio analytics powered by real market data.",
+              },
+              {
+                title: "Push Notifications",
+                desc: "Alerts for nearby listings, price changes, trade updates, and wishlist matches — so you never miss a deal in your area.",
               },
               {
                 title: "CSV Import",
@@ -339,7 +342,7 @@ export default function Home() {
               },
               {
                 title: "Shop Tools",
-                desc: "POS checkout, trade-in calculator with custom buy percentages, kiosk mode with QR codes for in-store pickup browsing, and a shop-scoped pickup cart.",
+                desc: "POS checkout, trade-in calculator with custom buy percentages, kiosk mode with QR codes for in-store pickup browsing, a shop-scoped pickup cart, and sales analytics (including card-show profit tracking on Pro Shop+).",
               },
               {
                 title: "Grading Cert Verification",
@@ -373,12 +376,12 @@ export default function Home() {
               <div className="mt-8 grid sm:grid-cols-2 gap-4">
                 <div className="flex flex-col aspect-[4/3] rounded-xl border-2 border-dashed border-slate-300 bg-slate-100 items-center justify-center p-4 text-center">
                   <span className="text-xs font-semibold uppercase tracking-wide text-slate-500">Placeholder</span>
-                  <p className="mt-2 text-sm font-medium text-slate-700">Beta UI — batch review</p>
+                  <p className="mt-2 text-sm font-medium text-slate-700">Batch review</p>
                   <p className="mt-1 text-xs text-slate-500">Replace with product screenshot when approved.</p>
                 </div>
                 <div className="flex flex-col aspect-[4/3] rounded-xl border-2 border-dashed border-slate-300 bg-slate-100 items-center justify-center p-4 text-center">
                   <span className="text-xs font-semibold uppercase tracking-wide text-slate-500">Placeholder</span>
-                  <p className="mt-2 text-sm font-medium text-slate-700">Beta UI — single match sheet</p>
+                  <p className="mt-2 text-sm font-medium text-slate-700">Single match sheet</p>
                   <p className="mt-1 text-xs text-slate-500">Replace with product screenshot when approved.</p>
                 </div>
               </div>
@@ -417,29 +420,14 @@ export default function Home() {
                   desc: "Browse local listings on an interactive map",
                 },
                 {
-                  icon: "bell" as const,
-                  title: "Push Notifications",
-                  desc: "Price drop alerts, trade updates, and wishlist matches",
-                },
-                {
-                  icon: "sports" as const,
-                  title: "Sports Card Pricing",
-                  desc: "Expanded sports card pricing and catalog coverage (roadmap)",
-                },
-                {
                   icon: "barcode" as const,
                   title: "Barcode Scanning",
                   desc: "Scan sealed products and graded slabs for instant lookup",
                 },
                 {
-                  icon: "analytics" as const,
-                  title: "Show Analytics",
-                  desc: "Track profit by card show. Know which events make you money.",
-                },
-                {
                   icon: "payment" as const,
                   title: "In-app payments",
-                  desc: "Pay and get paid for local deals without leaving the app (roadmap)",
+                  desc: "Pay and get paid for local deals without leaving the app",
                 },
                 {
                   icon: "loyalty" as const,
@@ -447,14 +435,14 @@ export default function Home() {
                   desc: "Reward repeat buyers at participating shops with points and perks",
                 },
                 {
+                  icon: "sportstack" as const,
+                  title: "Expanded sports card support",
+                  desc: "Deeper catalogs, pricing sources, and tooling for baseball, basketball, football, and beyond",
+                },
+                {
                   icon: "sparkles" as const,
                   title: "UI improvements",
                   desc: "Clearer flows, faster screens, and polish across collection, scanner, and marketplace",
-                },
-                {
-                  icon: "sportstack" as const,
-                  title: "More sports card support",
-                  desc: "Deeper catalogs, pricing sources, and tooling for baseball, basketball, football, and beyond",
                 },
               ] as const
             ).map((item) => (
