@@ -225,6 +225,14 @@ export default function PricingPage() {
           <h1 className="mt-4 text-3xl sm:text-4xl font-bold text-slate-900">
             Pricing
           </h1>
+          <div className="mt-6 rounded-2xl bg-gradient-to-r from-primary-500 via-primary-600 to-accent-500 px-5 py-4 text-white shadow-sm flex items-center gap-3">
+            <span className="text-2xl" aria-hidden>
+              🎉
+            </span>
+            <p className="text-sm sm:text-base font-semibold">
+              Intro offer: every new account gets <span className="underline decoration-white/40 underline-offset-2">Pro free for its first 60 days</span>.
+            </p>
+          </div>
           <p className="mt-4 max-w-2xl text-slate-600 leading-relaxed">
             Beta subscribers keep their promotional rate as long as the subscription
             stays active. Prices in USD, billed monthly. Cancel anytime.

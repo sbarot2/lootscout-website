@@ -162,9 +162,17 @@ export default function FeaturesPage() {
 
             <Section id="shops" title="7. Shops, trades & pickup">
               <p>
+                <strong>Events:</strong> find local card shows and meetups on
+                the Events tab. Vendors can place themselves on an event so
+                buyers browsing the show see their listed inventory and can
+                find them in person.
+              </p>
+              <p>
                 Shop-scoped pickup cart on device; Pickup hub and checkout
                 routes; kiosk tablet flow with QR listings; trade and sale
-                drafts from a scanned listing QR.
+                drafts from a scanned listing QR. In-app card payments are{" "}
+                <strong>coming soon</strong> — today, deals are settled in
+                person.
               </p>
               <p>
                 <strong>Trade-in cart</strong> (Enterprise): walk-in

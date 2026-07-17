@@ -13,27 +13,34 @@ export default function Home() {
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-24 lg:py-32">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <FadeInSection>
-              <a
-                href="https://discord.gg/HepRRKr4"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-2 text-sm font-semibold text-white border border-white/30 hover:bg-white/25 transition-colors"
-                aria-label="Join our Discord community"
-              >
-                <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-                  <path d="M20.3 4.37A17.6 17.6 0 0015.9 3c-.2.36-.43.84-.59 1.22a16.2 16.2 0 00-4.63 0A12.2 12.2 0 0010.1 3a17.6 17.6 0 00-4.4 1.37C2.9 8.62 2.1 12.76 2.5 16.84A17.8 17.8 0 007.9 19.5c.43-.59.82-1.22 1.16-1.88-.64-.25-1.25-.56-1.82-.92.15-.11.29-.22.43-.34 3.52 1.63 7.34 1.63 10.82 0 .14.12.28.23.43.34-.57.36-1.18.67-1.82.92.34.66.73 1.29 1.16 1.88a17.7 17.7 0 005.4-2.66c.47-4.73-.8-8.83-3.36-12.47zM9.5 14.3c-1.04 0-1.9-.96-1.9-2.15s.84-2.15 1.9-2.15c1.06 0 1.92.97 1.9 2.15 0 1.19-.84 2.15-1.9 2.15zm5 0c-1.05 0-1.9-.96-1.9-2.15s.84-2.15 1.9-2.15c1.07 0 1.92.97 1.9 2.15 0 1.19-.84 2.15-1.9 2.15z" />
-                </svg>
-                Join our Discord
-              </a>
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-bold text-primary-700 shadow-sm">
+                  <span aria-hidden>🎉</span>
+                  Intro offer: 60 days of Pro, free
+                </span>
+                <a
+                  href="https://discord.gg/HepRRKr4"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-2 text-sm font-semibold text-white border border-white/30 hover:bg-white/25 transition-colors"
+                  aria-label="Join our Discord community"
+                >
+                  <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                    <path d="M20.3 4.37A17.6 17.6 0 0015.9 3c-.2.36-.43.84-.59 1.22a16.2 16.2 0 00-4.63 0A12.2 12.2 0 0010.1 3a17.6 17.6 0 00-4.4 1.37C2.9 8.62 2.1 12.76 2.5 16.84A17.8 17.8 0 007.9 19.5c.43-.59.82-1.22 1.16-1.88-.64-.25-1.25-.56-1.82-.92.15-.11.29-.22.43-.34 3.52 1.63 7.34 1.63 10.82 0 .14.12.28.23.43.34-.57.36-1.18.67-1.82.92.34.66.73 1.29 1.16 1.88a17.7 17.7 0 005.4-2.66c.47-4.73-.8-8.83-3.36-12.47zM9.5 14.3c-1.04 0-1.9-.96-1.9-2.15s.84-2.15 1.9-2.15c1.06 0 1.92.97 1.9 2.15 0 1.19-.84 2.15-1.9 2.15zm5 0c-1.05 0-1.9-.96-1.9-2.15s.84-2.15 1.9-2.15c1.07 0 1.92.97 1.9 2.15 0 1.19-.84 2.15-1.9 2.15z" />
+                  </svg>
+                  Join our Discord
+                </a>
+              </div>
               <h1 className="mt-4 text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
-                Connect with Local Collectors & Shops
+                The local marketplace for collectors
               </h1>
               <p className="mt-6 text-lg sm:text-xl text-primary-100 max-w-xl">
-                The collectibles marketplace powered by real transaction data. Track your collection, price with
-                confidence, and trade locally.
+                Real prices, no marketplace fees. Buy, sell, and trade the collectibles you actually own — cards, sports
+                cards, video games, comics, Funko, coins, and more — in person, near you.
               </p>
               <p className="mt-3 text-sm text-primary-200/90 max-w-xl">
-                Hybrid pricing (live TCG + catalog baselines + local sales over time) and in-person meetups.{" "}
+                Every new account gets <strong className="font-semibold text-white">Pro free for its first 60 days</strong>{" "}
+                during our intro period.{" "}
                 <Link href="/features" className="font-medium text-white underline decoration-white/40 underline-offset-2 hover:decoration-white">
                   Features &amp; guides →
                 </Link>
@@ -143,6 +150,7 @@ export default function Home() {
               "Comics",
               "Sports Cards",
               "Funko Pops",
+              "Coins",
               "LEGO Sets",
               "Sealed Products",
               "And more...",
@@ -318,15 +326,23 @@ export default function Home() {
             {[
               {
                 title: "Collection Tracker",
-                desc: "Add items from the scanner, product pages, or search / image lookup where supported — or bulk-import a CSV so you pick up where you left off on another platform. Safe-area and scroll fixes keep primary actions clear of the home indicator. Track conditions, purchase vs market value, and gain/loss per item.",
+                desc: "Add items from the scanner, product pages, or search / image lookup where supported — or bulk-import a CSV so you pick up where you left off on another platform. Every item shows live market prices and trend sparklines, plus purchase vs market value and gain/loss so you always know what your collection is worth.",
               },
               {
-                title: "Smart Marketplace",
-                desc: "List from your collection with one tap. Fixed price or open to offers. Auto-reprice when market moves.",
+                title: "List for Sale — Set & Forget",
+                desc: "List from your collection with one tap. Fixed price or open to offers. Turn on auto market-pricing and your listing re-prices itself as the market moves, until you set a price yourself.",
               },
               {
-                title: "In-Person Trade System",
-                desc: "Cart-based trades with dual confirmation. Items transfer between collections when both sides agree.",
+                title: "Digital Trades",
+                desc: "Build a trade in person: pick what you give and what you get, both sides confirm, and the items transfer automatically between your two collections — no counting cards or doing the math by hand.",
+              },
+              {
+                title: "Local Discovery",
+                desc: "Buyers near you find your listing. Filter the marketplace by distance to see what's for sale around Raleigh-Durham, then meet up in person — no shipping a $5 card across the country.",
+              },
+              {
+                title: "Events",
+                desc: "Find local card shows and meetups on the Events tab. Vendors can place themselves on an event so buyers browsing the show can see their listed inventory and find them in person.",
               },
               {
                 title: "AI Market Intelligence",
@@ -338,11 +354,11 @@ export default function Home() {
               },
               {
                 title: "CSV Import",
-                desc: "You don't have to start your collection over. Import a spreadsheet from TCGPlayer, Collectr, Deckbox, or PriceCharting — automatic catalog matching pulls rows into LootScout so you can track and list without retyping every card.",
+                desc: "You don't have to start your collection over. Import a spreadsheet from another app — automatic catalog matching pulls rows into LootScout, priced against real data, so you can track and list without retyping every card.",
               },
               {
                 title: "Shop Tools",
-                desc: "POS checkout, trade-in calculator with custom buy percentages, kiosk mode with QR codes for in-store pickup browsing, a shop-scoped pickup cart, and sales analytics (including card-show profit tracking on Pro Shop+).",
+                desc: "In-person POS checkout, a trade-in credit calculator where shops set their own buy rate (e.g. 80%), kiosk mode with QR codes for in-store pickup browsing, a shop-scoped pickup cart, and sales analytics (including card-show profit tracking on Pro Shop+).",
               },
               {
                 title: "Grading Cert Verification",
@@ -481,10 +497,10 @@ export default function Home() {
               </span>
               <div className="text-center sm:text-left">
                 <p className="font-semibold">
-                  Beta Launch Pricing - Lock in these rates forever!
+                  New accounts get Pro free for their first 60 days.
                 </p>
                 <p className="text-sm text-primary-100">
-                  Limited-time pricing while we&apos;re in beta. Keep your rate as long as you stay subscribed.
+                  Intro offer while we&apos;re in beta — then lock in these rates forever and keep them as long as you stay subscribed.
                 </p>
               </div>
             </div>
