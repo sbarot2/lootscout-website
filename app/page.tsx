@@ -19,7 +19,7 @@ export default function Home() {
                   Intro offer: 60 days of Pro, free
                 </span>
                 <a
-                  href="https://discord.gg/HepRRKr4"
+                  href="https://discord.gg/CKWz5E3kP9"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-2 text-sm font-semibold text-white border border-white/30 hover:bg-white/25 transition-colors"
