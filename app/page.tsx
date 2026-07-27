@@ -121,7 +121,7 @@ export default function Home() {
                 <div className="w-12 h-12 rounded-lg bg-primary-600 text-white flex items-center justify-center text-xl font-bold">3</div>
                 <h3 className="mt-4 text-xl font-semibold text-slate-900">For Shops</h3>
                 <p className="mt-2 text-slate-600">
-                  QR-forward kiosk flows, shop-scoped pickup cart, POS checkout, and trade-in tools — same hybrid pricing philosophy, tuned for the sales floor. Staff-friendly builds add inventory and analytics where enabled.
+                  QR-forward kiosk flows, shop-scoped pickup cart, POS checkout, and trade-in tools — same hybrid pricing philosophy, tuned for the sales floor. Accept cards right on your phone with <strong>Tap to Pay</strong> and get <strong>paid directly to your own bank</strong> — we never hold your money. Staff-friendly builds add inventory and analytics where enabled.
                 </p>
               </div>
             </FadeInSection>
@@ -194,7 +194,7 @@ export default function Home() {
                 <div className="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center text-lg font-bold">2</div>
                 <h4 className="mt-3 text-lg font-semibold">Learns from Real Sales</h4>
                 <p className="mt-2 text-sm text-primary-100">
-                  Every completed transaction on LootScout—whether it matches, exceeds, or comes in below the estimate—gets recorded. Our algorithm tracks what people actually pay, not just what sellers ask for.
+                  Every completed transaction on LootScout—whether it matches, exceeds, or comes in below the estimate—gets recorded. As in-person card payments settle deals on the spot, those real sales feed the pricing engine too, with sanity bounds so outliers don&apos;t skew the numbers. Our algorithm tracks what people actually pay, not just what sellers ask for.
                 </p>
               </div>
               <div className="p-5 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20">
@@ -307,6 +307,24 @@ export default function Home() {
             </FadeInSection>
             <FadeInSection>
               <div className="h-full p-6 rounded-xl bg-white border-2 border-primary-200 shadow-sm hover:shadow-md transition-shadow ring-1 ring-primary-100/60">
+                <h3 className="text-lg font-semibold text-slate-900">Tap to Pay — accept cards on your phone</h3>
+                <p className="mt-2 text-sm text-slate-600 leading-relaxed">
+                  Take in-person contactless card payments with just your phone — <strong>no reader, no extra hardware</strong>. Powered by
+                  Stripe. Other platforms hold your money and take a big cut; here you get paid <strong>directly to your own bank</strong> via
+                  Stripe Connect — LootScout never holds your funds and takes only a <strong>small per-transaction fee</strong>, broken down
+                  clearly in the app before every sale. Optionally pass the processing fee to the buyer where local law allows. Card payments
+                  <strong> settle trades and sales instantly</strong> — no confirm dance — and refunds are handled in-app if a deal is disputed.{" "}
+                  <strong>Available on Android now; iOS coming soon.</strong>
+                </p>
+                <p className="mt-3 text-sm">
+                  <Link href="/faq#tap-to-pay" className="font-medium text-primary-600 hover:text-primary-700 hover:underline">
+                    How getting paid works (FAQ) →
+                  </Link>
+                </p>
+              </div>
+            </FadeInSection>
+            <FadeInSection>
+              <div className="h-full p-6 rounded-xl bg-white border-2 border-primary-200 shadow-sm hover:shadow-md transition-shadow ring-1 ring-primary-100/60">
                 <h3 className="text-lg font-semibold text-slate-900">In-app card scanner (TCG)</h3>
                 <p className="mt-2 text-sm text-slate-600 leading-relaxed">
                   <strong>Single</strong> or <strong>batch</strong> scanning with the phone camera and on-device OCR. Matches land in the
@@ -334,7 +352,7 @@ export default function Home() {
               },
               {
                 title: "Digital Trades",
-                desc: "Build a trade in person: pick what you give and what you get, both sides confirm, and the items transfer automatically between your two collections — no counting cards or doing the math by hand.",
+                desc: "Build a trade in person: pick what you give and what you get, both sides confirm, and the items transfer automatically between your two collections — no counting cards or doing the math by hand. Owe cash on a trade? Settle the difference with Tap to Pay on the spot and the deal closes instantly.",
               },
               {
                 title: "Local Discovery",
@@ -358,7 +376,7 @@ export default function Home() {
               },
               {
                 title: "Shop Tools",
-                desc: "In-person POS checkout, a trade-in credit calculator where shops set their own buy rate (e.g. 80%), kiosk mode with QR codes for in-store pickup browsing, a shop-scoped pickup cart, and sales analytics (including card-show profit tracking on Pro Shop+).",
+                desc: "In-person POS checkout with Tap to Pay (accept cards on your phone, no reader), walk-in trade-ins any shop can run — search the full catalog for what a customer brings, any grading company including ACE and TAG plus half grades, set per-item agreed prices, and take card for any remainder on the spot while items auto-file into collection folders. Plus a trade-in credit calculator where shops set their own buy rate (e.g. 80%), kiosk mode with QR codes for in-store pickup browsing, a shop-scoped pickup cart, and sales analytics (including card-show profit tracking on Pro Shop+).",
               },
               {
                 title: "Grading Cert Verification",
@@ -439,11 +457,6 @@ export default function Home() {
                   icon: "barcode" as const,
                   title: "Barcode Scanning",
                   desc: "Scan sealed products and graded slabs for instant lookup",
-                },
-                {
-                  icon: "payment" as const,
-                  title: "In-app payments",
-                  desc: "Pay and get paid for local deals without leaving the app",
                 },
                 {
                   icon: "loyalty" as const,

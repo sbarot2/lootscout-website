@@ -170,15 +170,30 @@ export default function FeaturesPage() {
               <p>
                 Shop-scoped pickup cart on device; Pickup hub and checkout
                 routes; kiosk tablet flow with QR listings; trade and sale
-                drafts from a scanned listing QR. In-app card payments are{" "}
-                <strong>coming soon</strong> — today, deals are settled in
-                person.
+                drafts from a scanned listing QR.
               </p>
               <p>
-                <strong>Trade-in cart</strong> (Enterprise): walk-in
-                customers can sell or trade cards into your shop with custom
+                <strong>Tap to Pay:</strong> accept in-person contactless card
+                payments with just your phone — no reader hardware. It&rsquo;s
+                powered by Stripe, and you&rsquo;re paid <strong>directly to
+                your own bank</strong> through Stripe Connect; LootScout never
+                holds your funds and takes only a small per-transaction fee,
+                shown clearly in the app before each sale. You can optionally
+                pass the processing fee to the buyer where local law allows.
+                Card payments <strong>settle trades and sales instantly</strong>{" "}
+                (no separate confirm step), and refunds run in-app if a deal is
+                disputed. <strong>Available on Android now; iOS coming
+                soon.</strong>
+              </p>
+              <p>
+                <strong>Trade-in cart:</strong> any shop can run walk-in
+                trade-ins. Search the full product catalog for what a customer
+                brings in — any grading company, including <strong>ACE and
+                TAG</strong>, plus half grades — set a per-item agreed price,
+                take card payment for any remaining balance on the spot, and the
+                items file automatically into your collection folders. Custom
                 catalog entries (including custom grading slabs) and per-line
-                quantity adjustments.
+                quantity adjustments are supported.
               </p>
               <p>
                 <strong>Transactions CSV export</strong> (Pro Shop /

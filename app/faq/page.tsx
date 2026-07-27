@@ -36,6 +36,16 @@ const qa = [
     a: "In batch mode you scan many cards in sequence. Each scan appears as a thumbnail; you can change the catalog match, remove a scan, or add a row via manual search. When you are ready, open Review to set condition (including graded grades), variant, and folder per row, see approximate prices where data exists, then add all to your collection.",
   },
   {
+    id: "tap-to-pay",
+    q: "How do I get paid for in-person sales and trades?",
+    a: "With Tap to Pay, you can accept contactless card payments using just your phone — no card reader or extra hardware. Payments are powered by Stripe, and money goes directly to your own bank account through Stripe Connect. LootScout never holds your funds. Card payments settle sales and trades instantly, so there's no separate confirmation step, and refunds are handled in-app if a deal is disputed. Tap to Pay is available on Android now; iOS is coming soon.",
+  },
+  {
+    id: "tap-to-pay-fees",
+    q: "What does Tap to Pay cost?",
+    a: "There's only a small per-transaction processing fee, and the app shows you the exact breakdown before each sale — no platform holding your money and taking a large cut. If you prefer, you can optionally pass the processing fee to the buyer where local law allows.",
+  },
+  {
     id: "pricing-beta",
     q: "Why is pricing labeled beta?",
     a: "Plans and limits can evolve while we refine the product. Lock-in messaging on the homepage describes how beta subscribers may keep promotional rates; see the pricing section for details.",

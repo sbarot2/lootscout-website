@@ -91,7 +91,8 @@ const shopPlans: Plan[] = [
       { label: "Peer trades / month", value: "—" },
       { label: "CSV import", value: "Included" },
       { label: "In-person checkout", value: "—" },
-      { label: "Trade-in cart", value: "—" },
+      { label: "Trade-in cart", value: "Included" },
+      { label: "Custom default buy rates", value: "—" },
     ],
   },
   {
@@ -109,7 +110,8 @@ const shopPlans: Plan[] = [
       { label: "Peer trades / month", value: "20" },
       { label: "CSV import", value: "Included" },
       { label: "In-person checkout", value: "Included" },
-      { label: "Trade-in cart", value: "—" },
+      { label: "Trade-in cart", value: "Included" },
+      { label: "Custom default buy rates", value: "—" },
     ],
   },
   {
@@ -127,6 +129,7 @@ const shopPlans: Plan[] = [
       { label: "CSV import", value: "Included" },
       { label: "In-person checkout", value: "Included" },
       { label: "Trade-in cart", value: "Included" },
+      { label: "Custom default buy rates", value: "Included" },
       { label: "Rewards program", value: "Included" },
       { label: "API access", value: "Included" },
       { label: "Multi-location", value: "Included" },
