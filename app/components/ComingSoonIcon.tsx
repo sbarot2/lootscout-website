@@ -1,9 +1,7 @@
 type IconName =
   | "camera"
-  | "map"
   | "bell"
   | "sports"
-  | "barcode"
   | "analytics"
   | "payment"
   | "loyalty"
@@ -25,13 +23,6 @@ export default function ComingSoonIcon({ name }: { name: IconName }) {
           <circle cx="12" cy="13" r="3.25" />
         </svg>
       );
-    case "map":
-      return (
-        <svg className={base} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" aria-hidden>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M9 20l-4-2V6l4 2 6-3 4 2v12l-4-2-6 3z" />
-          <path strokeLinecap="round" strokeLinejoin="round" d="M9 10l6-3M9 14l6-3" />
-        </svg>
-      );
     case "bell":
       return (
         <svg className={base} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" aria-hidden>
@@ -47,12 +38,6 @@ export default function ComingSoonIcon({ name }: { name: IconName }) {
         <svg className={base} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" aria-hidden>
           <circle cx="12" cy="12" r="9" />
           <path strokeLinecap="round" d="M3 12h18M12 3a15 15 0 000 18M12 3a15 15 0 010 18" />
-        </svg>
-      );
-    case "barcode":
-      return (
-        <svg className={base} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" aria-hidden>
-          <path strokeLinecap="round" d="M5 7v10M8 7v10M10 7v10M14 7v10M17 7v10M19 7v10" />
         </svg>
       );
     case "analytics":

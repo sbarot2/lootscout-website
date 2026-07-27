@@ -72,6 +72,12 @@ export default function FeaturesPage() {
                 <strong>Listings search:</strong> Switch to listings mode when available; use filters (price, condition, distance, etc.). Distance may require location permission.
               </p>
               <p>
+                <strong>Map:</strong> Browse nearby listings on an interactive map to see what&rsquo;s for sale around you, then meet up in person.
+              </p>
+              <p>
+                <strong>Wishlist &amp; price alerts:</strong> Add cards to your wishlist and get notified when a match is listed near you. Set price alerts (Plus and up) to watch the market and hear about moves on items you care about.
+              </p>
+              <p>
                 See also:{" "}
                 <Link href="/faq#search-api" className="text-primary-600 font-medium hover:underline">
                   FAQ — external APIs while typing
@@ -223,6 +229,13 @@ export default function FeaturesPage() {
                 <strong>Manage</strong> opens the App Store subscription
                 screen for IAP customers, or the Stripe customer portal for
                 everyone else.
+              </p>
+              <p>
+                <strong>Follow &amp; discover collectors:</strong> Search for
+                other collectors and shops by name and follow the ones you want
+                to keep up with, so their new listings and activity stay on your
+                radar. Public profiles show reviews and ratings from completed
+                deals.
               </p>
             </Section>
 

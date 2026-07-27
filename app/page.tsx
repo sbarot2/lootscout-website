@@ -290,7 +290,7 @@ export default function Home() {
           <FadeInSection>
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 text-center">Features</h2>
             <p className="mt-4 text-slate-600 text-center max-w-2xl mx-auto">
-              Everything you need to buy and sell collectibles locally — with a native app built for binders, shops, and in-person trades.
+              Everything you need to buy and sell collectibles locally — with a native app built for collectors, shops, and in-person trades.
               Already have your collection in another tool? <strong>CSV import</strong> lets you bring it over so you don&apos;t have to start
               from scratch.
             </p>
@@ -355,8 +355,24 @@ export default function Home() {
                 desc: "Build a trade in person: pick what you give and what you get, both sides confirm, and the items transfer automatically between your two collections — no counting cards or doing the math by hand. Owe cash on a trade? Settle the difference with Tap to Pay on the spot and the deal closes instantly.",
               },
               {
-                title: "Local Discovery",
-                desc: "Buyers near you find your listing. Filter the marketplace by distance to see what's for sale around Raleigh-Durham, then meet up in person — no shipping a $5 card across the country.",
+                title: "Local Discovery & Map",
+                desc: "Buyers near you find your listing. Browse nearby listings on an interactive map or filter the marketplace by distance to see what's for sale around Raleigh-Durham, then meet up in person — no shipping a $5 card across the country.",
+              },
+              {
+                title: "Reviews & Ratings",
+                desc: "Build a reputation. After a confirmed sale or trade, both sides can leave a 1-5 star review. Ratings show on public profiles and shop pages, so you know who you're dealing with before you meet up.",
+              },
+              {
+                title: "Follow Collectors",
+                desc: "Search for other collectors and shops by name and follow the ones you want to keep up with — so you spot their new listings and can build your local trading network.",
+              },
+              {
+                title: "Disputes & Refunds",
+                desc: "If a deal goes sideways, open a dispute right in the app. Both parties exchange messages, and unresolved cases escalate to LootScout for moderator mediation. Card payments can be refunded in-app.",
+              },
+              {
+                title: "Safety & Moderation",
+                desc: "Report any user, listing, or message, and block anyone to instantly clear their listings and messages from your view. Moderators triage reports within 24 hours and act on objectionable content.",
               },
               {
                 title: "Events",
@@ -391,43 +407,6 @@ export default function Home() {
               </FadeInSection>
             ))}
           </div>
-
-          <FadeInSection>
-            <div
-              id="scanner"
-              className="mt-16 scroll-mt-24 rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm"
-            >
-              <h3 className="text-2xl font-bold text-slate-900">Scan your binder</h3>
-              <p className="mt-3 text-slate-600 max-w-3xl leading-relaxed">
-                Built for collectors who want to log a box or a binder without retyping names. Already have a list in another app?{" "}
-                <strong>CSV import</strong> brings it in so you don&apos;t start from zero — then use the scanner for new pickups. Shop staff
-                can use the same flow for intake during buylist or trade events. Scanning requires a <strong>native build</strong> with camera
-                + OCR — not the marketing site in a browser.{" "}
-                <Link href="/faq#scanner-web" className="font-medium text-primary-600 hover:underline">
-                  Website vs app (FAQ) →
-                </Link>
-              </p>
-              <div className="mt-8 grid sm:grid-cols-2 gap-4">
-                <div className="flex flex-col aspect-[4/3] rounded-xl border-2 border-dashed border-slate-300 bg-slate-100 items-center justify-center p-4 text-center">
-                  <span className="text-xs font-semibold uppercase tracking-wide text-slate-500">Placeholder</span>
-                  <p className="mt-2 text-sm font-medium text-slate-700">Batch review</p>
-                  <p className="mt-1 text-xs text-slate-500">Replace with product screenshot when approved.</p>
-                </div>
-                <div className="flex flex-col aspect-[4/3] rounded-xl border-2 border-dashed border-slate-300 bg-slate-100 items-center justify-center p-4 text-center">
-                  <span className="text-xs font-semibold uppercase tracking-wide text-slate-500">Placeholder</span>
-                  <p className="mt-2 text-sm font-medium text-slate-700">Single match sheet</p>
-                  <p className="mt-1 text-xs text-slate-500">Replace with product screenshot when approved.</p>
-                </div>
-              </div>
-              <p className="mt-6 text-sm text-slate-500">
-                Full walkthrough:{" "}
-                <Link href="/features#scanner" className="text-primary-600 font-medium hover:underline">
-                  Features &amp; guides — Card scanner
-                </Link>
-                .
-              </p>
-            </div>
-          </FadeInSection>
         </div>
       </section>
 
@@ -448,16 +427,6 @@ export default function Home() {
           <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {(
               [
-                {
-                  icon: "map" as const,
-                  title: "Map View",
-                  desc: "Browse local listings on an interactive map",
-                },
-                {
-                  icon: "barcode" as const,
-                  title: "Barcode Scanning",
-                  desc: "Scan sealed products and graded slabs for instant lookup",
-                },
                 {
                   icon: "loyalty" as const,
                   title: "Shop loyalty points",
