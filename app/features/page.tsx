@@ -63,7 +63,7 @@ export default function FeaturesPage() {
 
             <Section id="home" title="2. Home tab">
               <p>
-                <strong>Portfolio</strong> shows collection value and gain/loss (scope may follow folder filters). Pull to refresh updates figures.
+                <strong>Portfolio</strong> shows collection value and gain/loss (scope may follow folder filters). Pull to refresh updates figures. A <strong>value-over-time chart</strong> tracks your collection&rsquo;s total worth day by day, so you can watch your portfolio grow over weeks and months instead of seeing only today&rsquo;s number.
               </p>
               <p>
                 <strong>Product search:</strong> While typing, search is <strong>database / catalog only</strong> — fast, without live TCG API on every keystroke. When you submit (Search / Enter), the app runs a <strong>hybrid</strong> search path that may call external APIs when appropriate, then merges and caches results.

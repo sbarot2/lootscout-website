@@ -341,6 +341,22 @@ export default function Home() {
                 </p>
               </div>
             </FadeInSection>
+            <FadeInSection>
+              <div className="h-full p-6 rounded-xl bg-white border-2 border-primary-200 shadow-sm hover:shadow-md transition-shadow ring-1 ring-primary-100/60">
+                <h3 className="text-lg font-semibold text-slate-900">Events — local shows &amp; meetups</h3>
+                <p className="mt-2 text-sm text-slate-600 leading-relaxed">
+                  Local card shows and collector meetups live on the <strong>Events tab</strong> — discover what&apos;s
+                  happening near you and see who&apos;s attending before you go. <strong>Vendors can claim a booth</strong>{" "}
+                  on an event so buyers browsing the show see their listed inventory and can find them in person. Events
+                  are how LootScout turns online listings into real local trades.
+                </p>
+                <p className="mt-3 text-sm">
+                  <Link href="/features#shops" className="font-medium text-primary-600 hover:text-primary-700 hover:underline">
+                    How events work →
+                  </Link>
+                </p>
+              </div>
+            </FadeInSection>
             {[
               {
                 title: "Collection Tracker",
@@ -375,20 +391,20 @@ export default function Home() {
                 desc: "Report any user, listing, or message, and block anyone to instantly clear their listings and messages from your view. Moderators triage reports within 24 hours and act on objectionable content.",
               },
               {
-                title: "Events",
-                desc: "Find local card shows and meetups on the Events tab. Vendors can place themselves on an event so buyers browsing the show can see their listed inventory and find them in person.",
-              },
-              {
                 title: "AI Market Intelligence",
-                desc: "Price trend predictions, optimal sell timing alerts, and portfolio analytics powered by real market data.",
+                desc: "Price trend predictions, optimal sell timing alerts, and portfolio analytics powered by real market data — including a portfolio value-over-time chart that tracks your collection's worth day by day, so you see your gains build, not just today's number.",
               },
               {
                 title: "Push Notifications",
-                desc: "Alerts for nearby listings, price changes, trade updates, and wishlist matches — so you never miss a deal in your area.",
+                desc: "Alerts for nearby listings, price changes, trade updates, and wishlist matches — add cards to your wishlist and get pinged the moment one is listed near you, so you never miss a deal in your area.",
               },
               {
                 title: "CSV Import",
                 desc: "You don't have to start your collection over. Import a spreadsheet from another app — automatic catalog matching pulls rows into LootScout, priced against real data, so you can track and list without retyping every card.",
+              },
+              {
+                title: "Kiosk & Pickup",
+                desc: "Turn a shop tablet or phone into a self-serve kiosk: customers scan a listing's QR code to add it to a pickup cart, then request pickup when they're ready. Pairs with in-person checkout so staff can pull the order and take payment — a smooth counter experience without a dedicated POS terminal.",
               },
               {
                 title: "Shop Tools",

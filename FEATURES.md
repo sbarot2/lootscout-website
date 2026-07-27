@@ -1,6 +1,6 @@
 # LootScout — Feature guide & how to use
 
-**Last updated:** 2026-04-07  
+**Last updated:** 2026-07-26  
 **Product:** LootScout mobile app (React Native / Expo). Some features need a **development build** (not Expo Go), especially **card scanning** and full camera/OCR.
 
 This guide is for **beta testers**, **support**, and **internal teams**. Technical deep-dives also live in `docs/features-*.md` and `CLAUDE.md`.
@@ -67,8 +67,6 @@ This guide is for **beta testers**, **support**, and **internal teams**. Technic
 - **Folders:** assign items to folders; filter portfolio by folder on Home when supported.
 
 ### CSV import (when enabled)
-
-**You don’t have to start over:** bring a spreadsheet from another platform and map it into LootScout instead of retyping your whole collection.
 
 1. Use **import CSV** from Collection (exact entry depends on build).
 2. Map columns; preview may show skeleton rows while rows are matched to the catalog.
@@ -145,6 +143,36 @@ Summarized in **`docs/features-kiosk-shop-pickup-cart.md`**.
 
 Follow that document for routes (`/pickup`, `/kiosk`, etc.) and QR deep link shapes.
 
+### Walk-in trade-in (any shop)
+
+**Who:** Any user who owns a shop can run a **walk-in trade-in** — the flow is open to **all shops** (no subscription tier gate on starting one).
+
+1. From the **Shop dashboard** or **Profile → Shop**, start a **trade-in** (walk-in / point-of-sale).
+2. **Search the catalog** for the customer's item — any category, not just cards. Add items **line by line**.
+3. For **graded** items, pick the **grading company** — PSA, BGS, CGC, SGC, and the newer **ACE / TAG** — and the **grade**, including **half grades** (e.g. 9.5, 8.5).
+4. Set an **agreed price per line** — the number you and the customer settle on. The catalog price is a reference; you can override it (or type a manual estimate when the catalog has no price).
+5. Complete the trade-in — accepted items are **filed automatically into a receiving folder** in your inventory.
+6. Settle any **cash remainder** owed to the customer in person, or (Android) **charge their card with Tap to Pay** — see below.
+
+### Tap to Pay — in-person card payments (Android)
+
+**Requires:** an **NFC-capable Android phone** and a store / preview build that includes the payments SDK (not Expo Go). **No card-reader hardware needed** — the phone is the terminal. **iOS support is coming later** (Android first).
+
+**One-time seller setup:**
+1. Open **Profile** (or **Shop**) → the **Tap to Pay / payments** entry.
+2. **Connect Stripe** (Stripe Connect). You are onboarded as the merchant, so **payouts go directly to you — LootScout never holds your funds.**
+3. A **shop address is required** to provision your in-person payment location; add it in shop settings if prompted.
+
+**Taking a payment (seller):**
+1. Available on a **POS sale**, a **trade-in cash remainder**, or a **peer-trade cash difference** — choose **charge card (Tap to Pay)**.
+2. Review the **fee breakdown** shown in-app: the charge, LootScout's **3% platform fee**, and your net are itemized **before** you charge. You can optionally **pass the fee to the buyer** where local rules allow.
+3. The buyer **taps a contactless card or phone** to your Android device.
+4. On approval the payment settles; for a trade, **settlement is instant** — inventory transfers on the spot.
+
+**Buyer experience:** tap a contactless card or phone to the seller's Android device, exactly like any contactless terminal. No app or account required to pay.
+
+**Refunds:** sellers can issue **in-app refunds** for disputes.
+
 ---
 
 ## 8. Profile & subscription
@@ -179,3 +207,4 @@ Follow that document for routes (`/pickup`, `/kiosk`, etc.) and QR deep link sha
 | Date | Change |
 |------|--------|
 | 2026-04-07 | Initial consolidated guide; Card scanner section from shipped batch/single/manual-search UX. |
+| 2026-07-26 | Added **Tap to Pay** (Android in-person card payments, no reader hardware, direct Stripe Connect payouts, 3% platform fee with in-app breakdown, optional buyer fee pass-through, in-app refunds) and **walk-in trade-in for all shops** (catalog search, any grading company incl. ACE/TAG + half grades, per-line agreed pricing, auto folder filing, instant settlement on card tap). iOS Tap to Pay noted as coming later. |
