@@ -2,6 +2,7 @@ import Link from "next/link";
 import Footer from "./components/Footer";
 import FadeInSection from "./components/FadeInSection";
 import GalleryCarousel from "./components/GalleryCarousel";
+import MarketingVideoGallery from "./components/MarketingVideoGallery";
 import ComingSoonIcon from "./components/ComingSoonIcon";
 
 export default function Home() {
@@ -423,6 +424,22 @@ export default function Home() {
               </FadeInSection>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* See LootScout in action */}
+      <section className="py-16 sm:py-24 bg-slate-900">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <FadeInSection>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white text-center">See LootScout in action</h2>
+            <p className="mt-4 text-slate-400 text-center max-w-2xl mx-auto">
+              Short clips straight from the app — scanning cards into your collection, finding vendors at a live event,
+              and more.
+            </p>
+          </FadeInSection>
+          <FadeInSection className="mt-10">
+            <MarketingVideoGallery />
+          </FadeInSection>
         </div>
       </section>
 
