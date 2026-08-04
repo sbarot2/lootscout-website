@@ -16,7 +16,7 @@ export default function Home() {
               <div className="flex flex-wrap items-center gap-2">
                 <span className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-bold text-primary-700 shadow-sm">
                   <span aria-hidden>🎉</span>
-                  Intro offer: 60 days of Pro, free
+                  Intro offer: 60 days of Enterprise, free
                 </span>
                 <a
                   href="https://discord.gg/CKWz5E3kP9"
@@ -39,7 +39,7 @@ export default function Home() {
                 cards, video games, comics, Funko, coins, and more — in person, near you.
               </p>
               <p className="mt-3 text-sm text-primary-200/90 max-w-xl">
-                Every new account gets <strong className="font-semibold text-white">Pro free for its first 60 days</strong>{" "}
+                Every new account gets <strong className="font-semibold text-white">Enterprise free for its first 60 days</strong>{" "}
                 during our intro period.{" "}
                 <Link href="/features" className="font-medium text-white underline decoration-white/40 underline-offset-2 hover:decoration-white">
                   Features &amp; guides →
@@ -495,7 +495,7 @@ export default function Home() {
               </span>
               <div className="text-center sm:text-left">
                 <p className="font-semibold">
-                  New accounts get Pro free for their first 60 days.
+                  New accounts get Enterprise free for their first 60 days.
                 </p>
                 <p className="text-sm text-primary-100">
                   Intro offer while we&apos;re in beta — then lock in these rates forever and keep them as long as you stay subscribed.

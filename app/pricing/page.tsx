@@ -233,7 +233,7 @@ export default function PricingPage() {
               🎉
             </span>
             <p className="text-sm sm:text-base font-semibold">
-              Intro offer: every new account gets <span className="underline decoration-white/40 underline-offset-2">Pro free for its first 60 days</span>.
+              Intro offer: every new account gets <span className="underline decoration-white/40 underline-offset-2">Enterprise free for its first 60 days</span>.
             </p>
           </div>
           <p className="mt-4 max-w-2xl text-slate-600 leading-relaxed">

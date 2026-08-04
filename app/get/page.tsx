@@ -5,7 +5,7 @@ import StoreLinks from "./StoreLinks";
 export const metadata: Metadata = {
   title: "Get LootScout — Download the app",
   description:
-    "Download LootScout for iOS or Android. Every new account gets Pro free for its first 60 days during our intro period.",
+    "Download LootScout for iOS or Android. Every new account gets Enterprise free for its first 60 days during our intro period.",
 };
 
 export default function GetPage() {
@@ -20,7 +20,7 @@ export default function GetPage() {
         <h1 className="mt-8 text-3xl sm:text-4xl font-bold tracking-tight">Get LootScout</h1>
         <p className="mt-4 text-lg text-primary-100">
           The local marketplace for collectors — free, with{" "}
-          <strong className="font-semibold text-white">60 days of Pro included</strong>.
+          <strong className="font-semibold text-white">60 days of Enterprise included</strong>.
         </p>
 
         <StoreLinks />
