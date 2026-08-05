@@ -18,12 +18,13 @@ const SUPPORT_EMAIL = "support@lootscout.io";
 // FILL THESE IN BEFORE PUBLISHING. Every placeholder below is rendered on the
 // page exactly as written, so a missed value is visible at a glance.
 // ---------------------------------------------------------------------------
-const ENTRY_START = "[START DATE]";
-const ENTRY_END = "[END DATE]";
-const DRAW_DATE = "[DRAW DATE]";
-const PRIZE_DESCRIPTION = "[PRIZE DESCRIPTION]";
-const PRIZE_ARV = "[ARV: $X]";
-const LAST_UPDATED = "[LAST UPDATED DATE]";
+const ENTRY_START = "August 6, 2026";
+const ENTRY_END = "September 5, 2026";
+const DRAW_DATE = "on or about September 12, 2026";
+const PRIZE_DESCRIPTION =
+  "One (1) Pokémon Mega Greninja Special Illustration Rare (raw, ungraded) and one (1) Pitch Black booster box";
+const PRIZE_ARV = "approximately $500 USD";
+const LAST_UPDATED = "August 5, 2026";
 
 export default function GiveawayPage() {
   return (

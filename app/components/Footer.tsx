@@ -5,6 +5,7 @@ const footerLinks = [
   { href: "/terms", label: "Terms of Service" },
   { href: "/refund", label: "Refund Policy" },
   { href: "/delete-account", label: "Delete account" },
+  { href: "/giveaway", label: "Giveaway rules" },
   { href: "#contact", label: "Contact" },
 ];
 
