@@ -3,7 +3,47 @@
 import { useEffect, useState } from "react";
 
 const IOS_URL = "https://apps.apple.com/us/app/lootscout-collectibles/id6765471016";
-const ANDROID_URL = "https://play.google.com/store/apps/details?id=com.lootscout.app&pcampaignid=web_share";
+const ANDROID_BASE_URL = "https://play.google.com/store/apps/details?id=com.lootscout.app";
+/** Organic / untracked link — unchanged from before UTM forwarding existed. */
+const ANDROID_URL = `${ANDROID_BASE_URL}&pcampaignid=web_share`;
+
+/**
+ * Campaign params Google Play surfaces in Play Console → Acquisition reports
+ * when they arrive inside the install-referrer string.
+ */
+const UTM_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"] as const;
+
+/**
+ * Builds the Google Play URL for the current visit.
+ *
+ * When the page was opened with utm_* params (paid traffic), they are forwarded
+ * through Play's install-referrer mechanism: `&referrer=<url-encoded utm string>`.
+ * Play decodes that once and reports the UTMs as the install source instead of
+ * bucketing the install as Organic.
+ *
+ * `pcampaignid=web_share` is dropped on tracked links: it is Google's own
+ * generic "shared from the web" tag, carries no campaign information, and only
+ * muddies the acquisition channel once a real referrer is present. Untracked
+ * visits keep it so organic behaviour is byte-identical to before.
+ */
+export function buildAndroidUrl(search: string): string {
+  const params = new URLSearchParams(search);
+  const pairs: string[] = [];
+
+  for (const key of UTM_KEYS) {
+    const value = params.get(key)?.trim();
+    if (value) {
+      pairs.push(`${key}=${value}`);
+    }
+  }
+
+  if (pairs.length === 0) {
+    return ANDROID_URL;
+  }
+
+  // Single encode of the whole "a=1&b=2" string — Play decodes it exactly once.
+  return `${ANDROID_BASE_URL}&referrer=${encodeURIComponent(pairs.join("&"))}`;
+}
 
 type Platform = "ios" | "android" | null;
 
@@ -15,30 +55,37 @@ interface StoreLink {
   ariaLabel: string;
 }
 
-const links: StoreLink[] = [
-  {
-    key: "ios",
-    href: IOS_URL,
-    label: "Download (iOS)",
-    icon: "\u{1F34E}",
-    ariaLabel: "Download LootScout for iOS on the App Store",
-  },
-  {
-    key: "android",
-    href: ANDROID_URL,
-    label: "Download (Android)",
-    icon: "▶",
-    ariaLabel: "Download LootScout for Android on Google Play",
-  },
-];
+function buildLinks(androidHref: string): StoreLink[] {
+  return [
+    {
+      key: "ios",
+      href: IOS_URL,
+      label: "Download (iOS)",
+      icon: "\u{1F34E}",
+      ariaLabel: "Download LootScout for iOS on the App Store",
+    },
+    {
+      key: "android",
+      href: androidHref,
+      label: "Download (Android)",
+      icon: "▶",
+      ariaLabel: "Download LootScout for Android on Google Play",
+    },
+  ];
+}
 
 /**
  * Both store links are always rendered — a /get link is often opened on
  * desktop (QR code, link in bio). Detection only reorders and highlights the
  * link matching the visitor's device; it never redirects or hides a platform.
+ *
+ * Platform detection and UTM forwarding both run in an effect (rather than
+ * from `useSearchParams`) so this route stays statically rendered and needs no
+ * Suspense boundary; the server HTML is always the plain organic markup.
  */
 export default function StoreLinks() {
   const [platform, setPlatform] = useState<Platform>(null);
+  const [androidHref, setAndroidHref] = useState<string>(ANDROID_URL);
 
   useEffect(() => {
     const ua = typeof navigator === "undefined" ? "" : navigator.userAgent;
@@ -47,8 +94,13 @@ export default function StoreLinks() {
     } else if (/iphone|ipad|ipod/i.test(ua)) {
       setPlatform("ios");
     }
+
+    if (typeof window !== "undefined") {
+      setAndroidHref(buildAndroidUrl(window.location.search));
+    }
   }, []);
 
+  const links = buildLinks(androidHref);
   const ordered = platform ? [...links].sort((a) => (a.key === platform ? -1 : 1)) : links;
 
   return (
