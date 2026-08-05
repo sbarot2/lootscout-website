@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 const COMPANY_LEGAL_NAME = "LootScout LLC";
 const COMPANY_MAILING_ADDRESS = "4030 Wake Forest Road STE 349, Raleigh, WAKE COUNTY, NC 27609 USA";
 const SUPPORT_EMAIL = "support@lootscout.io";
-const LAST_UPDATED = "June 2, 2026";
+const LAST_UPDATED = "August 5, 2026";
 const EFFECTIVE_DATE = "June 2, 2026";
 
 export default function TermsPage() {
@@ -187,15 +187,17 @@ export default function TermsPage() {
                 .
               </p>
               <p className="mt-3">
-                <strong>7.2 Billing.</strong> Paid tiers are billed in advance
-                on a recurring monthly basis through Stripe, Inc. By subscribing
-                you authorize LootScout (via Stripe) to charge your payment
-                method for the recurring fee until you cancel.
+                <strong>7.2 Billing.</strong> Except for subscriptions purchased
+                in our iOS app (see Section 7.6), paid tiers are billed in
+                advance on a recurring monthly basis through Stripe, Inc. By
+                subscribing you authorize LootScout (via Stripe) to charge your
+                payment method for the recurring fee until you cancel.
               </p>
               <p className="mt-3">
-                <strong>7.3 Cancellation and refunds.</strong> You may cancel at
-                any time via the in-app billing portal or by signing in at
-                lootscout.io. Cancellation is effective at the end of the
+                <strong>7.3 Cancellation and refunds.</strong> Except for
+                subscriptions purchased in our iOS app (see Section 7.6), you
+                may cancel at any time via the in-app billing portal or by
+                signing in at lootscout.io. Cancellation is effective at the end of the
                 current billing period; you retain access until then. We do not
                 provide pro-rata refunds for partial periods, except where
                 required by law.
@@ -210,6 +212,23 @@ export default function TermsPage() {
                 use, or other taxes applicable to your transactions. LootScout&apos;s
                 subscription fees are exclusive of taxes unless explicitly
                 stated otherwise.
+              </p>
+              <p className="mt-3">
+                <strong>7.6 Purchases made through Apple.</strong> If you
+                subscribe within our iOS app, your subscription is sold and
+                billed by Apple through your Apple ID, not by LootScout through
+                Stripe, and Sections 7.2 and 7.3 do not apply to it. Payment is
+                charged to your Apple ID at confirmation of purchase. Your
+                subscription renews automatically each month unless auto-renew
+                is turned off at least 24 hours before the end of the current
+                period, and your account is charged for renewal within 24 hours
+                prior to the end of the current period. You can manage your
+                subscription and turn off auto-renew at any time in your App
+                Store account settings; cancelling anywhere else will not stop
+                an Apple-billed subscription. Where a free trial is offered, any
+                unused portion is forfeited when you purchase a subscription.
+                Refunds for Apple-billed subscriptions are handled by Apple
+                under its own policies.
               </p>
             </section>
 
