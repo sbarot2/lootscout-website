@@ -4,6 +4,7 @@ import FadeInSection from "./components/FadeInSection";
 import GalleryCarousel from "./components/GalleryCarousel";
 import MarketingVideoGallery from "./components/MarketingVideoGallery";
 import ComingSoonIcon from "./components/ComingSoonIcon";
+import StoreBadge from "./components/StoreBadge";
 
 export default function Home() {
   return (
@@ -46,30 +47,25 @@ export default function Home() {
                   Features &amp; guides →
                 </Link>
               </p>
-              <div className="mt-8 flex flex-wrap gap-4">
+              {/* Official store badges. gap-4 plus each link's p-1.5 keeps well
+                  clear of the 10%-of-badge-height clear space both stores
+                  require, and StoreBadge renders the two at one shared height. */}
+              <div className="mt-8 flex flex-wrap items-center gap-4">
                 <a
                   href="https://apps.apple.com/us/app/lootscout-collectibles/id6765471016"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-white text-primary-700 font-semibold rounded-lg hover:bg-primary-50 transition-colors"
-                  aria-label="Download LootScout for iOS on the App Store"
+                  className="inline-flex rounded-xl p-1.5 hover:bg-white/10 transition-colors"
                 >
-                  <span className="text-2xl" aria-hidden>
-                    {"\u{1F34E}"}
-                  </span>
-                  Download (iOS)
+                  <StoreBadge store="app-store" />
                 </a>
                 <a
                   href="https://play.google.com/store/apps/details?id=com.lootscout.app&pcampaignid=web_share"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-white text-primary-700 font-semibold rounded-lg hover:bg-primary-50 transition-colors"
-                  aria-label="Download LootScout for Android on Google Play"
+                  className="inline-flex rounded-xl p-1.5 hover:bg-white/10 transition-colors"
                 >
-                  <span className="text-2xl" aria-hidden>
-                    ▶
-                  </span>
-                  Download (Android)
+                  <StoreBadge store="google-play" />
                 </a>
               </div>
               <p id="download" className="scroll-mt-24 mt-6 text-sm text-primary-200">
