@@ -41,8 +41,10 @@ export default function GiveawayPage() {
             LootScout Launch Giveaway
           </h1>
           <p className="mt-3 text-lg text-slate-700">
-            Create a LootScout account between {ENTRY_START} and {ENTRY_END} for
-            a chance to win one (1) prize, awarded by random drawing.
+            Enter in the LootScout app between {ENTRY_START} and {ENTRY_END} for
+            a chance to win one (1) prize, awarded by random drawing. Open to all
+            registered LootScout users, including those who registered before{" "}
+            {ENTRY_START}.
           </p>
           <p className="mt-4 border-l-4 border-primary-500 pl-4 py-2 font-semibold text-slate-900">
             NO PURCHASE NECESSARY. A purchase or payment of any kind will not
@@ -79,10 +81,13 @@ export default function GiveawayPage() {
                   WIN.
                 </strong>{" "}
                 A purchase or payment will not improve your chances of winning.
-                The LootScout app is free to download and free to use, and
-                creating an account costs nothing. Purchasing a LootScout
-                subscription is not an entry method, does not create an entry,
-                and does not create additional entries.
+                The LootScout app is free to download and free to use, entering
+                the Sweepstakes is free, and creating an account costs nothing.
+                If you already have a LootScout account, you do not need to
+                create anything or pay anything to enter &mdash; you only need to
+                submit an entry in the app as described in Section 5. Purchasing
+                a LootScout subscription is not an entry method, does not create
+                an entry, and does not create additional entries.
               </p>
             </section>
 
@@ -110,6 +115,15 @@ export default function GiveawayPage() {
                 prohibited or restricted by law.
               </p>
               <p className="mt-3">
+                The Sweepstakes is open to <strong>all</strong> registered
+                LootScout users who meet those requirements, including users who
+                registered before the Entry Period began. The date on which your
+                LootScout account was created does not affect your eligibility.
+                An eligible entrant must have a LootScout account in order to
+                submit an entry, and must submit that entry during the Entry
+                Period as described in Section 5.
+              </p>
+              <p className="mt-3">
                 Employees, officers, members, and contractors of the Sponsor, and
                 the immediate family members and household members of each, are
                 not eligible to enter or win.
@@ -121,18 +135,29 @@ export default function GiveawayPage() {
                 5. How to enter
               </h3>
               <p className="mt-2">
-                To enter, create a new LootScout account during the Entry Period
-                using the LootScout mobile app. Creating an account is free. Your
-                account registration is your entry.
+                To enter, open the LootScout mobile app during the Entry Period,
+                sign in to your LootScout account, open the giveaway in the app,
+                and tap the button to enter. Your entry is submitted at the
+                moment you tap to enter. Entering is free.
               </p>
               <p className="mt-3">
-                <strong>Limit one (1) entry per person.</strong> Accounts created
-                by the same individual beyond the first, duplicate accounts,
-                accounts created using automated means, bot accounts, accounts
-                created with false or incomplete information, and any entry
-                Sponsor reasonably believes is fraudulent will be disqualified.
-                Sponsor may disqualify all entries associated with an individual
-                found to have submitted multiple entries.
+                If you do not already have a LootScout account, you may create
+                one at no cost in order to enter.{" "}
+                <strong>Creating an account is not itself an entry</strong> and
+                does not place you in the drawing. Whether your account is new or
+                existing, you must still submit an entry in the app during the
+                Entry Period as described above. This is the only method of
+                entry.
+              </p>
+              <p className="mt-3">
+                <strong>Limit one (1) entry per person.</strong> Entries beyond
+                the first submitted by the same individual, entries submitted
+                through duplicate or multiple accounts, entries submitted by
+                automated means or through bot accounts, entries submitted with
+                false or incomplete information, and any entry Sponsor reasonably
+                believes is fraudulent will be disqualified. Sponsor may
+                disqualify all entries associated with an individual found to
+                have submitted multiple entries.
               </p>
               <p className="mt-3">
                 Entries become the property of Sponsor and will not be returned.
@@ -190,11 +215,13 @@ export default function GiveawayPage() {
               </h3>
               <p className="mt-2">
                 <strong>8.1 Drawing.</strong> The winner will be selected in a
-                random drawing from among all eligible entries received during
-                the Entry Period. The drawing will be conducted by Sponsor on or
-                about <strong>{DRAW_DATE}</strong>, within approximately seven
-                (7) days after the Entry Period closes. The drawing is final and
-                binding.
+                random drawing from among all valid entries submitted through the
+                LootScout app during the Entry Period. Accounts that did not
+                submit an entry are not included in the drawing, regardless of
+                when they were created. The drawing will be conducted by Sponsor
+                on or about <strong>{DRAW_DATE}</strong>, within approximately
+                seven (7) days after the Entry Period closes. The drawing is
+                final and binding.
               </p>
               <p className="mt-3">
                 <strong>8.2 Notification.</strong> The winner will be notified at
