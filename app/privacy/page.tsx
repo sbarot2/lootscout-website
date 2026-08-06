@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 const COMPANY_LEGAL_NAME = "LootScout LLC";
 const COMPANY_MAILING_ADDRESS = "4030 Wake Forest Road STE 349, Raleigh, WAKE COUNTY, NC 27609 USA";
 const SUPPORT_EMAIL = "support@lootscout.io";
-const LAST_UPDATED = "May 6, 2026";
+const LAST_UPDATED = "August 5, 2026";
 const EFFECTIVE_DATE = "May 6, 2026";
 
 export default function PrivacyPage() {
@@ -365,10 +365,23 @@ export default function PrivacyPage() {
                 <li>
                   <strong>Opt out</strong> of &ldquo;sale&rdquo; or
                   &ldquo;sharing&rdquo; of personal information.{" "}
+                  <strong>We never sell personal information for money.</strong>{" "}
+                  This website (lootscout.io) uses the Meta advertising pixel,
+                  which shares limited information about your visit — the pages
+                  you view and an identifier Meta may associate with your
+                  Facebook or Instagram account — with Meta Platforms for
+                  advertising measurement and retargeting. Under California law
+                  this may qualify as &ldquo;sharing&rdquo; for cross-context
+                  behavioral advertising.{" "}
                   <strong>
-                    We do not sell or share personal information for
-                    cross-context behavioral advertising.
-                  </strong>
+                    The LootScout mobile app contains no advertising or
+                    attribution trackers of any kind.
+                  </strong>{" "}
+                  You can stop this sharing by blocking third-party cookies or
+                  using an ad blocker in your browser, and you can limit how
+                  Meta uses it in your Facebook or Instagram Ad Preferences. You
+                  may also email us to ask that we not share your information,
+                  and we will honor that to the extent we are able.
                 </li>
                 <li>
                   <strong>Non-discrimination</strong> for exercising any of the
