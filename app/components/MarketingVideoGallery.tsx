@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { MARKETING_VIDEOS, marketingVideoUrl, type MarketingVideo } from "./marketing-videos";
@@ -31,7 +31,7 @@ export default function MarketingVideoGallery() {
       </ul>
 
       <p className="mt-1 text-center text-sm text-slate-400">
-        {MARKETING_VIDEOS.length > 1 ? "Swipe for more — tap a clip to play with sound" : "Tap the clip to play with sound"}
+        {MARKETING_VIDEOS.length > 1 ? "Swipe for more â€” tap a clip to play with sound" : "Tap the clip to play with sound"}
       </p>
     </div>
   );
@@ -84,7 +84,7 @@ function VideoCard({
     try {
       await player.play();
     } catch {
-      // Some browsers refuse unmuted playback — fall back to muted rather than doing nothing.
+      // Some browsers refuse unmuted playback â€” fall back to muted rather than doing nothing.
       player.muted = true;
       setMuted(true);
       try {
@@ -132,7 +132,7 @@ function VideoCard({
           </div>
         )}
 
-        {!playing && (
+        {!playing && !hasPlayed && (
           <button
             type="button"
             onClick={play}
