@@ -1,7 +1,7 @@
-/**
+﻿/**
  * Marketing clips served from the public Supabase storage bucket `marketing-videos`.
  *
- * Adding a video is a one-line append to MARKETING_VIDEOS below — upload
+ * Adding a video is a one-line append to MARKETING_VIDEOS below â€” upload
  * `<slug>.mp4` to the bucket first, then add `{ slug, title }`.
  *
  * Set `web: true` once a compressed `<slug>-web.mp4` variant exists in the same
@@ -24,11 +24,12 @@ export type MarketingVideo = {
 };
 
 export const MARKETING_VIDEOS: readonly MarketingVideo[] = [
-  { slug: "d1-card-scan", title: "Scan cards straight into your collection" },
-  { slug: "d2-vendor-maps", title: "Find vendors at live events" },
+  { slug: "d1-card-scan", title: "Scan cards straight into your collection", web: true },
+  { slug: "d2-vendor-maps", title: "Find vendors at live events", web: true },
 ];
 
-/** Public URL for a clip — the `-web` variant when one has been uploaded. */
+/** Public URL for a clip â€” the `-web` variant when one has been uploaded. */
 export function marketingVideoUrl(video: MarketingVideo): string {
   return `${MARKETING_VIDEO_BUCKET_URL}/${video.slug}${video.web ? "-web" : ""}.mp4`;
 }
+
