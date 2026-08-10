@@ -27,10 +27,6 @@ export default function GetPage() {
 
         <p className="mt-6 text-sm text-primary-200">Available on the App Store and Google Play.</p>
 
-        <p className="mt-2 text-sm font-medium text-white/90">
-          iOS users: a major app update is coming very soon.
-        </p>
-
         <p className="mt-10 text-sm">
           <Link
             href="/"
