@@ -69,7 +69,15 @@ export default function Home() {
                 </a>
               </div>
               <p id="download" className="scroll-mt-24 mt-6 text-sm text-primary-200">
-                Available on the App Store and Google Play.
+                Available on the App Store and Google Play — or use it right in your browser:{" "}
+                <a
+                  href="https://app.lootscout.io"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium text-white underline decoration-white/40 underline-offset-2 hover:decoration-white"
+                >
+                  View desktop version →
+                </a>
               </p>
             </FadeInSection>
             <FadeInSection className="lg:pl-8">
