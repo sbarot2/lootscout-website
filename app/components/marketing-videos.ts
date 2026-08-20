@@ -25,7 +25,14 @@ export type MarketingVideo = {
 
 export const MARKETING_VIDEOS: readonly MarketingVideo[] = [
   { slug: "d1-card-scan", title: "Scan cards straight into your collection", web: true },
+  { slug: "d11-founder-story", title: "Why we built LootScout", web: true },
   { slug: "d2-vendor-maps", title: "Find vendors at live events", web: true },
+  { slug: "d3-kiosk-qr", title: "Kiosk and QR pickup", web: true },
+  { slug: "d4-tap-to-pay", title: "Take card payments in person", web: true },
+  { slug: "d5-digital-trade", title: "Trade cards without the guesswork", web: true },
+  { slug: "d7-list-market-local", title: "List at the real market price", web: true },
+  { slug: "d8-csv-import", title: "Import your whole collection by CSV", web: true },
+  { slug: "d9-trust-safety", title: "Trust and safety built in", web: true },
 ];
 
 /** Public URL for a clip â€” the `-web` variant when one has been uploaded. */
