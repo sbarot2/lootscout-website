@@ -25,6 +25,7 @@ export type MarketingVideo = {
 
 export const MARKETING_VIDEOS: readonly MarketingVideo[] = [
   { slug: "d1-card-scan", title: "Scan cards straight into your collection", web: true },
+  { slug: "d12-import-scan", title: "Bulk list your inventory from scans", web: true },
   { slug: "d11-founder-story", title: "Why we built LootScout", web: true },
   { slug: "d2-vendor-maps", title: "Find vendors at live events", web: true },
   { slug: "d3-kiosk-qr", title: "Kiosk and QR pickup", web: true },
