@@ -6,19 +6,29 @@ import SitePageHeader from "../components/SitePageHeader";
 export const metadata: Metadata = {
   title: "FAQ — LootScout",
   description:
-    "LootScout FAQ: card scanner requirements, Home search behavior, pricing beta, and the local collectibles marketplace.",
+    "LootScout FAQ: card scanner requirements, the Desktop Scan Station and marketplace CSV exports, Home search behavior, pricing beta, and the local collectibles marketplace.",
 };
 
 const qa = [
   {
     id: "scanner-build",
     q: "Do I need a special app build to scan cards?",
-    a: "Yes. The in-app card scanner uses your device camera and on-device text recognition (OCR). It ships in native iOS/Android builds that include the OCR module (for example a development client or production store build). Expo Go and generic web builds do not include the full scanner pipeline.",
+    a: "Yes. The in-app card scanner uses your device camera and on-device text recognition (OCR). It ships in native iOS/Android builds that include the OCR module (for example a development client or production store build). Expo Go and generic web builds do not include the camera scanner pipeline — on a computer, use the Desktop Scan Station instead.",
   },
   {
     id: "scanner-web",
-    q: "Does scanning work on the website?",
-    a: "No — not today. lootscout.io is the marketing site. Scanning, batch review, and add-to-collection from scans happen in the mobile app. Web builds typically show a “scanner not available” style message if you open scanner routes there.",
+    q: "Can I scan cards on a computer?",
+    a: "Yes, with a desktop scanner. lootscout.io is the marketing site, but the LootScout app runs in your browser at app.lootscout.io — go to Collection → Import scans to open the Desktop Scan Station and bulk-import scan images. Camera scanning is different: that needs the phone camera and stays in the mobile app.",
+  },
+  {
+    id: "scan-station",
+    q: "What is the Desktop Scan Station?",
+    a: "It is the bulk workflow for people who scan cards on a flatbed or feed scanner. Open app.lootscout.io on a computer, go to Collection → Import scans, and drop in your images — fronts, or fronts and backs together, up to 150 scans per import. Every card is read in your browser (images are only uploaded when you list a card for sale) and matched to the catalog. A review grid lets you confirm each match, set printing and condition, compare the market price with your own price, and pick a folder. From there you can add the whole batch to your collection, list it for sale in bulk with the scans attached, or export it to eBay and TCGplayer.",
+  },
+  {
+    id: "marketplace-export",
+    q: "Which plans get the eBay and TCGplayer CSV export?",
+    a: "Pro Shop and Enterprise. The exports turn a reviewed batch — or your existing shop inventory — into a ready-to-upload eBay File Exchange file or a TCGplayer seller file, with your own scan photos attached. Everything else in the Desktop Scan Station, including reading scans and adding them to your collection, is available on every plan.",
   },
   {
     id: "search-api",
@@ -38,12 +48,12 @@ const qa = [
   {
     id: "tap-to-pay",
     q: "How do I get paid for in-person sales and trades?",
-    a: "With Tap to Pay, you can accept contactless card payments using just your phone — no card reader or extra hardware. Payments are powered by Stripe, and money goes directly to your own bank account through Stripe Connect. LootScout never holds your funds. Card payments settle sales and trades instantly, so there's no separate confirmation step, and refunds are handled in-app if a deal is disputed. Tap to Pay is available on Android now; iOS is coming soon.",
+    a: "With Tap to Pay, you can accept contactless card payments using just your phone — no card reader or extra hardware. Payments are powered by Stripe, and money goes directly to your own bank account through Stripe Connect. LootScout never holds your funds. Card payments settle sales and trades instantly, so there's no separate confirmation step, and refunds are handled in-app if a deal is disputed. It works on Android, and on iPhone as Tap to Pay on iPhone.",
   },
   {
     id: "tap-to-pay-fees",
     q: "What does Tap to Pay cost?",
-    a: "There's only a small per-transaction processing fee, and the app shows you the exact breakdown before each sale — no platform holding your money and taking a large cut. If you prefer, you can optionally pass the processing fee to the buyer where local law allows.",
+    a: "Two fees, both seller-side: a small LootScout platform fee, and Stripe's card processing fee. The app shows you the exact breakdown of both before each sale — no platform holding your money and taking a large cut.",
   },
   {
     id: "pricing-beta",

@@ -7,7 +7,7 @@ import SitePageHeader from "../components/SitePageHeader";
 export const metadata: Metadata = {
   title: "Features & guides — LootScout",
   description:
-    "How to use LootScout: Home search, collection, in-app TCG card scanner (single & batch), listings, shops, and pickup. Summarized from the project feature guide.",
+    "How to use LootScout: Home search, collection, in-app TCG card scanner (single & batch), the Desktop Scan Station, listings, shops, and pickup. Summarized from the project feature guide.",
 };
 
 function Section({ id, title, children }: { id?: string; title: string; children: ReactNode }) {
@@ -32,11 +32,21 @@ export default function FeaturesPage() {
           </p>
           <h1 className="mt-4 text-3xl sm:text-4xl font-bold text-slate-900">Features &amp; guides</h1>
           <p className="mt-4 text-slate-600 leading-relaxed">
-            LootScout is a <strong>mobile marketplace</strong> for trading cards,
-            video games, comics, and other collectibles, with hybrid pricing
-            (JustTCG, Scrydex, PriceCharting / SportsCardsPro catalog baselines,
-            and local transaction intelligence that improves over time). This
-            page summarizes the features available in the current build.
+            LootScout is a <strong>marketplace</strong> for trading cards,
+            video games, comics, and other collectibles &mdash; on iOS, Android,
+            and in your browser at{" "}
+            <a
+              href="https://app.lootscout.io"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary-600 font-medium hover:underline"
+            >
+              app.lootscout.io
+            </a>{" "}
+            &mdash; with hybrid pricing (JustTCG, Scrydex, PriceCharting /
+            SportsCardsPro catalog baselines, and local transaction intelligence
+            that improves over time). This page summarizes the features
+            available in the current build.
           </p>
 
           <div className="mt-10 space-y-12">
@@ -105,6 +115,14 @@ export default function FeaturesPage() {
                 whole collection. Map columns, preview matching, confirm bulk import, resolve duplicates per app messaging.
               </p>
               <p>
+                <strong>Import scans</strong> (browser): on desktop, Collection →
+                Import scans opens the{" "}
+                <a href="#scan-station" className="text-primary-600 font-medium hover:underline">
+                  Desktop Scan Station
+                </a>{" "}
+                for bulk-importing card scans.
+              </p>
+              <p>
                 <strong>List for sale</strong> from a collection item — listing is prefilled from condition, variant, and catalog links; fixed price vs offer-only where supported.
               </p>
               <p>
@@ -117,7 +135,11 @@ export default function FeaturesPage() {
 
             <Section id="scanner" title="5. Card scanner (TCG)">
               <p className="rounded-lg bg-amber-50 border border-amber-200/80 px-4 py-3 text-amber-950 text-sm">
-                <strong>Requires</strong> a physical iOS or Android device with a dev client or store build that includes <strong>camera + on-device OCR</strong>. Web builds show a scanner-unavailable style message.{" "}
+                <strong>Requires</strong> a physical iOS or Android device with a dev client or store build that includes <strong>camera + on-device OCR</strong>. Scanning with a camera is not available in the browser — on desktop, use the{" "}
+                <a href="#scan-station" className="text-primary-700 font-semibold underline underline-offset-2">
+                  Desktop Scan Station
+                </a>{" "}
+                instead.{" "}
                 <Link href="/faq#scanner-build" className="text-primary-700 font-semibold underline underline-offset-2">
                   Read build requirements →
                 </Link>
@@ -129,6 +151,12 @@ export default function FeaturesPage() {
                 <strong>Batch mode:</strong> Scan in sequence; thumbnails appear along the bottom with remove controls; Review is placed so it does not overlap thumbnails. The scanner pauses while pickers and sheets are open. On the batch review screen, set condition (including graded grades), variant, folder, see approximate prices per row where data exists, change match from the thumbnail, remove rows, then add all to collection.
               </p>
               <p>
+                <strong>Photo mode:</strong> tap the shutter instead of holding
+                the card steady. One tap takes a short burst and cross-checks
+                the reads across the frames, so the match is steadier than a
+                single shot.
+              </p>
+              <p>
                 <strong>Cost:</strong> Scanning is <strong>free for every account</strong> during beta — no separate scanner fee.
               </p>
               <p>
@@ -138,7 +166,45 @@ export default function FeaturesPage() {
               </p>
             </Section>
 
-            <Section id="listings" title="6. Listings & selling">
+            <Section id="scan-station" title="6. Desktop Scan Station (browser)">
+              <p>
+                Got a flatbed or feed scanner and a stack of cards? Open{" "}
+                <a
+                  href="https://app.lootscout.io"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary-600 font-medium hover:underline"
+                >
+                  app.lootscout.io
+                </a>{" "}
+                on a computer and go to <strong>Collection → Import scans</strong>.
+                Drop in your scan images — fronts, or fronts and backs together —
+                and LootScout reads every card <strong>in your browser</strong>.
+                Images are only uploaded when you list a card for sale. Up to 150
+                scans per import.
+              </p>
+              <p>
+                Each scan is matched to the catalog and lands in a{" "}
+                <strong>review grid</strong>: confirm the match or search for a
+                different one, set printing and condition (including graded), see
+                the market price next to the price you are asking, and pick a
+                folder. Then <strong>add to collection</strong> or{" "}
+                <strong>add and list for sale</strong> in one pass — listings from
+                the station go out under your shop profile, and the front and back
+                scans attach to each listing automatically.
+              </p>
+              <p>
+                <strong>eBay &amp; TCGplayer CSV export</strong> (Pro Shop /
+                Enterprise): export the same reviewed batch as a ready-to-upload{" "}
+                <strong>eBay File Exchange</strong> file or a{" "}
+                <strong>TCGplayer</strong> seller file, with your own scan photos
+                attached. The shop dashboard can export your existing inventory to
+                the same two formats. It replaces the manual work of bulk listing —
+                no retyping a card into another tool.
+              </p>
+            </Section>
+
+            <Section id="listings" title="7. Listings & selling">
               <p>Create listings from collection or listing flows. Fixed vs offer types; auto-price tracks catalog prices until you manually override.</p>
               <p>
                 <strong>Sale confirmations:</strong> in-person deals are
@@ -166,7 +232,7 @@ export default function FeaturesPage() {
               </p>
             </Section>
 
-            <Section id="shops" title="7. Shops, trades & pickup">
+            <Section id="shops" title="8. Shops, trades & pickup">
               <p>
                 <strong>Events:</strong> find local card shows and meetups on
                 the Events tab. Vendors can place themselves on an event so
@@ -183,13 +249,13 @@ export default function FeaturesPage() {
                 payments with just your phone — no reader hardware. It&rsquo;s
                 powered by Stripe, and you&rsquo;re paid <strong>directly to
                 your own bank</strong> through Stripe Connect; LootScout never
-                holds your funds and takes only a small per-transaction fee,
-                shown clearly in the app before each sale. You can optionally
-                pass the processing fee to the buyer where local law allows.
+                holds your funds and takes only a small per-transaction platform
+                fee. Stripe&rsquo;s card processing fee applies on top, and the
+                app shows the full breakdown before each sale.
                 Card payments <strong>settle trades and sales instantly</strong>{" "}
                 (no separate confirm step), and refunds run in-app if a deal is
-                disputed. <strong>Available on Android now; iOS coming
-                soon.</strong>
+                disputed. <strong>Available on Android, and as Tap to Pay on
+                iPhone on iOS.</strong>
               </p>
               <p>
                 <strong>Trade-in cart:</strong> any shop can run walk-in
@@ -209,9 +275,19 @@ export default function FeaturesPage() {
                 difference, and event name — for accounting, taxes, or just
                 clean records.
               </p>
+              <p>
+                <strong>Inventory export to eBay / TCGplayer</strong> (Pro Shop /
+                Enterprise): from the shop dashboard in a browser, export your
+                inventory as an eBay File Exchange or TCGplayer seller file —
+                the same exporters the{" "}
+                <a href="#scan-station" className="text-primary-600 font-medium hover:underline">
+                  Desktop Scan Station
+                </a>{" "}
+                uses.
+              </p>
             </Section>
 
-            <Section id="profile" title="8. Profile & subscription">
+            <Section id="profile" title="9. Profile & subscription">
               <p>
                 Profile shows public info, shop entry points, usage, and
                 settings. <strong>Two payment paths</strong>: on iOS, the in-app
@@ -239,7 +315,7 @@ export default function FeaturesPage() {
               </p>
             </Section>
 
-            <Section id="safety" title="9. Safety: reports, blocking & moderation">
+            <Section id="safety" title="10. Safety: reports, blocking & moderation">
               <p>
                 LootScout has zero tolerance for objectionable content or
                 abusive behavior. Every user, listing, and message thread has
@@ -260,7 +336,7 @@ export default function FeaturesPage() {
               </p>
             </Section>
 
-            <Section id="ai" title="10. AI & analytics (where enabled)">
+            <Section id="ai" title="11. AI & analytics (where enabled)">
               <p>Price trend hints, market opportunities, portfolio analytics — availability depends on build and configuration.</p>
             </Section>
           </div>

@@ -41,6 +41,7 @@ const individualPlans: Plan[] = [
       { label: "Peer trades / month", value: "5" },
       { label: "CSV import", value: "—" },
       { label: "Bulk operations", value: "—" },
+      { label: "eBay / TCGplayer export", value: "—" },
     ],
   },
   {
@@ -58,6 +59,7 @@ const individualPlans: Plan[] = [
       { label: "Peer trades / month", value: "5" },
       { label: "CSV import", value: "Included" },
       { label: "Bulk operations", value: "—" },
+      { label: "eBay / TCGplayer export", value: "—" },
     ],
   },
   {
@@ -74,6 +76,7 @@ const individualPlans: Plan[] = [
       { label: "Peer trades / month", value: "10" },
       { label: "CSV import", value: "Included" },
       { label: "Bulk operations", value: "Included" },
+      { label: "eBay / TCGplayer export", value: "—" },
     ],
   },
 ];
@@ -93,6 +96,7 @@ const shopPlans: Plan[] = [
       { label: "In-person checkout", value: "—" },
       { label: "Trade-in cart", value: "Included" },
       { label: "Custom default buy rates", value: "—" },
+      { label: "eBay / TCGplayer export", value: "—" },
     ],
   },
   {
@@ -112,6 +116,7 @@ const shopPlans: Plan[] = [
       { label: "In-person checkout", value: "Included" },
       { label: "Trade-in cart", value: "Included" },
       { label: "Custom default buy rates", value: "—" },
+      { label: "eBay / TCGplayer export", value: "Included" },
     ],
   },
   {
@@ -130,6 +135,7 @@ const shopPlans: Plan[] = [
       { label: "In-person checkout", value: "Included" },
       { label: "Trade-in cart", value: "Included" },
       { label: "Custom default buy rates", value: "Included" },
+      { label: "eBay / TCGplayer export", value: "Included" },
       { label: "Rewards program", value: "Included" },
       { label: "API access", value: "Included" },
       { label: "Multi-location", value: "Included" },
@@ -258,7 +264,14 @@ export default function PricingPage() {
           <section className="mt-12">
             <h2 className="text-xl font-semibold text-slate-900">Shop plans</h2>
             <p className="mt-1 text-sm text-slate-600">
-              For brick-and-mortar shops and high-volume sellers.
+              For brick-and-mortar shops and high-volume sellers.{" "}
+              <span className="text-slate-500">
+                eBay / TCGplayer export covers both the{" "}
+                <Link href="/features#scan-station" className="text-primary-600 hover:underline">
+                  Desktop Scan Station
+                </Link>{" "}
+                and your shop inventory.
+              </span>
             </p>
             <div className="mt-5 grid gap-5 md:grid-cols-3">
               {shopPlans.map((plan) => (

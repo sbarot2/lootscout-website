@@ -115,7 +115,8 @@ export default function Home() {
                 <h3 className="mt-4 text-xl font-semibold text-slate-900">For Sellers</h3>
                 <p className="mt-2 text-slate-600">
                   <strong>Collection-first:</strong> track what you own, then list in one tap. Add cards with the <strong>in-app scanner</strong>{" "}
-                  (single or batch), search, or <strong>CSV import</strong> from other platforms so you don&apos;t start from scratch — pricing
+                  (single or batch), a desktop scanner and the <strong>Scan Station</strong> in your browser, search, or{" "}
+                  <strong>CSV import</strong> from other platforms so you don&apos;t start from scratch — pricing
                   blends live TCG data, catalog baselines, and local transaction signals over time. Offer discovery helps you learn what the market
                   will pay.
                 </p>
@@ -316,10 +317,10 @@ export default function Home() {
                 <p className="mt-2 text-sm text-slate-600 leading-relaxed">
                   Take in-person contactless card payments with just your phone — <strong>no reader, no extra hardware</strong>. Powered by
                   Stripe. Other platforms hold your money and take a big cut; here you get paid <strong>directly to your own bank</strong> via
-                  Stripe Connect — LootScout never holds your funds and takes only a <strong>small per-transaction fee</strong>, broken down
-                  clearly in the app before every sale. Optionally pass the processing fee to the buyer where local law allows. Card payments
+                  Stripe Connect — LootScout never holds your funds and takes only a <strong>small per-transaction platform fee</strong>.
+                  Stripe&apos;s card processing fee applies on top, and the app breaks down both before every sale. Card payments
                   <strong> settle trades and sales instantly</strong> — no confirm dance — and refunds are handled in-app if a deal is disputed.{" "}
-                  <strong>Available on Android now; iOS coming soon.</strong>
+                  <strong>Available on Android, and as Tap to Pay on iPhone on iOS.</strong>
                 </p>
                 <p className="mt-3 text-sm">
                   <Link href="/faq#tap-to-pay" className="font-medium text-primary-600 hover:text-primary-700 hover:underline">
@@ -337,11 +338,39 @@ export default function Home() {
                   broader hybrid search only on explicit Search / Enter, and only if the catalog returned no rows). Batch review: condition
                   (including graded grades), variant, folder, approximate prices per row, change match from the thumbnail, remove rows, then
                   add all to collection. Scanner pauses while sheets are open; Review sits above the thumbnail strip so controls do not
-                  overlap. <strong>Free for every account</strong> — no separate scanner fee.
+                  overlap. In photo mode one tap on the shutter takes a short burst and cross-checks the reads across the frames, so the
+                  match is steadier than a single shot. <strong>Free for every account</strong> — no separate scanner fee.
                 </p>
                 <p className="mt-3 text-sm">
                   <Link href="/faq#scanner-build" className="font-medium text-primary-600 hover:text-primary-700 hover:underline">
                     Device &amp; build requirements (FAQ) →
+                  </Link>
+                </p>
+              </div>
+            </FadeInSection>
+            <FadeInSection>
+              <div className="h-full p-6 rounded-xl bg-white border-2 border-primary-200 shadow-sm hover:shadow-md transition-shadow ring-1 ring-primary-100/60">
+                <h3 className="text-lg font-semibold text-slate-900">Desktop Scan Station — bulk-list from a scanner</h3>
+                <p className="mt-2 text-sm text-slate-600 leading-relaxed">
+                  Got a stack of cards and a flatbed scanner? Open{" "}
+                  <a
+                    href="https://app.lootscout.io"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-medium text-primary-600 hover:text-primary-700 hover:underline"
+                  >
+                    app.lootscout.io
+                  </a>{" "}
+                  on a computer and drop in your scans — fronts, or fronts and backs together. Every card is read{" "}
+                  <strong>right in your browser</strong> and matched to the catalog, then a{" "}
+                  <strong>review grid</strong> puts printing, condition, market price, and your price side by side.
+                  Add the batch to your collection, or <strong>list it for sale in bulk</strong> under your shop profile with the
+                  scans attached to each listing. Then <strong>export a ready-to-upload eBay File Exchange or TCGplayer file</strong>{" "}
+                  (Pro Shop and up). It replaces the manual bulk-listing work — no retyping a card into another tool.
+                </p>
+                <p className="mt-3 text-sm">
+                  <Link href="/features#scan-station" className="font-medium text-primary-600 hover:text-primary-700 hover:underline">
+                    How the Scan Station works →
                   </Link>
                 </p>
               </div>
@@ -377,7 +406,7 @@ export default function Home() {
               },
               {
                 title: "Local Discovery & Map",
-                desc: "Buyers near you find your listing. Browse nearby listings on an interactive map or filter the marketplace by distance to see what's for sale around Raleigh-Durham, then meet up in person — no shipping a $5 card across the country.",
+                desc: "Buyers near you find your listing. Browse nearby listings on an interactive map or filter the marketplace by distance to see what's for sale in your area, then meet up in person — no shipping a $5 card across the country.",
               },
               {
                 title: "Reviews & Ratings",
@@ -544,8 +573,9 @@ export default function Home() {
                     {[
                       "Browse marketplace",
                       "Message buyers and sellers",
-                      "Up to 10 active listings",
+                      "Up to 5 active listings",
                       "In-app card scanner (single & batch) — included for every account",
+                      "Desktop Scan Station — bulk-import card scans in your browser",
                       "Basic pricing data",
                       "Collection tracking",
                       "Accept offers on your listings",
@@ -666,6 +696,7 @@ export default function Home() {
                       "POS checkout & trade-in tools",
                       "Kiosk mode for in-store displays",
                       "Inventory management",
+                      "eBay & TCGplayer CSV export (Scan Station and shop inventory)",
                       "Sales analytics dashboard",
                       "Shop verification badge",
                     ].map((feature) => (
@@ -790,9 +821,10 @@ export default function Home() {
                     </p>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-slate-900">Does scanning work on the website?</h4>
+                    <h4 className="font-semibold text-slate-900">Can I scan on a computer?</h4>
                     <p className="mt-1">
-                      No. This site is for marketing and support; scanning and batch review run in the mobile app.{" "}
+                      Yes — the Desktop Scan Station at app.lootscout.io reads desktop-scanner images in your browser. Camera scanning
+                      stays in the mobile app.{" "}
                       <Link href="/faq#scanner-web" className="text-primary-600 font-medium hover:underline">
                         Details →
                       </Link>
