@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 
 import StoreBadge from "../components/StoreBadge";
+import InstagramLink from "../components/InstagramLink";
 
 const IOS_URL = "https://apps.apple.com/us/app/lootscout-collectibles/id6765471016";
 const ANDROID_BASE_URL = "https://play.google.com/store/apps/details?id=com.lootscout.app";
@@ -116,6 +117,9 @@ export default function StoreLinks() {
           </a>
         );
       })}
+      {/* Always last: the device-match reorder above only ever ranks the two
+          store links against each other, and Instagram is not a download. */}
+      <InstagramLink />
     </div>
   );
 }

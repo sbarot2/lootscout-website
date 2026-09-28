@@ -1,4 +1,5 @@
 import Link from "next/link";
+import InstagramLink from "./InstagramLink";
 
 const footerLinks = [
   { href: "/privacy", label: "Privacy Policy" },
@@ -25,8 +26,11 @@ export default function Footer() {
               LootScout
             </Link>
             <p className="mt-3 text-sm max-w-sm">
-              Local marketplace for trading cards, comics, vinyl, and collectibles. Connect with buyers and sellers in your area.
+              Scan, price, and track your collection — trading cards, comics, video games, and collectibles — then buy, sell, and trade with collectors near you.
             </p>
+            <div className="mt-4">
+              <InstagramLink variant="footer" />
+            </div>
           </div>
 
           <div>

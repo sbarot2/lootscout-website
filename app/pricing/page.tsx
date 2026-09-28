@@ -83,16 +83,19 @@ const individualPlans: Plan[] = [
 
 const shopPlans: Plan[] = [
   {
-    id: "starter",
-    name: "Starter",
-    tagline: "Free shop tier",
+    // The old "Starter" shop tier was retired 2026-08-05; Free is the floor for
+    // every account type, shops included. Limits below mirror TIERS.free in the
+    // app (lib/subscription/tiers.ts) — keep the two in sync.
+    id: "shop-free",
+    name: "Free",
+    tagline: "Run a shop page at no cost",
     price: "$0",
     cadence: "forever",
     features: [
-      { label: "Active listings", value: "10" },
+      { label: "Active listings", value: "5" },
       { label: "Price alerts", value: "—" },
-      { label: "Peer trades / month", value: "—" },
-      { label: "CSV import", value: "Included" },
+      { label: "Peer trades / month", value: "5" },
+      { label: "CSV import", value: "—" },
       { label: "In-person checkout", value: "—" },
       { label: "Trade-in cart", value: "Included" },
       { label: "Custom default buy rates", value: "—" },
@@ -103,7 +106,7 @@ const shopPlans: Plan[] = [
     id: "pro_shop",
     name: "Pro Shop",
     tagline: "Kiosk, bulk ops, in-person sales",
-    retailPrice: "$44.99",
+    retailPrice: "$49.99",
     price: "$29",
     cadence: "per month",
     highlight: true,
@@ -294,24 +297,38 @@ export default function PricingPage() {
                 minute.
               </p>
               <p>
-                <strong>Already in the app on Android?</strong> Open Profile →
-                Subscription to upgrade from inside the app.
+                <strong>Already in the app?</strong> Open Profile →
+                Subscription. On Android and in the browser that runs through
+                Stripe; on iPhone and iPad it uses Apple In-App Purchase, and{" "}
+                <em>Restore Purchases</em> is one tap away if you have
+                reinstalled.
               </p>
               <p>
                 <strong>To change tiers, update billing, or cancel:</strong>{" "}
-                email{" "}
+                open the <strong>billing portal</strong> — sign in at{" "}
+                <a
+                  href="https://app.lootscout.io"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary-600 font-medium hover:underline"
+                >
+                  app.lootscout.io
+                </a>{" "}
+                and go to Profile → Subscription → Manage, or use the link in
+                any LootScout billing email. Cancellations take effect at the
+                end of the current billing period. Subscriptions bought through
+                Apple are managed in your App Store subscription settings
+                instead.
+              </p>
+              <p className="text-sm text-slate-500">
+                Stuck? Email{" "}
                 <a
                   href="mailto:support@lootscout.io"
                   className="text-primary-600 font-medium hover:underline"
                 >
                   support@lootscout.io
                 </a>{" "}
-                from the address on your account and we&apos;ll send you a
-                secure Stripe billing link. Cancellations take effect at the
-                end of the current billing period.
-              </p>
-              <p className="text-sm text-slate-500">
-                A self-serve billing portal on the web is on the roadmap.
+                from the address on your account and we&apos;ll sort it out.
               </p>
             </div>
           </section>

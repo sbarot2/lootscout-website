@@ -20,7 +20,7 @@ const helpLinks: SupportLink[] = [
   {
     href: "/faq",
     title: "Frequently asked questions",
-    body: "Card scanner requirements, search behavior, beta pricing, and other common questions.",
+    body: "Card scanner requirements, public shop pages, search behavior, pricing, and other common questions.",
   },
   {
     href: "/features",
@@ -73,12 +73,12 @@ const troubleshooting: { id: string; q: string; a: string }[] = [
   {
     id: "subscription-iphone",
     q: "I can't subscribe in the iPhone app.",
-    a: "Subscriptions are managed at lootscout.io. Tap your tier in the Profile tab to open the manage page, or visit lootscout.io/pricing in any browser. Subscriptions you start on the web work in the iOS app immediately.",
+    a: "You can — Profile → Subscription on iPhone and iPad upgrades through Apple In-App Purchase, and Restore Purchases is one tap away if you've reinstalled. If you'd rather pay by card, subscribe on the web at lootscout.io/pricing or in the browser app at app.lootscout.io; a web subscription shows up in the iOS app within a minute. Use the same email address as your LootScout account either way.",
   },
   {
     id: "stripe-portal",
     q: "How do I cancel or change my plan?",
-    a: "Sign in at lootscout.io and open Account → Subscription, or use the link in any LootScout billing email. You can change tiers, update your payment method, or cancel; cancellation takes effect at the end of the current billing period.",
+    a: "Sign in to the app — at app.lootscout.io in a browser, or on your phone — and open Profile → Subscription → Manage, or use the link in any LootScout billing email. You can change tiers, update your payment method, or cancel; cancellation takes effect at the end of the current billing period. Subscriptions bought through Apple are managed in your App Store subscription settings instead.",
   },
 ];
 

@@ -5,6 +5,7 @@ import GalleryCarousel from "./components/GalleryCarousel";
 import MarketingVideoGallery from "./components/MarketingVideoGallery";
 import ComingSoonIcon from "./components/ComingSoonIcon";
 import StoreBadge from "./components/StoreBadge";
+import InstagramLink from "./components/InstagramLink";
 
 export default function Home() {
   return (
@@ -67,6 +68,7 @@ export default function Home() {
                 >
                   <StoreBadge store="google-play" />
                 </a>
+                <InstagramLink />
               </div>
               <p id="download" className="scroll-mt-24 mt-6 text-sm text-primary-200">
                 Available on the App Store and Google Play — or use it right in your browser:{" "}
@@ -127,7 +129,8 @@ export default function Home() {
                 <div className="w-12 h-12 rounded-lg bg-primary-600 text-white flex items-center justify-center text-xl font-bold">3</div>
                 <h3 className="mt-4 text-xl font-semibold text-slate-900">For Shops</h3>
                 <p className="mt-2 text-slate-600">
-                  QR-forward kiosk flows, shop-scoped pickup cart, POS checkout, and trade-in tools — same hybrid pricing philosophy, tuned for the sales floor. Accept cards right on your phone with <strong>Tap to Pay</strong> and get <strong>paid directly to your own bank</strong> — we never hold your money. Staff-friendly builds add inventory and analytics where enabled.
+                  Your shop page is <strong>public</strong> — share the link and anyone can browse your inventory without an account.
+                  QR-forward kiosk flows, buyer pickup orders that open as a prefilled POS sale, and trade-in tools — same hybrid pricing philosophy, tuned for the sales floor. Accept cards right on your phone with <strong>Tap to Pay</strong> and get <strong>paid directly to your own bank</strong> — we never hold your money. Staff-friendly builds add inventory and analytics where enabled.
                 </p>
               </div>
             </FadeInSection>
@@ -318,7 +321,8 @@ export default function Home() {
                   Take in-person contactless card payments with just your phone — <strong>no reader, no extra hardware</strong>. Powered by
                   Stripe. Other platforms hold your money and take a big cut; here you get paid <strong>directly to your own bank</strong> via
                   Stripe Connect — LootScout never holds your funds and takes only a <strong>small per-transaction platform fee</strong>.
-                  Stripe&apos;s card processing fee applies on top, and the app breaks down both before every sale. Card payments
+                  Stripe&apos;s card processing fee applies on top — both seller-side, the buyer is never surcharged. You see an
+                  estimate of what the card will cost you before you charge, and the real figure on the completed sale. Card payments
                   <strong> settle trades and sales instantly</strong> — no confirm dance — and refunds are handled in-app if a deal is disputed.{" "}
                   <strong>Available on Android, and as Tap to Pay on iPhone on iOS.</strong>
                 </p>
@@ -338,8 +342,11 @@ export default function Home() {
                   broader hybrid search only on explicit Search / Enter, and only if the catalog returned no rows). Batch review: condition
                   (including graded grades), variant, folder, approximate prices per row, change match from the thumbnail, remove rows, then
                   add all to collection. Scanner pauses while sheets are open; Review sits above the thumbnail strip so controls do not
-                  overlap. In photo mode one tap on the shutter takes a short burst and cross-checks the reads across the frames, so the
-                  match is steadier than a single shot. <strong>Free for every account</strong> — no separate scanner fee.
+                  overlap. Photo mode is one fast capture per tap, and in batch mode the camera stays live between shots so you can{" "}
+                  <strong>capture and go</strong>. Matching leans on the card number as the dominant signal, keeps rank suffixes (V,
+                  VMAX, ex, GX) as part of the card&apos;s identity, disambiguates sibling variants instead of guessing, and{" "}
+                  <strong>excludes sealed products</strong> — a booster box returns <em>no match</em> rather than a confident wrong card.{" "}
+                  <strong>Free for every account</strong> — no separate scanner fee.
                 </p>
                 <p className="mt-3 text-sm">
                   <Link href="/faq#scanner-build" className="font-medium text-primary-600 hover:text-primary-700 hover:underline">
@@ -366,7 +373,10 @@ export default function Home() {
                   <strong>review grid</strong> puts printing, condition, market price, and your price side by side.
                   Add the batch to your collection, or <strong>list it for sale in bulk</strong> under your shop profile with the
                   scans attached to each listing. Then <strong>export a ready-to-upload eBay File Exchange or TCGplayer file</strong>{" "}
-                  (Pro Shop and up). It replaces the manual bulk-listing work — no retyping a card into another tool.
+                  (Pro Shop and up) — the TCGplayer file carries <strong>real seller-portal SKUs</strong> resolved per product,
+                  condition, and printing, so it lands on your existing portal rows instead of creating near-duplicates (strongest
+                  coverage on Magic, Pok&eacute;mon, and Yu-Gi-Oh!). It replaces the manual bulk-listing work — no retyping a card into
+                  another tool. <strong>Works on your phone too</strong>, not just a desktop.
                 </p>
                 <p className="mt-3 text-sm">
                   <Link href="/features#scan-station" className="font-medium text-primary-600 hover:text-primary-700 hover:underline">
@@ -391,6 +401,22 @@ export default function Home() {
                 </p>
               </div>
             </FadeInSection>
+            <FadeInSection>
+              <div className="h-full p-6 rounded-xl bg-white border-2 border-primary-200 shadow-sm hover:shadow-md transition-shadow ring-1 ring-primary-100/60">
+                <h3 className="text-lg font-semibold text-slate-900">Share your shop link anywhere</h3>
+                <p className="mt-2 text-sm text-slate-600 leading-relaxed">
+                  Your shop page is <strong>public</strong>. Send the link to anyone — a bio, a group chat, a show flyer, a Facebook
+                  post — and they can browse your whole inventory <strong>without making an account</strong>. No signup wall between a
+                  customer and your cards. Signing in is only needed to actually do something: message you, start a pickup cart, or
+                  follow the shop. Tap <strong>Share</strong> on your shop page to send it.
+                </p>
+                <p className="mt-3 text-sm">
+                  <Link href="/features#public-shop" className="font-medium text-primary-600 hover:text-primary-700 hover:underline">
+                    How public shop pages work →
+                  </Link>
+                </p>
+              </div>
+            </FadeInSection>
             {[
               {
                 title: "Collection Tracker",
@@ -402,7 +428,7 @@ export default function Home() {
               },
               {
                 title: "Digital Trades",
-                desc: "Build a trade in person: pick what you give and what you get, both sides confirm, and the items transfer automatically between your two collections — no counting cards or doing the math by hand. Owe cash on a trade? Settle the difference with Tap to Pay on the spot and the deal closes instantly.",
+                desc: "Build a trade in person: pick what you give and what you get, both sides confirm, and the items transfer automatically between your two collections — no counting cards or doing the math by hand. Add a whole collection folder to your side in one go, and collapse either side down to its item count and running total so a twenty-card offer doesn't bury the controls. Owe cash on a trade? Settle the difference with Tap to Pay on the spot and the deal closes instantly.",
               },
               {
                 title: "Local Discovery & Map",
@@ -422,7 +448,7 @@ export default function Home() {
               },
               {
                 title: "Safety & Moderation",
-                desc: "Report any user, listing, or message, and block anyone to instantly clear their listings and messages from your view. Moderators triage reports within 24 hours and act on objectionable content.",
+                desc: "Your username is your public identity — the first and last name you sign up with is never shown to anyone. Slurs are rejected in usernames and messages, checked on the server and normalized first so lookalike characters don't sneak through. Report any user, listing, or message, and block anyone to instantly clear their listings and messages from your view. Moderators triage reports within 24 hours, and suspended accounts drop out of public search.",
               },
               {
                 title: "AI Market Intelligence",
@@ -438,7 +464,15 @@ export default function Home() {
               },
               {
                 title: "Kiosk & Pickup",
-                desc: "Turn a shop tablet or phone into a self-serve kiosk: customers scan a listing's QR code to add it to a pickup cart, then request pickup when they're ready. Pairs with in-person checkout so staff can pull the order and take payment — a smooth counter experience without a dedicated POS terminal.",
+                desc: "Turn a shop tablet or phone into a self-serve kiosk: customers scan a listing's QR code to add it to a pickup cart, then request pickup when they're ready. Buyers browsing your shop page from anywhere can do the same. Every request lands in your dashboard queue and opens as a fully prefilled POS sale — edit the items, apply a discount, take cash or card — then hit Notify buyer and they get a push the moment the order is ready.",
+              },
+              {
+                title: "Inventory SKUs & QR Labels",
+                desc: "Listings number themselves. Each one gets a sequential SKU built from its collection folder — a card filed under Pokemon Binder 3 lists as pokemon_binder_3-014, the next one -015 — visible only to you, on the listing, in shop inventory, and in your exports (it's the CustomLabel in the eBay file). Print matching QR labels as a PDF: a nine-per-page sheet to cut by hand, or one-per-page presets sized for a 2.25×1.25in or 1.5×1in thermal label printer.",
+              },
+              {
+                title: "Runs in Your Browser",
+                desc: "The full app lives at app.lootscout.io — not a cut-down preview. Sign up, finish your profile, search, build your collection, list, trade, run pickup orders, subscribe, and manage billing all work on a desktop. Camera scanning is the one thing that stays on the phone; on a computer the Scan Station takes its place.",
               },
               {
                 title: "Shop Tools",
@@ -639,7 +673,7 @@ export default function Home() {
                   <h4 className="text-lg font-semibold text-slate-900">LootScout Pro</h4>
                   <p className="mt-1 text-sm text-slate-500">For serious collectors and traders</p>
                   <div className="mt-4 flex flex-col gap-1">
-                    <span className="text-gray-400 line-through text-sm">$19.99</span>
+                    <span className="text-gray-400 line-through text-sm">$21.99</span>
                     <div className="flex items-baseline gap-1">
                       <span className="text-4xl font-bold text-primary-600">$14.99</span>
                       <span className="text-sm text-slate-700">/month</span>
@@ -651,7 +685,7 @@ export default function Home() {
                       "Up to 50 active listings",
                       "Bulk listing tools",
                       "Advanced analytics dashboard",
-                      "Featured listings (boost visibility)",
+                      "Up to 10 peer trades per month",
                       "Collection portfolio tracking",
                     ].map((feature) => (
                       <li key={feature} className="flex gap-2">
@@ -682,7 +716,7 @@ export default function Home() {
                   <h4 className="text-lg font-semibold text-slate-900">LootScout Pro Shop</h4>
                   <p className="mt-1 text-sm text-slate-500">For card vendors and small businesses</p>
                   <div className="mt-4 flex flex-col gap-1">
-                    <span className="text-gray-400 line-through text-sm">$44.99</span>
+                    <span className="text-gray-400 line-through text-sm">$49.99</span>
                     <div className="flex items-baseline gap-1">
                       <span className="text-4xl font-bold text-primary-600">$29</span>
                       <span className="text-sm text-slate-700">/month</span>
@@ -698,7 +732,7 @@ export default function Home() {
                       "Inventory management",
                       "eBay & TCGplayer CSV export (Scan Station and shop inventory)",
                       "Sales analytics dashboard",
-                      "Shop verification badge",
+                      "Up to 20 peer trades per month",
                     ].map((feature) => (
                       <li key={feature} className="flex gap-2">
                         <span className="mt-0.5 text-emerald-500" aria-hidden>
@@ -720,7 +754,7 @@ export default function Home() {
                   <h4 className="text-lg font-semibold text-slate-900">LootScout Enterprise</h4>
                   <p className="mt-1 text-sm text-slate-500">For established collectible shops and chains</p>
                   <p className="mt-2 text-xs text-amber-900 bg-amber-50 border border-amber-200/80 rounded-lg px-2.5 py-1.5 leading-snug">
-                    Roadmap: some capabilities below are rolling out over time; availability may vary during beta.
+                    Roadmap: some capabilities below are rolling out over time; availability may vary.
                   </p>
                   <div className="mt-4 flex flex-col gap-1">
                     <span className="text-gray-400 line-through text-sm">$149.99</span>
@@ -843,7 +877,7 @@ export default function Home() {
                   <div>
                     <h4 className="font-semibold text-slate-900">Is the card scanner free?</h4>
                     <p className="mt-1">
-                      Yes — single and batch scanning are included for every account during beta; there is no separate scanner subscription.{" "}
+                      Yes — single and batch scanning are included for every account; there is no separate scanner subscription.{" "}
                       <Link href="/faq#scanner-free" className="text-primary-600 font-medium hover:underline">
                         Details →
                       </Link>

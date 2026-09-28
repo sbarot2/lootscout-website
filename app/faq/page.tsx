@@ -6,7 +6,7 @@ import SitePageHeader from "../components/SitePageHeader";
 export const metadata: Metadata = {
   title: "FAQ — LootScout",
   description:
-    "LootScout FAQ: card scanner requirements, the Desktop Scan Station and marketplace CSV exports, Home search behavior, pricing beta, and the local collectibles marketplace.",
+    "LootScout FAQ: card scanner requirements, the Scan Station and marketplace CSV exports, public shop pages, Home search behavior, pricing, and the collectibles marketplace.",
 };
 
 const qa = [
@@ -18,7 +18,7 @@ const qa = [
   {
     id: "scanner-web",
     q: "Can I scan cards on a computer?",
-    a: "Yes, with a desktop scanner. lootscout.io is the marketing site, but the LootScout app runs in your browser at app.lootscout.io — go to Collection → Import scans to open the Desktop Scan Station and bulk-import scan images. Camera scanning is different: that needs the phone camera and stays in the mobile app.",
+    a: "Yes, with a desktop scanner. lootscout.io is the marketing site, but the full LootScout app runs in your browser at app.lootscout.io — go to Collection → Import scans to open the Scan Station and bulk-import scan images. The Scan Station also runs on a phone now, so you can import, review, list, and export from either. Camera scanning is the one thing that is different: that needs the phone camera and stays in the mobile app.",
   },
   {
     id: "scan-station",
@@ -31,6 +31,11 @@ const qa = [
     a: "Pro Shop and Enterprise. The exports turn a reviewed batch — or your existing shop inventory — into a ready-to-upload eBay File Exchange file or a TCGplayer seller file, with your own scan photos attached. Everything else in the Desktop Scan Station, including reading scans and adding them to your collection, is available on every plan.",
   },
   {
+    id: "public-shop",
+    q: "Do people need an account to see my shop?",
+    a: "No. Your shop page is public — send the link to anyone and they can browse your listings straight away, no signup wall. An account is only needed to act: message you, add items to a pickup cart, or follow the shop. Tap Share on your shop page to send the link, and there is a shortcut to your own shop from the Home and Collection tabs.",
+  },
+  {
     id: "search-api",
     q: "Does manual search hit external APIs while I type?",
     a: "No. Manual search (including from the scanner) stays catalog-first while you type, similar to Home search: results come from the local LootScout database for responsive suggestions. Broader hybrid / external API search runs only after you tap Search or press Enter — and only if the catalog returned no rows for that query. That saves API cost and matches how the product behaves.",
@@ -38,7 +43,7 @@ const qa = [
   {
     id: "scanner-free",
     q: "Does the card scanner cost extra?",
-    a: "No. Single-card and batch scanning are included for every account during beta — there is no separate scanner subscription on top of your tier.",
+    a: "No. Single-card and batch scanning are included for every account — there is no separate scanner subscription on top of your tier.",
   },
   {
     id: "scanner-batch",
@@ -53,7 +58,7 @@ const qa = [
   {
     id: "tap-to-pay-fees",
     q: "What does Tap to Pay cost?",
-    a: "Two fees, both seller-side: a small LootScout platform fee, and Stripe's card processing fee. The app shows you the exact breakdown of both before each sale — no platform holding your money and taking a large cut.",
+    a: "Two fees, both seller-side — the buyer is never surcharged: a small LootScout platform fee, and Stripe's card processing fee on top of it. Before you charge, the app shows you an estimate of what the card will cost you; the completed sale shows what it actually cost. No platform holding your money and taking a large cut.",
   },
   {
     id: "pricing-beta",
@@ -75,7 +80,7 @@ export default function FaqPage() {
           </p>
           <h1 className="mt-4 text-3xl sm:text-4xl font-bold text-slate-900">Frequently asked questions</h1>
           <p className="mt-4 text-slate-600 leading-relaxed">
-            Answers for beta testers and collectors using LootScout. For step-by-step product flows, see{" "}
+            Answers for collectors using LootScout. For step-by-step product flows, see{" "}
             <Link href="/features" className="text-primary-600 font-medium hover:underline">
               Features &amp; guides
             </Link>

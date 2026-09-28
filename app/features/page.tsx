@@ -7,7 +7,7 @@ import SitePageHeader from "../components/SitePageHeader";
 export const metadata: Metadata = {
   title: "Features & guides — LootScout",
   description:
-    "How to use LootScout: Home search, collection, in-app TCG card scanner (single & batch), the Desktop Scan Station, listings, shops, and pickup. Summarized from the project feature guide.",
+    "How to use LootScout: Home search, collection, in-app TCG card scanner (single & batch), the Scan Station, listings and inventory SKUs, public shop pages, trades, and pickup orders.",
 };
 
 function Section({ id, title, children }: { id?: string; title: string; children: ReactNode }) {
@@ -48,6 +48,18 @@ export default function FeaturesPage() {
             that improves over time). This page summarizes the features
             available in the current build.
           </p>
+          <p className="mt-4 text-slate-600 leading-relaxed">
+            The browser version is <strong>the whole app</strong>, not a
+            cut-down preview: sign up, finish your profile and upload an avatar,
+            search, build your collection, list, trade, run pickup orders,
+            subscribe, and manage your billing all work on a desktop. Camera
+            scanning is the one thing that stays on the phone — on a computer,
+            the{" "}
+            <a href="#scan-station" className="text-primary-600 font-medium hover:underline">
+              Scan Station
+            </a>{" "}
+            takes its place.
+          </p>
 
           <div className="mt-10 space-y-12">
             <Section id="account" title="1. Account & basics">
@@ -57,6 +69,15 @@ export default function FeaturesPage() {
                 inbox. Passwords require uppercase, lowercase, a number, and a
                 symbol — and are checked against the HaveIBeenPwned breach
                 database so weak / known-compromised passwords are rejected.
+              </p>
+              <p>
+                <strong>Your name stays yours.</strong> Signup asks for your
+                first and last name, and they are{" "}
+                <strong>never shown publicly</strong> — your{" "}
+                <strong>username</strong> is your public identity everywhere on
+                LootScout, and you can set an optional display name on top of
+                it. Other collectors, shop pages, and search results only ever
+                see the username.
               </p>
               <p>
                 Forgot your password? Tap <strong>Forgot password?</strong> on
@@ -152,12 +173,30 @@ export default function FeaturesPage() {
               </p>
               <p>
                 <strong>Photo mode:</strong> tap the shutter instead of holding
-                the card steady. One tap takes a short burst and cross-checks
-                the reads across the frames, so the match is steadier than a
-                single shot.
+                the card steady — a single fast capture, read and matched on
+                the spot. Tap anywhere on the preview to refocus if the card
+                looks soft.
               </p>
               <p>
-                <strong>Cost:</strong> Scanning is <strong>free for every account</strong> during beta — no separate scanner fee.
+                <strong>Capture and go:</strong> in batch mode the camera stays
+                live between shots — capture, move the card aside, capture the
+                next. Tiles caption themselves as they resolve, and a scan that
+                could not be read shows up as an error tile you can retake or
+                fix by hand, rather than quietly going missing.
+              </p>
+              <p>
+                <strong>Smarter matching:</strong> the card number is the
+                dominant signal and is weighed together with the name, so a
+                clean number on an awkwardly lit name still lands. Rank
+                suffixes (V, VMAX, ex, GX and friends) count as part of the
+                card&rsquo;s identity instead of noise, sibling variants —
+                stamps, reverse holos, alternate printings — are disambiguated
+                rather than guessed between, and sealed products are excluded
+                from card matching, so a booster box returns{" "}
+                <em>no match</em> instead of a confident wrong card.
+              </p>
+              <p>
+                <strong>Cost:</strong> Scanning is <strong>free for every account</strong> — no separate scanner fee.
               </p>
               <p>
                 <Link href="/faq" className="text-primary-600 font-medium hover:underline">
@@ -202,6 +241,27 @@ export default function FeaturesPage() {
                 the same two formats. It replaces the manual work of bulk listing —
                 no retyping a card into another tool.
               </p>
+              <p>
+                The TCGplayer file carries <strong>real seller-portal SKUs</strong>{" "}
+                — the exporter resolves each row&rsquo;s product, condition, and
+                printing to the SKU TCGplayer itself uses, so the upload matches
+                your existing portal rows instead of creating near-duplicates.
+                Coverage is strongest on <strong>Magic, Pok&eacute;mon, and
+                Yu-Gi-Oh!</strong>; a row whose SKU cannot be resolved is skipped
+                with a notice rather than exported against a guessed id. The eBay
+                file uses your listing&rsquo;s{" "}
+                <a href="#skus" className="text-primary-600 font-medium hover:underline">
+                  inventory SKU
+                </a>{" "}
+                as its CustomLabel.
+              </p>
+              <p>
+                <strong>It runs on your phone too.</strong> The Scan Station is no
+                longer desktop-only: open it on a phone and the same import,
+                review, add, list, and export flow works, reading scans with your
+                device&rsquo;s own on-device text recognition and handing exports
+                off through the share sheet.
+              </p>
             </Section>
 
             <Section id="listings" title="7. Listings & selling">
@@ -223,6 +283,31 @@ export default function FeaturesPage() {
                 messages; if you can&rsquo;t resolve it together, escalate to
                 LootScout and a moderator will mediate.
               </p>
+              <p id="skus" className="scroll-mt-24">
+                <strong>Inventory SKUs from your folders:</strong> every listing
+                is issued a sequential SKU the moment it is created, built from
+                the name of the collection folder the item lives in — a card
+                filed under <em>Pokemon Binder 3</em> lists as{" "}
+                <code className="rounded bg-slate-200/70 px-1 py-0.5 text-[0.85em]">pokemon_binder_3-014</code>
+                , the next one <code className="rounded bg-slate-200/70 px-1 py-0.5 text-[0.85em]">-015</code>.
+                Nothing to number by hand and no gaps to keep track of. SKUs show
+                on the listing, in shop inventory, and in exports — and only the
+                owner can see them. Items with no folder fall back to an{" "}
+                <code className="rounded bg-slate-200/70 px-1 py-0.5 text-[0.85em]">unfiled-</code>{" "}
+                prefix, which is why the bulk-listing flows ask you to pick a
+                folder first.
+              </p>
+              <p>
+                <strong>Printable QR labels:</strong> print QR labels for your
+                listings as a PDF — a nine-per-page US Letter sheet to cut by
+                hand, or one label per page sized for a thermal label printer
+                (<strong>2.25&nbsp;&times;&nbsp;1.25&nbsp;in</strong> and{" "}
+                <strong>1.5&nbsp;&times;&nbsp;1&nbsp;in</strong> presets, for
+                Rollo / MUNBYN / DYMO / Phomemo-class printers). Stick one on a
+                sleeve or toploader and anyone can scan straight to the listing —
+                which is what makes the kiosk and pickup flows work on a table at
+                a show. Printing runs from the mobile app.
+              </p>
               <p>
                 <strong>Longer trendlines:</strong> product and listing
                 sparklines now plot a persistent price history that extends
@@ -237,12 +322,47 @@ export default function FeaturesPage() {
                 <strong>Events:</strong> find local card shows and meetups on
                 the Events tab. Vendors can place themselves on an event so
                 buyers browsing the show see their listed inventory and can
-                find them in person.
+                find them in person. Shows that run on a schedule repeat as a
+                series — a weekly show starts a fresh occurrence each week, so
+                the listing stays current without anyone re-posting it.
+              </p>
+              <p id="public-shop" className="scroll-mt-24">
+                <strong>Your shop page is public.</strong> Anyone you send your
+                shop link to can open it and browse your listings{" "}
+                <strong>without an account</strong> — no signup wall between a
+                customer and your inventory. Sign-in is only needed to actually
+                do something: message you, add items to a pickup cart, or follow
+                the shop. Tap <strong>Share</strong> on your shop page to send
+                the link anywhere — a bio, a group chat, a show flyer, a
+                Facebook post — and there is a shortcut to your own shop from
+                Home and Collection so it is always one tap away.
               </p>
               <p>
-                Shop-scoped pickup cart on device; Pickup hub and checkout
-                routes; kiosk tablet flow with QR listings; trade and sale
-                drafts from a scanned listing QR.
+                <strong>Pickup orders, end to end:</strong> a customer browsing
+                your shop adds listings to a pickup cart and requests pickup.
+                The request lands in your dashboard queue, where you can open it
+                as a <strong>fully prefilled POS sale</strong> — add or remove
+                items, edit amounts, apply a discount, then take cash or a card
+                — and press <strong>Notify buyer</strong> when the order is
+                ready, which pushes them a notification that opens straight to
+                the order. Walk-ups at a kiosk work the same way without
+                needing an account.
+              </p>
+              <p>
+                Also here: a shop-scoped pickup cart on device, the Pickup hub
+                and checkout routes, the kiosk tablet flow with QR listings, and
+                trade or sale drafts started by scanning a listing QR from any
+                side of the deal.
+              </p>
+              <p>
+                <strong>Building a trade is quicker:</strong> either side of a
+                trade can be <strong>collapsed</strong> down to its item count
+                and running total, so a twenty-card offer no longer buries the
+                controls — and you can add an{" "}
+                <strong>entire collection folder at once</strong> instead of
+                tapping through it card by card, with anything that could not be
+                added (already in the draft, not listed for sale) reported back
+                to you rather than silently dropped.
               </p>
               <p>
                 <strong>Tap to Pay:</strong> accept in-person contactless card
@@ -250,8 +370,11 @@ export default function FeaturesPage() {
                 powered by Stripe, and you&rsquo;re paid <strong>directly to
                 your own bank</strong> through Stripe Connect; LootScout never
                 holds your funds and takes only a small per-transaction platform
-                fee. Stripe&rsquo;s card processing fee applies on top, and the
-                app shows the full breakdown before each sale.
+                fee. <strong>Stripe&rsquo;s card processing fee applies on
+                top</strong> — both are seller-side, the buyer is never
+                surcharged. Before you charge, the app shows you an estimate of
+                what the card will cost you; the completed sale shows what it
+                actually cost.
                 Card payments <strong>settle trades and sales instantly</strong>{" "}
                 (no separate confirm step), and refunds run in-app if a deal is
                 disputed. <strong>Available on Android, and as Tap to Pay on
@@ -333,6 +456,15 @@ export default function FeaturesPage() {
                 moderation report so we see the signal. Manage your block
                 list any time from <strong>Profile → Privacy &amp; safety →
                 Blocked users</strong>.
+              </p>
+              <p>
+                <strong>Content filtering</strong> runs on the things everyone
+                can see. Slurs are rejected outright in usernames and messages —
+                checked on the server, not just in the app, and normalized first
+                so that swapped characters and lookalike letters do not sneak
+                past. Ordinary words that merely contain a bad substring are
+                allowlisted, so the filter does not trip over real place names
+                and surnames. Suspended accounts also drop out of public search.
               </p>
             </Section>
 
