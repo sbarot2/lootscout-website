@@ -680,7 +680,7 @@ export default function Home() {
                   <div>
                     <h4 className="font-semibold text-slate-900">What payment methods do you accept?</h4>
                     <p className="mt-1">
-                      We accept all major credit cards and debit cards via Stripe. Payments are secure and simple.
+                      On Android and the web, subscriptions are paid with any major credit or debit card through Stripe. On iPhone and iPad, subscriptions are billed through your Apple account as an in-app purchase.
                     </p>
                   </div>
                   <div>
@@ -778,7 +778,7 @@ export default function Home() {
               LootScout is a marketplace platform connecting buyers and sellers. We do not process transactions directly — all sales occur between users. As such:
             </p>
             <ul className="mt-4 list-disc list-inside space-y-2 text-slate-700 max-w-3xl">
-              <li><strong>Subscription refunds:</strong> Stripe subscriptions can be canceled anytime. No refunds for partial months.</li>
+              <li><strong>Subscription refunds:</strong> Subscriptions can be canceled anytime. No refunds for partial months. Subscriptions bought on iPhone or iPad are billed and refunded by Apple.</li>
               <li><strong>Transaction disputes:</strong> Resolve directly with the seller. LootScout can facilitate communication.</li>
               <li><strong>Subscription cancellation:</strong> Cancel anytime from your account settings. Access continues until period end.</li>
             </ul>
