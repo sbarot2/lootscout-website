@@ -7,7 +7,7 @@ import SitePageHeader from "../components/SitePageHeader";
 export const metadata: Metadata = {
   title: "Features & guides — LootScout",
   description:
-    "How to use LootScout: Home search, collection, in-app TCG card scanner (single & batch), the Scan Station, listings and inventory SKUs, public shop pages and QR signs, guest browsing, trades, pickup orders, and vendor show mode.",
+    "How to use LootScout: Home search, collection and CSV import, in-app TCG card scanner (single & batch), the Scan Station, listings and inventory SKUs, public shop pages with sort and filter, QR signs, guest browsing, trades, pickup orders, and vendor show mode.",
 };
 
 function Section({ id, title, children }: { id?: string; title: string; children: ReactNode }) {
@@ -113,7 +113,12 @@ export default function FeaturesPage() {
                 <strong>Portfolio</strong> shows collection value and gain/loss (scope may follow folder filters). Pull to refresh updates figures. A <strong>value-over-time chart</strong> tracks your collection&rsquo;s total worth day by day, so you can watch your portfolio grow over weeks and months instead of seeing only today&rsquo;s number.
               </p>
               <p>
-                <strong>Product search:</strong> While typing, search is <strong>database / catalog only</strong> — fast, without live TCG API on every keystroke. When you submit (Search / Enter), the app runs a <strong>hybrid</strong> search path that may call external APIs when appropriate, then merges and caches results.
+                <strong>Product search:</strong> While typing, search is <strong>database / catalog only</strong> — fast, without live TCG API on every keystroke. When you submit (Search / Enter), the app runs a <strong>hybrid</strong> search path that may call external APIs when appropriate, then merges and caches results. Jumbo / oversized cards rank last unless you search for them, so the regular card comes first.
+              </p>
+              <p>
+                <strong>New sets arrive on their own:</strong> new sets for every card game we support are picked up automatically,
+                usually within about a day of appearing at our catalog source &mdash; no waiting on a manual update. Dragon Ball
+                Super (Fusion World and Masters) is covered alongside Pok&eacute;mon, Magic, One Piece, Yu-Gi-Oh! and the rest.
               </p>
               <p>
                 <strong>Listings search:</strong> Switch to listings mode when available; use filters (price, condition, distance, etc.). Distance may require location permission.
@@ -162,11 +167,42 @@ export default function FeaturesPage() {
                 Recent builds polish <strong>add-to-collection</strong> from scanner and product flows, including safe-area and scroll behavior so primary actions stay clear of the home indicator.
               </p>
               <p>
-                <strong>CSV import</strong> (every plan, with a monthly allowance — 2 imports a month on Free): bring an existing spreadsheet from another tool — you don&apos;t have to re-enter your
-                whole collection. Map columns, preview matching, confirm bulk import, resolve duplicates per app messaging.
-                Shop owners can tick <strong>Also list imported items for sale</strong> to put the imported cards up
-                for sale in the same pass, priced at the matched market price (or your purchase price when there is no
-                market price).
+                <strong>Honest values:</strong> every copy is valued at the price for <strong>its own condition or
+                grade</strong>. If there is no price for that condition (an LP copy, say, or a slab nobody has priced yet),
+                the tile says <strong>No price</strong> instead of quietly borrowing the Near Mint price, and the
+                collection header tells you how many items are without a price &mdash; so your total is never padded.
+              </p>
+              <p>
+                <strong>Select many at once:</strong> long-press a tile to enter select mode, then tap{" "}
+                <strong>Select all</strong> to pick everything in the current view (the folder, search and filters you
+                have on). List for sale, move, copy or delete them in one go.
+              </p>
+              <p id="csv-import" className="scroll-mt-24">
+                <strong>CSV import</strong> (every plan, with a monthly allowance — 2 imports a month on Free): bring an
+                existing spreadsheet from another tool — you don&apos;t have to re-enter your whole collection. Exports from{" "}
+                <strong>Collectr</strong>, <strong>Deckbox</strong>, and <strong>TCGplayer Seller Portal</strong> inventory
+                files are recognized (PriceCharting collection exports too), and any other spreadsheet works by mapping its columns.
+              </p>
+              <p>
+                <strong>Matching that gets it right:</strong> rows are matched to the catalog automatically &mdash;
+                including promos, sealed product, alternate arts, and reprints. When the importer is not sure, the row is
+                marked <strong>Check this match</strong> and shows the closest catalog versions (image, set, number) so you
+                can pick the right one in a tap; a <strong>Show only rows to check</strong> filter takes you straight to
+                them. Tap any card image to see it full size.
+              </p>
+              <p>
+                <strong>Quantities and prices you can trust:</strong> each row shows its quantity (<strong>×3</strong>) and
+                the header totals rows and cards; a multi-copy row imports as one item at that quantity. Graded rows are
+                priced for their own slab (a PSA 10 shows the PSA 10 price) and LP / MP rows for their own condition
+                &mdash; never the raw Near Mint price. Before importing, tap a row to change its{" "}
+                <strong>condition</strong>, <strong>grade</strong>, <strong>printing</strong>, or{" "}
+                <strong>quantity</strong>; the price updates, and one tap puts back what the file said.
+              </p>
+              <p>
+                Shop owners can tick <strong>Also list imported items for sale</strong> to put the imported cards up for
+                sale in the same pass. Items listed at the market price keep <strong>tracking the market</strong>; items
+                with no market price are <strong>never listed silently</strong> &mdash; you are asked to enter a price
+                (pre-filled with what you paid) or skip each one, and prices you enter stay fixed.
               </p>
               <p>
                 <strong>Edit each copy:</strong> own more than one of something? The{" "}
@@ -412,6 +448,14 @@ export default function FeaturesPage() {
                 Home and Collection so it is always one tap away.
               </p>
               <p>
+                <strong>Sort and filter any shop:</strong> beside the Listings heading, <strong>Sort</strong> orders the
+                inventory by price (low to high, or high to low) and <strong>Filter</strong> narrows it by game or
+                category, sealed, raw or graded, condition, and price range &mdash; showing only the options that shop
+                actually stocks, with a count on each. It works for every visitor, signed in or not, and alongside the
+                search box. On your own shop, <strong>Select all</strong> in Bulk Actions selects just the listings
+                currently shown, so clearing out a whole filtered slice is a couple of taps.
+              </p>
+              <p>
                 <strong>Print your shop as a QR sign:</strong> from the shop
                 dashboard (or the QR button on your own shop page), save or share
                 a print-ready sign with a QR code, your shop name, and{" "}
@@ -485,7 +529,9 @@ export default function FeaturesPage() {
               <p id="show-mode" className="scroll-mt-24">
                 <strong>Vendor show mode</strong> (Shop plan and above): working
                 a card show? Start a show from the <strong>shop dashboard</strong>{" "}
-                or straight from the <strong>event page</strong>, optionally with
+                or straight from the <strong>event page</strong> &mdash; the start
+                control is on every upcoming event and opens from the day before
+                the event &mdash; optionally with
                 a spending budget and the cash you started with. While the show
                 is live, every sale, trade-in, and trade you make is filed under
                 it automatically, and before you pay for something that would

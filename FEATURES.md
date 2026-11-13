@@ -31,6 +31,7 @@ This guide is for **beta testers**, **support**, and **internal teams**. Technic
 ### Portfolio
 
 - The **portfolio** area shows collection value and gain/loss (scope may follow folder filters depending on build).
+- **Honest prices:** a copy is valued at the price for **its own condition or grade**. An LP / MP / HP / DMG copy or a slab with no price for that condition shows **No price** on its tile (and **No … price yet** on its detail screen) instead of borrowing the Near Mint price, and adds $0 to totals; the Collection header says how many items are **without a price**.
 - **Pull to refresh** updates figures.
 
 ### Product search (catalog)
@@ -77,13 +78,21 @@ This guide is for **beta testers**, **support**, and **internal teams**. Technic
 ### Organization
 
 - **Folders:** assign items to folders; filter portfolio by folder on Home when supported.
+- **Select several:** long-press a tile to enter select mode. **Select all N** in the selection bar picks every item in the current view (active folder, search and filter applied — not the whole account); tap it again to clear. Then **List for sale**, **Move**, **Copy** or **Delete**. Batch list-for-sale skips items already fully listed; items listed at market start with **Keep at market price** on (slabs saved without a grading company and grade start at a fixed price). Items with **no market price for their condition or grade** are not listed at what you paid: before anything is listed a **Set a price** list asks for a price per item (pre-filled with what you paid, which you confirm or change), with **Skip this item** and **Skip all without a price**. Prices you enter stay fixed.
 
 ### CSV import (when enabled)
 
 1. Use **import CSV** from Collection (exact entry depends on build).
 2. Map columns; preview may show skeleton rows while rows are matched to the catalog.
+   - Each row's price is for **its own condition or grade**, read the same way its collection tile will read it. A graded row (from a Grade column such as `PSA 10.0 GEM - MT`, or a condition like `PSA 10` / `BGS 9.5`) shows that slab's price from a source that has graded data, or **No price for PSA 10 yet** — never the raw Near Mint price. A raw LP / MP / HP / DMG row shows that condition's price, or **No … price yet** rather than borrowing Near Mint.
+   - Graded rows are saved as slabs (condition `psa-10` plus grading company and grade), the same shape as adding a slab by hand.
+   - **Quantity:** each row shows **×N** from the file's quantity column (Collectr `Quantity`, TCGplayer `Quantity` / `Total Quantity`, Deckbox `Count`, or any `Qty`/`Quantity`/`Count` column). A row imports as **one** collection item holding that quantity, not N separate items. Rows that are identical in every column (name, set, number, condition, grade, price paid, notes, folder) are combined into one row at their total quantity and labelled "N identical rows in the file combined"; rows that differ in anything stay separate. Collectr's per-copy notes (exported as `"; ; "` on multi-copy rows) are tidied — empty and repeated fragments dropped. A blank quantity means 1; a row whose quantity is **0** is not imported (in Update inventory, 0 means you own none). The header shows rows **and** cards, and a row of more than one card shows the unit price and the line total (`$520.00 ea · $1,560.00 for 3`).
+   - **Fix a row before importing:** tap a row to change its **condition**, switch it to **graded** (company + grade), or change its **quantity** (1–9999), alongside re-matching and notes. The price updates for the new condition or grade, the row is marked **Edited**, and **Use the file's condition & quantity** puts it back. What you set is what gets imported and listed.
+   - **Printing:** the editor also lists the printings the matched product really has (Normal, Holofoil, Reverse Holofoil, 1st Edition…) and starts on the file's printing (or the one the preview priced). Changing it re-prices the row and is what gets imported and listed; a product with one printing shows it read-only. An alt-art, stamped, promo or jumbo version is a **different product** — use **Find different match** for those.
+   - **Check this match:** rows the matcher was unsure of are badged **Check this match** and counted in the header ("N to check"), with a **Show only rows to check** filter. Opening one shows the closest catalog cards (image, set, number, rarity) at the top of the editor — tap the right one and Save. Rows whose lookup failed show **Couldn't check — tap to retry**, which re-runs the match for that row only.
+   - **Tap a card image** (on the row, in the editor, or on a candidate) to see it full size.
 3. Confirm **bulk import**; resolve duplicates per app messaging.
-4. Optional (shop owners): tick **Also list imported items for sale** on the confirm step. After the rows import, they are listed as fixed-price listings at the matched market price (or your purchase price when there is none); rows with no price are skipped, and rows that failed to import are never listed. Without a shop the option is shown disabled with a create-a-shop prompt.
+4. Optional (shop owners): tick **Also list imported items for sale** on the confirm step. One listing is created per card, so a ×3 row becomes three listings (up to your plan's listing allowance). After the rows import, they are listed as fixed-price listings at the condition / grade price shown in the preview, and rows that failed to import are never listed. Items with **no market price** are never listed silently: once the import finishes, a **Set a price** list asks for a price per item (pre-filled with what the file says you paid, which you confirm or change) or **Skip** — the import itself is never held up by this. Listings priced at market start with **Keep at market price** on — slabs included, since the listing carries the grading company and grade and tracks the slab price; prices you enter stay fixed. Without a shop the option is shown disabled with a create-a-shop prompt.
 
 ### Edit your copies
 
@@ -100,7 +109,7 @@ This guide is for **beta testers**, **support**, and **internal teams**. Technic
 
 1. Drop in scan images (fronts, or fronts and backs) — up to **150** per import. Cards are read on your device; images upload only when you list a card.
 2. A **review grid** shows each match: confirm or search for another, set printing and condition (incl. graded), compare **market price** with your price, pick a folder.
-3. **Add to collection**, or **add and list for sale** in one pass (listings go out under your shop with the scans attached). Cards listed **at the market price** keep tracking the market (auto-price on); a price you type stays fixed.
+3. **Add to collection**, or **add and list for sale** in one pass (listings go out under your shop with the scans attached). Cards listed **at the market price** keep tracking the market (auto-price on); a price you type stays fixed. A card with **no typed price and no market price** is never listed silently: before anything is listed you get a **Set a price** list where you enter a price or **Skip** it (or **Skip all without a price**).
 4. **eBay File Exchange / TCGplayer** export of the reviewed batch is plan-gated.
 
 ### List for sale
@@ -160,6 +169,7 @@ Use the app entry your build provides (e.g. **Scanner** tab, button from Home/Pr
 3. **Edit listing** from profile or listing detail — including the **condition** (category-aware; graded needs company + grade). Saving pushes the new condition to the linked collection copy.
 4. **MSRP / fixed-price item** switch (sell sheet + edit listing): when on, sales of that listing are **excluded from LootScout market data**, so selling sealed product at retail never drags the market price.
 5. **Record sale** / **sale confirmation** flows for in-person deals where implemented.
+6. **Delete many listings:** on the **Shop dashboard** tap **Bulk Actions** (or long-press a listing; on your own shop page, long-press a tile). **Select all N** selects every listing shown (on the shop page, the current search and filters); tap again to clear.
 
 ### QR labels
 
@@ -241,6 +251,14 @@ Summarized in **`docs/features-kiosk-shop-pickup-cart.md`**.
 - **Kiosk** tablet flow with QR listings.
 - **Trade / sale drafts:** scan **listing QR** to append lines where enabled.
 
+### Sort and filter a shop's inventory
+
+**Who:** anyone viewing a shop page, signed in or not (including the owner). **Where:** the **Sort** and **Filter** buttons beside the **Listings** heading.
+
+1. **Sort** cycles: newest first (default) → price low to high → price high to low → back to newest. It sorts by the price shown on each tile (the live market price for "Keep at market price" listings). **Make an offer** listings always go last.
+2. **Filter** opens a sheet with only the options this shop actually stocks, each with a count: **Category / game** (Pokemon, One Piece, Sports cards, Video games, …), **Sealed only**, **Raw / graded**, **Condition** (NM/LP/MP/HP/DMG), and a **price range** (a range hides offer-only listings). Tap **Show N listings** to apply; the **Filter** button shows how many filters are on. **Clear** resets them; if nothing matches, the grid offers **Clear filters**.
+3. Sort and filter work together with the search box. On your own shop, **Select all** selects only the listings currently shown.
+
 ### Shop QR sign
 
 **Who:** shop owners. **Where:** the **Shop dashboard** (beside Kiosk Mode) or the **QR** button left of **Share** on your own shop page.
@@ -252,14 +270,14 @@ Summarized in **`docs/features-kiosk-shop-pickup-cart.md`**.
 ### Scan cards into a trade or trade-in
 
 1. On a **trade-in** or **trade** draft, tap **Scan cards** (phone camera; native app only).
-2. **Trade-in:** each scanned card becomes a catalog line priced the same way as picking it from the catalog; cards with no price are skipped and named so you can add them by hand.
+2. **Trade-in:** each scanned card becomes a catalog line priced the same way as picking it from the catalog; cards with no price are skipped and named so you can add them by hand. In **single** scan mode the match sheet has a **condition** picker (raw list, plus a **Graded slab** switch with company + grade; a detected slab is preselected) and shows the market value for that condition before **Add to trade-in**. In **batch** mode, set condition per row on the review screen.
 3. **Trade:** each scan looks for that card in **your own collection** — one copy is added straight away, several open a chooser, none shows a clear message. Copies already reserved on the draft are respected.
 
 ### Vendor show mode
 
 **Who:** **Shop plan and above** to *start* a show. Ending a running show and reading its summary are not gated, so a plan that lapses mid-show can still close out.
 
-1. **Start** from the **Shop dashboard** (“Start a show”) or an **event page** (“Start show mode here”). Pick one of today's events or name the show, and optionally enter a **spending budget** and **starting cash in the box**.
+1. **Start** from the **Shop dashboard** (“Start a show”) or an **event page** (“Start show mode here”). The event-page control appears on every upcoming or in-progress event; it can be started from **the day before the event** through the event's last day (multi-day shows count as one), and shows that reason, greyed out, before then. When your running show is linked to the event, the page shows **Show running here — View / End**. Pick one of today's events or name the show, and optionally enter a **spending budget** and **starting cash in the box**.
 2. While the show is live, a **show bar** stays on screen, and every **sale, trade-in, and trade** you complete is **tagged to the show automatically** (pickup requests are counted as demand, not sales).
 3. **Budget warnings:** when paying for a deal would take you over budget, the draft shows a warning. It never blocks the deal.
 4. **Retag:** any transaction can be moved to another show or removed from one — only your own records change; the other party never sees it.

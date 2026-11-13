@@ -410,7 +410,8 @@ export default function Home() {
                   Your shop page is <strong>public</strong>. Send the link to anyone — a bio, a group chat, a show flyer, a Facebook
                   post — and they can browse your whole inventory <strong>without making an account</strong>. No signup wall between a
                   customer and your cards. Signing in is only needed to actually do something: message you, start a pickup cart, or
-                  follow the shop. Tap <strong>Share</strong> on your shop page to send it, or print your shop as a{" "}
+                  follow the shop. Visitors can <strong>sort by price</strong> and <strong>filter</strong> by game, sealed, raw or
+                  graded, condition, and price range. Tap <strong>Share</strong> on your shop page to send it, or print your shop as a{" "}
                   <strong>QR sign</strong> for your table — any phone camera opens it.
                 </p>
                 <p className="mt-3 text-sm">
@@ -423,7 +424,7 @@ export default function Home() {
             {[
               {
                 title: "Collection Tracker",
-                desc: "Add items from the scanner, product pages, or search / image lookup where supported — or bulk-import a CSV so you pick up where you left off on another platform. Every item shows live market prices (sealed product included) and trend sparklines, plus purchase vs market value and gain/loss so you always know what your collection is worth. Own several copies? Edit each one's condition and purchase price on its own line.",
+                desc: "Add items from the scanner, product pages, or search / image lookup where supported — or bulk-import a CSV so you pick up where you left off on another platform. Every item shows live market prices (sealed product included) and trend sparklines, plus purchase vs market value and gain/loss so you always know what your collection is worth. Values are condition-true: each copy is priced for its own condition or grade, and a card with no price for its condition says so instead of borrowing the Near Mint price. Own several copies? Edit each one's condition and purchase price on its own line, or long-press and Select all to move, list, or delete a whole folder at once.",
               },
               {
                 title: "List for Sale — Set & Forget",
@@ -463,7 +464,7 @@ export default function Home() {
               },
               {
                 title: "CSV Import",
-                desc: "You don't have to start your collection over. Import a spreadsheet from another app — automatic catalog matching pulls rows into LootScout, priced against real data, so you can track and list without retyping every card.",
+                desc: "You don't have to start your collection over. Import a Collectr, Deckbox, or TCGplayer Seller Portal export — or any spreadsheet — and automatic catalog matching finds promos, sealed product, alternate arts, and reprints. Anything it isn't sure of is marked Check this match with the likely versions to pick from. Every row shows its quantity and is priced for its own condition or grade, and you can fix a row's condition, grade, printing, or quantity before importing. Shops can list the import for sale in the same pass — items with no market price ask you for a price, never list silently.",
               },
               {
                 title: "Kiosk & Pickup",
@@ -483,7 +484,7 @@ export default function Home() {
               },
               {
                 title: "Vendor Show Mode",
-                desc: "Working a card show? Start show mode from your shop dashboard or the event page, set an optional spending budget, and every sale, trade-in, and trade you make is filed under the show automatically — with a warning before a buy takes you over budget. End the show for the summary: cash vs card sales, spend vs budget, the cash that should be in your box, and what went out and came in. Shop plan and above.",
+                desc: "Working a card show? Start show mode from your shop dashboard or the event page (from the day before the show), set an optional spending budget, and every sale, trade-in, and trade you make is filed under the show automatically — with a warning before a buy takes you over budget. End the show for the summary: cash vs card sales, spend vs budget, the cash that should be in your box, and what went out and came in. Shop plan and above.",
               },
               {
                 title: "Grading Cert Verification",
