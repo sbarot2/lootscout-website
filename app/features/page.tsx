@@ -7,7 +7,7 @@ import SitePageHeader from "../components/SitePageHeader";
 export const metadata: Metadata = {
   title: "Features & guides — LootScout",
   description:
-    "How to use LootScout: Home search, collection, in-app TCG card scanner (single & batch), the Scan Station, listings and inventory SKUs, public shop pages, trades, and pickup orders.",
+    "How to use LootScout: Home search, collection, in-app TCG card scanner (single & batch), the Scan Station, listings and inventory SKUs, public shop pages and QR signs, guest browsing, trades, pickup orders, and vendor show mode.",
 };
 
 function Section({ id, title, children }: { id?: string; title: string; children: ReactNode }) {
@@ -86,9 +86,25 @@ export default function FeaturesPage() {
               </p>
               <p>
                 Tabs: <strong>Home</strong>, <strong>Collection</strong>,{" "}
-                <strong>Profile</strong>, with Scanner, Shop dashboard, and
-                Pickup routes available based on your tier and account type.
-                Pull to refresh on supported screens reloads server-backed data.
+                <strong>Events</strong>, <strong>Messages</strong>, and{" "}
+                <strong>Profile</strong>, with the Scanner, Shop dashboard, and
+                Pickup screens reached from inside the app. Pull to refresh on
+                supported screens reloads server-backed data.
+              </p>
+              <p id="guest" className="scroll-mt-24">
+                <strong>Look around before you sign up.</strong> Tap{" "}
+                <strong>Browse as guest</strong> on the sign-in screen to search
+                products and listings, open the map, and browse Events &mdash;
+                including vendor maps &mdash; without an account. Guest mode is
+                view-only: anything that would change something (adding to your
+                collection, messaging, buying) asks you to sign in first and
+                brings you back where you were.
+              </p>
+              <p>
+                <strong>Help &amp; Features:</strong> the <strong>?</strong> in
+                the Home header opens an in-app guide to what LootScout can do,
+                plus forms to send feedback or request a feature straight to the
+                team.
               </p>
             </Section>
 
@@ -120,6 +136,20 @@ export default function FeaturesPage() {
             <Section id="product" title="3. Product page">
               <p>Open from search or scanner match. Choose RAW vs GRADED (trading cards) or category-specific condition UI.</p>
               <p>
+                <strong>Sealed product is priced too</strong> &mdash; booster
+                boxes, ETBs, and other sealed items show a market price alongside
+                singles.
+              </p>
+              <p>
+                <strong>View eBay sold listings:</strong> one tap opens
+                eBay&rsquo;s sold-items search for the card you are looking at,
+                narrowed to the condition or grade on screen (a PSA 10 searches
+                PSA 10 sales; a raw card leaves graded slabs out). The same
+                button sits on every listing page, set to that listing&rsquo;s
+                condition, so you can sanity-check an asking price against what
+                actually sold.
+              </p>
+              <p>
                 <strong>Add to collection</strong> opens the add sheet with prefilled catalog data; pick condition, variant, folder, optional purchase price, then save. If you already own the item, quantity and sell flows apply as offered.
               </p>
             </Section>
@@ -134,6 +164,17 @@ export default function FeaturesPage() {
               <p>
                 <strong>CSV import</strong> (when enabled): bring an existing spreadsheet from another tool — you don&apos;t have to re-enter your
                 whole collection. Map columns, preview matching, confirm bulk import, resolve duplicates per app messaging.
+                Shop owners can tick <strong>Also list imported items for sale</strong> to put the imported cards up
+                for sale in the same pass, priced at the matched market price (or your purchase price when there is no
+                market price).
+              </p>
+              <p>
+                <strong>Edit each copy:</strong> own more than one of something? The{" "}
+                <strong>edit (pencil)</strong> chip on a collection tile (or <em>Your Collection</em> on the product page) opens
+                every copy line by line, showing which folder it is in and whether it is listed. Change the condition or
+                purchase price of one copy and it becomes its own line &mdash; so three of a card bought at different
+                prices, or graded differently, stay accurate. Listed copies point you to the listing, and editing a
+                listing&rsquo;s condition updates the collection copy behind it (and vice versa).
               </p>
               <p>
                 <strong>Import scans</strong> (browser): on desktop, Collection →
@@ -230,7 +271,10 @@ export default function FeaturesPage() {
                 folder. Then <strong>add to collection</strong> or{" "}
                 <strong>add and list for sale</strong> in one pass — listings from
                 the station go out under your shop profile, and the front and back
-                scans attach to each listing automatically.
+                scans attach to each listing automatically. Cards you list at the
+                market price keep <strong>tracking the market</strong> after
+                they go live; a price you type yourself stays exactly where you
+                put it.
               </p>
               <p>
                 <strong>eBay &amp; TCGplayer CSV export</strong> (Pro Shop /
@@ -298,15 +342,33 @@ export default function FeaturesPage() {
                 folder first.
               </p>
               <p>
-                <strong>Printable QR labels:</strong> print QR labels for your
-                listings as a PDF — a nine-per-page US Letter sheet to cut by
-                hand, or one label per page sized for a thermal label printer
-                (<strong>2.25&nbsp;&times;&nbsp;1.25&nbsp;in</strong> and{" "}
-                <strong>1.5&nbsp;&times;&nbsp;1&nbsp;in</strong> presets, for
-                Rollo / MUNBYN / DYMO / Phomemo-class printers). Stick one on a
-                sleeve or toploader and anyone can scan straight to the listing —
-                which is what makes the kiosk and pickup flows work on a table at
-                a show. Printing runs from the mobile app.
+                <strong>MSRP items stay out of market data:</strong> selling
+                sealed product at retail? Switch on{" "}
+                <strong>MSRP / fixed-price item</strong> when you list it, and
+                those sales are left out of LootScout&rsquo;s market pricing so
+                a retail price never drags the market number for everyone else.
+              </p>
+              <p>
+                <strong>Printable QR labels:</strong> pick which listings to
+                print (or all of them) and print QR labels with the card&rsquo;s
+                title — a 30-per-page US Letter sheet to cut by hand, or one
+                label per page sized for a thermal label printer
+                (<strong>2.25&nbsp;&times;&nbsp;1.25&nbsp;in</strong>,{" "}
+                <strong>1.5&nbsp;&times;&nbsp;1&nbsp;in</strong>, and{" "}
+                <strong>1&nbsp;&times;&nbsp;1&nbsp;in</strong> presets, for
+                Rollo / MUNBYN / DYMO / Phomemo-class printers). Prices are
+                left off by default; tick <strong>Include price</strong> to add
+                them. Save the labels to your device as a PDF or export them as
+                images, or print straight from the browser.
+              </p>
+              <p>
+                <strong>Any phone camera can scan them.</strong> Listing QR
+                codes are ordinary https links. Someone with LootScout installed
+                lands on the listing in the app; someone without it opens the
+                listing in their browser and can look around as a guest &mdash;
+                no download needed just to see the card. Stick a label on a
+                sleeve or toploader and that is what makes the kiosk and pickup
+                flows work on a table at a show.
               </p>
               <p>
                 <strong>Longer trendlines:</strong> product and listing
@@ -338,6 +400,15 @@ export default function FeaturesPage() {
                 Home and Collection so it is always one tap away.
               </p>
               <p>
+                <strong>Print your shop as a QR sign:</strong> from the shop
+                dashboard (or the QR button on your own shop page), save or share
+                a print-ready sign with a QR code, your shop name, and{" "}
+                <em>&ldquo;Scan to browse our inventory on LootScout&rdquo;</em>.
+                Tape it to your table or put it on a flyer &mdash; any phone
+                camera opens your shop, in the app if they have it and in the
+                browser if they don&rsquo;t.
+              </p>
+              <p>
                 <strong>Pickup orders, end to end:</strong> a customer browsing
                 your shop adds listings to a pickup cart and requests pickup.
                 The request lands in your dashboard queue, where you can open it
@@ -365,6 +436,15 @@ export default function FeaturesPage() {
                 to you rather than silently dropped.
               </p>
               <p>
+                <strong>Scan cards into a deal:</strong> a trade or trade-in
+                draft has a <strong>Scan cards</strong> button that opens the
+                card scanner. On a walk-in trade-in, each scanned card becomes a
+                priced line, the same as picking it from the catalog (a card with
+                no price is named and left out for you to add by hand). On a trade,
+                each scan finds the matching copy in your own collection &mdash;
+                one copy adds straight away, several let you choose which.
+              </p>
+              <p>
                 <strong>Tap to Pay:</strong> accept in-person contactless card
                 payments with just your phone — no reader hardware. It&rsquo;s
                 powered by Stripe, and you&rsquo;re paid <strong>directly to
@@ -389,6 +469,20 @@ export default function FeaturesPage() {
                 items file automatically into your collection folders. Custom
                 catalog entries (including custom grading slabs) and per-line
                 quantity adjustments are supported.
+              </p>
+              <p id="show-mode" className="scroll-mt-24">
+                <strong>Vendor show mode</strong> (Shop plan and above): working
+                a card show? Start a show from the <strong>shop dashboard</strong>{" "}
+                or straight from the <strong>event page</strong>, optionally with
+                a spending budget and the cash you started with. While the show
+                is live, every sale, trade-in, and trade you make is filed under
+                it automatically, and before you pay for something that would
+                take you over your budget the deal shows a warning (it never
+                blocks the deal). You can move any deal to or from a show
+                afterwards &mdash; only your own records change. End the show
+                and you get the summary: sales split by cash and card, what you
+                paid out against your budget, the cash that should be in the box
+                (when you entered your starting cash), and the items that went out and came in, with their market value.
               </p>
               <p>
                 <strong>Transactions CSV export</strong> (Pro Shop /

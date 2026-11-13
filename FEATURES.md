@@ -1,7 +1,9 @@
 # LootScout — Feature guide & how to use
 
-**Last updated:** 2026-07-26  
-**Product:** LootScout mobile app (React Native / Expo). Some features need a **development build** (not Expo Go), especially **card scanning** and full camera/OCR.
+**Last updated:** 2026-11-13  
+**Product:** LootScout app (React Native / Expo) — iOS, Android, and the browser at **app.lootscout.io**. Camera **card scanning** needs a native store build (not Expo Go); on a computer the **Scan Station** takes its place.
+
+> **Keep in sync:** the website (`lootscout-website/app/features/page.tsx`, `app/page.tsx` feature cards, `app/faq/page.tsx`) and the in-app **Help & Features** screen (`lib/help/features.ts`) describe the same features. Change them together.
 
 This guide is for **beta testers**, **support**, and **internal teams**. Technical deep-dives also live in `docs/features-*.md` and `CLAUDE.md`.
 
@@ -10,8 +12,17 @@ This guide is for **beta testers**, **support**, and **internal teams**. Technic
 ## 1. Account & basics
 
 1. **Sign up / sign in** with email (Supabase Auth). Confirm email if your project requires it.
-2. **Tabs** (typical layout): **Home**, **Collection**, **Profile** — plus any beta routes your build exposes (e.g. **Scanner**, **Shop**, **Pickup**).
+2. **Tabs:** **Home**, **Collection**, **Events**, **Messages**, **Profile** — the **Scanner**, **Shop dashboard**, and **Pickup** screens are reached from inside those tabs.
 3. **Pull to refresh** on supported screens reloads server-backed data (portfolio, listings, etc.).
+4. **Help & Features:** the **?** in the Home header opens an in-app feature guide plus **Feedback** and **Request a feature** forms that go straight to the team.
+
+### Browse as guest (no account)
+
+1. On the sign-in or sign-up screen, tap **Browse as guest**.
+2. Guests get **Home** (product search, listings, map) and **Events** (including vendor maps). Everything is **view-only**.
+3. Any action that changes something — add to collection, message, buy, list — routes to **sign in** and returns you to where you were.
+4. Guest search is **catalog-only** (no live API lookups).
+5. Shared **shop** and **listing** links (and listing QR codes) open for anyone — in the app if installed, otherwise in the browser as a guest.
 
 ---
 
@@ -46,9 +57,10 @@ This guide is for **beta testers**, **support**, and **internal teams**. Technic
 
 1. Open from **search** or **scanner** match.
 2. Choose **RAW vs GRADED** (trading cards) or category-specific condition UI (e.g. video games: Loose / CIB / New / …).
-3. View **price** blocks, **trends / sparkline** when data exists.
-4. **Add to collection:** opens the add sheet with prefilled catalog data; pick **condition**, **variant/printing**, **folder**, optional **purchase price**, then save.
-5. If you already own the item, use **quantity** controls and **sell** flows as offered.
+3. View **price** blocks, **trends / sparkline** when data exists. **Sealed** products (booster boxes, ETBs, etc.) carry a market price too.
+4. **View eBay sold listings** opens eBay's sold-items search for this item, narrowed to the condition or grade on screen (graded → e.g. "PSA 10"; raw → slabs excluded; video games → loose / CIB / sealed …). The same button is on every **listing** page, fixed to that listing's condition.
+5. **Add to collection:** opens the add sheet with prefilled catalog data; pick **condition**, **variant/printing**, **folder**, optional **purchase price**, then save.
+6. If you already own the item, use **quantity** controls and **sell** flows as offered, or open **Your Collection** to edit each copy (see *Edit your copies* below).
 
 ---
 
@@ -71,6 +83,25 @@ This guide is for **beta testers**, **support**, and **internal teams**. Technic
 1. Use **import CSV** from Collection (exact entry depends on build).
 2. Map columns; preview may show skeleton rows while rows are matched to the catalog.
 3. Confirm **bulk import**; resolve duplicates per app messaging.
+4. Optional (shop owners): tick **Also list imported items for sale** on the confirm step. After the rows import, they are listed as fixed-price listings at the matched market price (or your purchase price when there is none); rows with no price are skipped, and rows that failed to import are never listed. Without a shop the option is shown disabled with a create-a-shop prompt.
+
+### Edit your copies
+
+1. Open the editor from the **edit (pencil) chip** on a collection tile, beside **Sell**, from **Your Collection** on the product page, or from the collection item page.
+2. Every copy is listed **line by line** with its **folder**, variant / condition, and whether it is **listed for sale**.
+3. Change a copy's **condition** (graded needs company + grade) or **purchase price**, then **Save this copy**.
+4. **Multiple-quantity rows split:** editing one unit of a qty-3 row turns that unit into its own line, so copies bought at different prices or in different conditions stay accurate.
+5. Units that back a live listing are **locked** — edit them from the listing.
+6. **Condition sync:** editing a listing's condition updates the collection copy behind it, and editing a collection copy's condition updates its active listing. Quantity still lives on the **+/−** stepper.
+
+### Import scans (Scan Station)
+
+**Where:** **Collection → Import scans** — in the browser at **app.lootscout.io**, and on phones too.
+
+1. Drop in scan images (fronts, or fronts and backs) — up to **150** per import. Cards are read on your device; images upload only when you list a card.
+2. A **review grid** shows each match: confirm or search for another, set printing and condition (incl. graded), compare **market price** with your price, pick a folder.
+3. **Add to collection**, or **add and list for sale** in one pass (listings go out under your shop with the scans attached). Cards listed **at the market price** keep tracking the market (auto-price on); a price you type stays fixed.
+4. **eBay File Exchange / TCGplayer** export of the reviewed batch is plan-gated.
 
 ### List for sale
 
@@ -125,13 +156,82 @@ Use the app entry your build provides (e.g. **Scanner** tab, button from Home/Pr
 ## 6. Listings & selling
 
 1. **Create listing** from collection or listing flows.
-2. **Fixed** vs **offer** listing types; **auto_price** may track catalog prices until you manually change the price (then auto may turn off — see `CLAUDE.md`).
-3. **Edit listing** from profile or listing detail.
-4. **Record sale** / **sale confirmation** flows for in-person deals where implemented.
+2. **Fixed** vs **offer** listing types. On a **fixed-price** listing, the **Keep at market price** switch keeps the price tracking the catalog; those listings show an **“Auto-priced to market”** badge on the listing page. Saving a price you typed yourself turns the switch off. Offer listings never auto-price.
+3. **Edit listing** from profile or listing detail — including the **condition** (category-aware; graded needs company + grade). Saving pushes the new condition to the linked collection copy.
+4. **MSRP / fixed-price item** switch (sell sheet + edit listing): when on, sales of that listing are **excluded from LootScout market data**, so selling sealed product at retail never drags the market price.
+5. **Record sale** / **sale confirmation** flows for in-person deals where implemented.
+
+### QR labels
+
+1. From your shop, open the QR label printer and **select listings** (all, or tick individual ones).
+2. Formats: **US Letter sheet (30 per page)** to cut by hand, or one-per-page thermal presets **2.25 × 1.25 in**, **1.5 × 1 in**, **1 × 1 in** (stacked QR over title).
+3. Labels print **QR + title**; tick **Include price** to add the price (off by default).
+4. **Save to device** as a PDF, or **export as images** (SVG on phones, PNG in the browser). In the browser you can also print directly.
+5. **Listing QR codes are https links** (`https://lootscout.io/listing/{id}`): any phone camera can scan them. With the app installed they open the listing in the app; without it they open the listing in the browser as a guest. Older `lootscout://` labels still scan inside the app.
 
 ---
 
-## 7. Shops, trades & pickup cart
+## 7. Events & vendor maps
+
+**Where:** the **Events** tab. Events come from two places — **imported card shows** (nightly US card-show import) and **events added by users**.
+
+### Find a show
+
+1. Events are searched around a **center point**. The tab asks for **location** on open; tap the **Near** row to search a **city or ZIP** (“Charlotte, NC or 90210”) or **use my current location**. If location is denied you get a banner prompting for a city/ZIP instead.
+2. **Distance** chips: **5 / 25 / 50 / 100 mi / Any** (default **25 mi**).
+3. The **month calendar** puts a dot under every day that has events (multi-day shows dot each day they cover). Tap a day to list that day’s shows; chevrons change month.
+4. Rows show venue, date range, and **“3.4 mi away”** when the event has coordinates. **Pull to refresh**.
+
+### Add an event
+
+Any signed-in user can add one via the **Add Event** button.
+
+1. **Event name**, **venue name**, **street / city / state / ZIP** — or tap **Use current location** to prefill the address.
+2. **Start** and **End** (end defaults to start + 3 hours).
+3. Optional **description** and an optional **venue image** (floor plan or promo).
+4. **Create event** opens the new event page.
+
+**Deleting an event is admin-only.** Because anyone can add one, events created by a normal user show this banner on the event page:
+
+> ⚠ **User added event — please confirm validity before attending.**
+
+Imported shows and admin-created events do not show it.
+
+### Event page
+
+- Header: name, date range, venue, **“N attending · N vendors”**, and **Open in Maps** (hands the venue off to your device’s maps app).
+- **Attend** toggles your RSVP; **Attend as vendor** opens vendor setup. Switching from vendor back to attendee clears your booth pin and event listings (you’re asked first).
+- **Venue maps** gallery, then three tabs: **Vendors**, **Search items**, **Map**.
+
+### Multi-day & recurring shows
+
+Shows with the same **name + venue + state** are treated as one series, split into **occurrences**:
+
+- **Consecutive days are one occurrence.** A Fri/Sat/Sun show **shares vendors, booth pins, and brought listings across all its days** — set up once and you appear on every day of that weekend.
+- **A gap of 2+ days starts a new occurrence.** A **weekly recurring** show therefore starts fresh each week: attendance, pins, and listings are per-week.
+- **Venue map images are shared across the whole series** — a floor plan uploaded once appears on every date, including future weeks.
+- **Booth labels are unique per occurrence.** Two vendors can’t both claim “Table 14” at the same show (you’ll see *“Booth 14 is already claimed by another vendor at this show”*), but the same label is free again at next week’s occurrence. Blank / “TBD” labels are exempt.
+
+### Vendor setup
+
+1. **Attend as vendor** → **Vendor setup**.
+2. **Booth label** (e.g. “Table 14, Aisle B-3”) and optional **notes**.
+3. **Choose listings to bring** — pick from your **active** listings (search, **Select all** / **Clear**). First-time setup pre-selects all of them.
+4. **Place me on the venue map** → **Place your booth**: *“Pinch to zoom in for precision, then tap the floor plan to drop your pin.”* Other vendors’ pins shrink to small **dots** while you place yours. If the event has several maps, pick one from the thumbnail strip first — pins belong to a specific image, so switching maps clears an unsaved pin. **Save pin**.
+5. **Save vendor setup**. With no venue map yet, your **booth label still shows** in the Vendors tab.
+6. **Move your pin later:** open the **Map** tab and **long-press your own pin**.
+7. **Remove vendor setup** takes you off the vendor list and clears your pin and event listings.
+
+### Attendee tools
+
+- **Vendors** tab — every vendor with **“Booth 14”** or **“Booth TBD”**; tap to open their profile.
+- **Search items** — one search across everything vendors brought to this show. Each result shows price, vendor, booth, **View listing**, and **Find vendor** (switches to the Map tab and zooms to that booth; a toast tells you when the vendor hasn’t pinned yet). This is **live inventory**: only **active** listings appear, so items sold in the app drop out on the next refresh.
+- **Map** tab — tap the map to open the zoom view (*“Pinch to zoom · drag to pan · double-tap to reset”*). Tap any pin to spotlight it — every other pin collapses to a dot — and open that vendor’s items with a **“Search this vendor’s items”** box.
+- **Venue maps** — any signed-in user can **+ Add map** (community submissions, no review step), so an event can carry several floor plans or promo images. You can delete **your own** upload. Booth pins are tracked **per image**.
+
+---
+
+## 8. Shops, trades & pickup cart
 
 Summarized in **`docs/features-kiosk-shop-pickup-cart.md`**.
 
@@ -140,6 +240,30 @@ Summarized in **`docs/features-kiosk-shop-pickup-cart.md`**.
 - **Shop-scoped pickup cart** persisted on device; **Pickup** hub and **checkout** routes.
 - **Kiosk** tablet flow with QR listings.
 - **Trade / sale drafts:** scan **listing QR** to append lines where enabled.
+
+### Shop QR sign
+
+**Who:** shop owners. **Where:** the **Shop dashboard** (beside Kiosk Mode) or the **QR** button left of **Share** on your own shop page.
+
+1. The sheet shows a scannable preview of the sign (scan your own screen to check it).
+2. **Save** or **Share** a print-ready **5 × 5 in** sign — QR code, your shop name, and “Scan to browse our inventory on LootScout” (PNG when saved from the browser).
+3. The QR is your shop's https link: it opens in the app when installed, otherwise in the browser as a guest.
+
+### Scan cards into a trade or trade-in
+
+1. On a **trade-in** or **trade** draft, tap **Scan cards** (phone camera; native app only).
+2. **Trade-in:** each scanned card becomes a catalog line priced the same way as picking it from the catalog; cards with no price are skipped and named so you can add them by hand.
+3. **Trade:** each scan looks for that card in **your own collection** — one copy is added straight away, several open a chooser, none shows a clear message. Copies already reserved on the draft are respected.
+
+### Vendor show mode
+
+**Who:** **Shop plan and above** to *start* a show. Ending a running show and reading its summary are not gated, so a plan that lapses mid-show can still close out.
+
+1. **Start** from the **Shop dashboard** (“Start a show”) or an **event page** (“Start show mode here”). Pick one of today's events or name the show, and optionally enter a **spending budget** and **starting cash in the box**.
+2. While the show is live, a **show bar** stays on screen, and every **sale, trade-in, and trade** you complete is **tagged to the show automatically** (pickup requests are counted as demand, not sales).
+3. **Budget warnings:** when paying for a deal would take you over budget, the draft shows a warning. It never blocks the deal.
+4. **Retag:** any transaction can be moved to another show or removed from one — only your own records change; the other party never sees it.
+5. **End show** (or it ends automatically after the event / after inactivity) and open the **summary**: sales (gross, discounts, cash vs card, refunds, net, est. card fees), buys and trades (trade-ins, trades, purchases, paid out in cash / by card), **cash box** (cash in, cash out, net, and **expected in the box** when you entered starting cash), **items out** (market value, plus your cost and margin where cost is known), **items in** (market value, amount paid), top items, open deals, pickup requests, and listings brought.
 
 Follow that document for routes (`/pickup`, `/kiosk`, etc.) and QR deep link shapes.
 
@@ -152,11 +276,11 @@ Follow that document for routes (`/pickup`, `/kiosk`, etc.) and QR deep link sha
 3. For **graded** items, pick the **grading company** — PSA, BGS, CGC, SGC, and the newer **ACE / TAG** — and the **grade**, including **half grades** (e.g. 9.5, 8.5).
 4. Set an **agreed price per line** — the number you and the customer settle on. The catalog price is a reference; you can override it (or type a manual estimate when the catalog has no price).
 5. Complete the trade-in — accepted items are **filed automatically into a receiving folder** in your inventory.
-6. Settle any **cash remainder** owed to the customer in person, or (Android) **charge their card with Tap to Pay** — see below.
+6. Settle any **remainder** in cash (the default) or by card — see below.
 
-### Tap to Pay — in-person card payments (Android)
+### Tap to Pay — in-person card payments (Android, and Tap to Pay on iPhone)
 
-**Requires:** an **NFC-capable Android phone** and a store / preview build that includes the payments SDK (not Expo Go). **No card-reader hardware needed** — the phone is the terminal. **iOS support is coming later** (Android first).
+**Requires:** an **NFC-capable Android phone**, or an iPhone using **Tap to Pay on iPhone**, on a store build (not Expo Go). **No card-reader hardware needed** — the phone is the terminal. (iOS copy must always use the full name **Tap to Pay on iPhone**.)
 
 **One-time seller setup:**
 1. Open **Profile** (or **Shop**) → the **Tap to Pay / payments** entry.
@@ -165,17 +289,17 @@ Follow that document for routes (`/pickup`, `/kiosk`, etc.) and QR deep link sha
 
 **Taking a payment (seller):**
 1. Available on a **POS sale**, a **trade-in cash remainder**, or a **peer-trade cash difference** — choose **charge card (Tap to Pay)**.
-2. Review the **fee breakdown** shown in-app: the charge, LootScout's **3% platform fee**, and your net are itemized **before** you charge. You can optionally **pass the fee to the buyer** where local rules allow.
-3. The buyer **taps a contactless card or phone** to your Android device.
+2. Review the **fee breakdown** shown in-app: the charge, LootScout's **3% platform fee**, **Stripe's card-processing fee**, and your net are itemized **before** you charge. Fees are **seller-side only — the buyer is never charged a surcharge.** (Marketing accuracy: 3% is the *platform* fee, not the total — card processing also applies and shows in the same breakdown.)
+3. The buyer **taps a contactless card or phone** to your device.
 4. On approval the payment settles; for a trade, **settlement is instant** — inventory transfers on the spot.
 
-**Buyer experience:** tap a contactless card or phone to the seller's Android device, exactly like any contactless terminal. No app or account required to pay.
+**Buyer experience:** tap a contactless card or phone to the seller's device, exactly like any contactless terminal. No app or account required to pay.
 
-**Refunds:** sellers can issue **in-app refunds** for disputes.
+**Refunds:** the seller who took the payment can issue a **full in-app refund** on any completed card-paid transaction — from the transaction itself (**Refund payment**, which is how walk-in sales with no counterparty are handled) or from the dispute screen. Refunds are full-amount and can’t be undone.
 
 ---
 
-## 8. Profile & subscription
+## 9. Profile & subscription
 
 1. **Profile** shows your public info, shop entry points, usage, and settings links (per build).
 2. **Subscription / billing** may open Stripe customer portal from Edge Functions.
@@ -183,14 +307,14 @@ Follow that document for routes (`/pickup`, `/kiosk`, etc.) and QR deep link sha
 
 ---
 
-## 9. AI & analytics (where enabled)
+## 10. AI & analytics (where enabled)
 
 - **Price trend** hints, **market opportunities**, **portfolio analytics** on Collection/Home — see `lib/ai/*` in the repo.
 - Optional **Claude-powered** copy when API keys are configured.
 
 ---
 
-## 10. Related documentation
+## 11. Related documentation
 
 | Doc | Contents |
 |-----|----------|
@@ -207,4 +331,6 @@ Follow that document for routes (`/pickup`, `/kiosk`, etc.) and QR deep link sha
 | Date | Change |
 |------|--------|
 | 2026-04-07 | Initial consolidated guide; Card scanner section from shipped batch/single/manual-search UX. |
+| 2026-11-13 | Caught up with Oct–Nov shipping: **Browse as guest**, **Help & Features** screen + feedback forms, **eBay sold** button (product + listing), sealed prices, **Edit your copies** (per-unit split + listing↔collection condition sync), CSV **also list for sale**, **Import scans / Scan Station** (market-priced listings auto-track), **MSRP / fixed-price** switch, **QR labels** (selection, 30/page sheet, 1×1 preset, optional price, save as PDF / images, https QR links), **Shop QR sign**, **Scan cards into a trade / trade-in**, **Vendor show mode**. Corrected: Tap to Pay is live on iOS as **Tap to Pay on iPhone** (was "coming later"); tab list no longer calls Scanner/Shop/Pickup "beta routes". Plans/pricing section deliberately untouched (pricing overhaul in progress). |
+| 2026-08-04 | Added **Events & vendor maps** (radius + calendar discovery, imported vs user-added events with validity disclaimer, attend / attend-as-vendor, booth labels and pins on community venue maps, event-wide live item search, multi-day vs weekly-recurring sharing rules). Corrected: tab list now includes Events + Messages; auto-pricing described as the **Keep at market price** switch with the **Auto-priced to market** badge; refunds described as payee-issued full refunds on any completed card-paid transaction (not dispute-only). |
 | 2026-07-26 | Added **Tap to Pay** (Android in-person card payments, no reader hardware, direct Stripe Connect payouts, 3% platform fee with in-app breakdown, optional buyer fee pass-through, in-app refunds) and **walk-in trade-in for all shops** (catalog search, any grading company incl. ACE/TAG + half grades, per-line agreed pricing, auto folder filing, instant settlement on card tap). iOS Tap to Pay noted as coming later. |

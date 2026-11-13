@@ -6,7 +6,7 @@ import SitePageHeader from "../components/SitePageHeader";
 export const metadata: Metadata = {
   title: "FAQ — LootScout",
   description:
-    "LootScout FAQ: card scanner requirements, the Scan Station and marketplace CSV exports, public shop pages, Home search behavior, pricing, and the collectibles marketplace.",
+    "LootScout FAQ: card scanner requirements, the Scan Station and marketplace CSV exports, public shop pages, guest browsing, QR labels and signs, vendor show mode, Home search behavior, pricing, and the collectibles marketplace.",
 };
 
 const qa = [
@@ -34,6 +34,21 @@ const qa = [
     id: "public-shop",
     q: "Do people need an account to see my shop?",
     a: "No. Your shop page is public — send the link to anyone and they can browse your listings straight away, no signup wall. An account is only needed to act: message you, add items to a pickup cart, or follow the shop. Tap Share on your shop page to send the link, and there is a shortcut to your own shop from the Home and Collection tabs.",
+  },
+  {
+    id: "guest",
+    q: "Can I look around without making an account?",
+    a: "Yes. Tap Browse as guest on the sign-in screen to search products and listings, open the map, and browse Events and vendor maps without signing up. Guest mode is view-only — adding to a collection, messaging, or buying asks you to sign in first. Shop pages and listing links work the same way: anyone can open them, in the app or in a browser.",
+  },
+  {
+    id: "qr-codes",
+    q: "Do my listing QR labels and shop sign work for people without the app?",
+    a: "Yes. Listing QR codes and the shop QR sign are ordinary web links, so any phone camera can scan them. If LootScout is installed, the link opens in the app; if not, it opens the listing or shop in the browser, where they can browse as a guest. Older labels printed before the switch still scan inside the app.",
+  },
+  {
+    id: "show-mode",
+    q: "What is vendor show mode?",
+    a: "A way to keep one show's numbers together. Start it from your shop dashboard or an event page (Shop plan and above), optionally with a spending budget and your starting cash. While it is running, every sale, trade-in, and trade you make is filed under the show automatically, and you get a warning before a buy takes you over budget. When you end the show, the summary shows sales by cash and card, what you spent against the budget, the cash that should be in your box, and the items that went out and came in.",
   },
   {
     id: "search-api",

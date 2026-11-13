@@ -408,7 +408,8 @@ export default function Home() {
                   Your shop page is <strong>public</strong>. Send the link to anyone — a bio, a group chat, a show flyer, a Facebook
                   post — and they can browse your whole inventory <strong>without making an account</strong>. No signup wall between a
                   customer and your cards. Signing in is only needed to actually do something: message you, start a pickup cart, or
-                  follow the shop. Tap <strong>Share</strong> on your shop page to send it.
+                  follow the shop. Tap <strong>Share</strong> on your shop page to send it, or print your shop as a{" "}
+                  <strong>QR sign</strong> for your table — any phone camera opens it.
                 </p>
                 <p className="mt-3 text-sm">
                   <Link href="/features#public-shop" className="font-medium text-primary-600 hover:text-primary-700 hover:underline">
@@ -420,7 +421,7 @@ export default function Home() {
             {[
               {
                 title: "Collection Tracker",
-                desc: "Add items from the scanner, product pages, or search / image lookup where supported — or bulk-import a CSV so you pick up where you left off on another platform. Every item shows live market prices and trend sparklines, plus purchase vs market value and gain/loss so you always know what your collection is worth.",
+                desc: "Add items from the scanner, product pages, or search / image lookup where supported — or bulk-import a CSV so you pick up where you left off on another platform. Every item shows live market prices (sealed product included) and trend sparklines, plus purchase vs market value and gain/loss so you always know what your collection is worth. Own several copies? Edit each one's condition and purchase price on its own line.",
               },
               {
                 title: "List for Sale — Set & Forget",
@@ -428,7 +429,7 @@ export default function Home() {
               },
               {
                 title: "Digital Trades",
-                desc: "Build a trade in person: pick what you give and what you get, both sides confirm, and the items transfer automatically between your two collections — no counting cards or doing the math by hand. Add a whole collection folder to your side in one go, and collapse either side down to its item count and running total so a twenty-card offer doesn't bury the controls. Owe cash on a trade? Settle the difference with Tap to Pay on the spot and the deal closes instantly.",
+                desc: "Build a trade in person: pick what you give and what you get, both sides confirm, and the items transfer automatically between your two collections — no counting cards or doing the math by hand. Add a whole collection folder to your side in one go, and collapse either side down to its item count and running total so a twenty-card offer doesn't bury the controls. Scan cards straight into a trade or trade-in draft with your phone camera. Owe cash on a trade? Settle the difference with Tap to Pay on the spot and the deal closes instantly.",
               },
               {
                 title: "Local Discovery & Map",
@@ -468,15 +469,19 @@ export default function Home() {
               },
               {
                 title: "Inventory SKUs & QR Labels",
-                desc: "Listings number themselves. Each one gets a sequential SKU built from its collection folder — a card filed under Pokemon Binder 3 lists as pokemon_binder_3-014, the next one -015 — visible only to you, on the listing, in shop inventory, and in your exports (it's the CustomLabel in the eBay file). Print matching QR labels as a PDF: a nine-per-page sheet to cut by hand, or one-per-page presets sized for a 2.25×1.25in or 1.5×1in thermal label printer.",
+                desc: "Listings number themselves. Each one gets a sequential SKU built from its collection folder — a card filed under Pokemon Binder 3 lists as pokemon_binder_3-014, the next one -015 — visible only to you, on the listing, in shop inventory, and in your exports (it's the CustomLabel in the eBay file). Print matching QR labels: a 30-per-page sheet to cut by hand, or one-per-page presets sized for 2.25×1.25in, 1.5×1in, or 1×1in thermal labels — saved as a PDF or exported as images. The QR is an ordinary web link, so any phone camera can scan it, app or no app.",
               },
               {
                 title: "Runs in Your Browser",
-                desc: "The full app lives at app.lootscout.io — not a cut-down preview. Sign up, finish your profile, search, build your collection, list, trade, run pickup orders, subscribe, and manage billing all work on a desktop. Camera scanning is the one thing that stays on the phone; on a computer the Scan Station takes its place.",
+                desc: "The full app lives at app.lootscout.io — not a cut-down preview. Sign up, finish your profile, search, build your collection, list, trade, run pickup orders, subscribe, and manage billing all work on a desktop. Camera scanning is the one thing that stays on the phone; on a computer the Scan Station takes its place. Not signed up yet? Browse as a guest — search, listings, the map, and events, no account needed.",
               },
               {
                 title: "Shop Tools",
                 desc: "In-person POS checkout with Tap to Pay (accept cards on your phone, no reader), walk-in trade-ins any shop can run — search the full catalog for what a customer brings, any grading company including ACE and TAG plus half grades, set per-item agreed prices, and take card for any remainder on the spot while items auto-file into collection folders. Plus a trade-in credit calculator where shops set their own buy rate (e.g. 80%), kiosk mode with QR codes for in-store pickup browsing, a shop-scoped pickup cart, and sales analytics (including card-show profit tracking on Pro Shop+).",
+              },
+              {
+                title: "Vendor Show Mode",
+                desc: "Working a card show? Start show mode from your shop dashboard or the event page, set an optional spending budget, and every sale, trade-in, and trade you make is filed under the show automatically — with a warning before a buy takes you over budget. End the show for the summary: cash vs card sales, spend vs budget, the cash that should be in your box, and what went out and came in. Shop plan and above.",
               },
               {
                 title: "Grading Cert Verification",
