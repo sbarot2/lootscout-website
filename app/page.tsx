@@ -6,6 +6,7 @@ import MarketingVideoGallery from "./components/MarketingVideoGallery";
 import ComingSoonIcon from "./components/ComingSoonIcon";
 import StoreBadge from "./components/StoreBadge";
 import InstagramLink from "./components/InstagramLink";
+import { COMPARISON_ROWS, PLAN_CHANGE_NOTE, PLANS } from "./pricing/plans";
 
 export default function Home() {
   return (
@@ -346,7 +347,7 @@ export default function Home() {
                   <strong>capture and go</strong>. Matching leans on the card number as the dominant signal, keeps rank suffixes (V,
                   VMAX, ex, GX) as part of the card&apos;s identity, disambiguates sibling variants instead of guessing, and{" "}
                   <strong>excludes sealed products</strong> — a booster box returns <em>no match</em> rather than a confident wrong card.{" "}
-                  <strong>Free for every account</strong> — no separate scanner fee.
+                  <strong>Live camera scanning is free and unlimited on every plan</strong> — no separate scanner fee.
                 </p>
                 <p className="mt-3 text-sm">
                   <Link href="/faq#scanner-build" className="font-medium text-primary-600 hover:text-primary-700 hover:underline">
@@ -373,10 +374,11 @@ export default function Home() {
                   <strong>review grid</strong> puts printing, condition, market price, and your price side by side.
                   Add the batch to your collection, or <strong>list it for sale in bulk</strong> under your shop profile with the
                   scans attached to each listing. Then <strong>export a ready-to-upload eBay File Exchange or TCGplayer file</strong>{" "}
-                  (Pro Shop and up) — the TCGplayer file carries <strong>real seller-portal SKUs</strong> resolved per product,
+                  (Shop and up) — the TCGplayer file carries <strong>real seller-portal SKUs</strong> resolved per product,
                   condition, and printing, so it lands on your existing portal rows instead of creating near-duplicates (strongest
                   coverage on Magic, Pok&eacute;mon, and Yu-Gi-Oh!). It replaces the manual bulk-listing work — no retyping a card into
-                  another tool. <strong>Works on your phone too</strong>, not just a desktop.
+                  another tool. <strong>Works on your phone too</strong>, not just a desktop. Uploaded scans count toward your
+                  plan&apos;s monthly photo-upload allowance (10 a month on Free).
                 </p>
                 <p className="mt-3 text-sm">
                   <Link href="/features#scan-station" className="font-medium text-primary-600 hover:text-primary-700 hover:underline">
@@ -477,7 +479,7 @@ export default function Home() {
               },
               {
                 title: "Shop Tools",
-                desc: "In-person POS checkout with Tap to Pay (accept cards on your phone, no reader), walk-in trade-ins any shop can run — search the full catalog for what a customer brings, any grading company including ACE and TAG plus half grades, set per-item agreed prices, and take card for any remainder on the spot while items auto-file into collection folders. Plus a trade-in credit calculator where shops set their own buy rate (e.g. 80%), kiosk mode with QR codes for in-store pickup browsing, a shop-scoped pickup cart, and sales analytics (including card-show profit tracking on Pro Shop+).",
+                desc: "In-person POS checkout with Tap to Pay (accept cards on your phone, no reader), walk-in trade-ins any shop can run — search the full catalog for what a customer brings, any grading company including ACE and TAG plus half grades, set per-item agreed prices, and take card for any remainder on the spot while items auto-file into collection folders. Plus a trade-in credit calculator with a buy rate you set (e.g. 80%; saving a custom default rate is an Enterprise feature for shops with 100+ listings), kiosk mode with QR codes for in-store pickup browsing, a shop-scoped pickup cart, and sales analytics (including card-show profit tracking with vendor show mode on Shop and up).",
               },
               {
                 title: "Vendor Show Mode",
@@ -576,7 +578,7 @@ export default function Home() {
             </p>
           </FadeInSection>
 
-          {/* Beta launch banner */}
+          {/* Intro offer banner */}
           <FadeInSection>
             <div className="mt-10 rounded-2xl bg-gradient-to-r from-primary-500 via-primary-600 to-accent-500 text-white px-4 sm:px-6 py-4 sm:py-5 flex flex-col sm:flex-row items-center gap-3 sm:gap-4 shadow-lg animate-fade-in">
               <span className="text-2xl sm:text-3xl" aria-hidden>
@@ -587,212 +589,66 @@ export default function Home() {
                   New accounts get Enterprise free for their first 30 days.
                 </p>
                 <p className="text-sm text-primary-100">
-                  Intro offer while we&apos;re in beta — then lock in these rates forever and keep them as long as you stay subscribed.
+                  Every plan gets the full app — paid plans raise the monthly limits, and the Shop plans add the shop tools.
                 </p>
               </div>
             </div>
           </FadeInSection>
 
-          {/* Individual Plans */}
-          <FadeInSection>
-            <h3 className="mt-14 sm:mt-16 text-2xl font-semibold text-slate-900">
-              Individual Plans
-            </h3>
-            <div className="mt-8 grid gap-6 lg:gap-8 md:grid-cols-3">
-              {/* Free */}
-              <div className="relative flex flex-col rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-lg transition-shadow hover:-translate-y-1">
-                <div className="p-6 sm:p-7 flex-1 flex flex-col">
-                  <h4 className="text-lg font-semibold text-slate-900">Free</h4>
-                  <p className="mt-1 text-sm text-slate-500">Perfect for getting started</p>
-                  <div className="mt-4">
-                    <span className="block text-4xl font-bold text-slate-900">$0</span>
-                    <span className="text-sm text-slate-600">/month</span>
-                  </div>
-                  <ul className="mt-6 space-y-2 text-sm text-slate-700">
-                    {[
-                      "Browse marketplace",
-                      "Message buyers and sellers",
-                      "Up to 5 active listings",
-                      "In-app card scanner (single & batch) — included for every account",
-                      "Desktop Scan Station — bulk-import card scans in your browser",
-                      "Basic pricing data",
-                      "Collection tracking",
-                      "Accept offers on your listings",
-                    ].map((feature) => (
-                      <li key={feature} className="flex gap-2">
-                        <span className="mt-0.5 text-emerald-500" aria-hidden>
-                          ✓
+          {[
+            { group: "personal" as const, heading: "Personal Plans" },
+            { group: "shop" as const, heading: "Shop Plans" },
+          ].map(({ group, heading }) => (
+            <FadeInSection key={group}>
+              <h3 className="mt-14 sm:mt-16 text-2xl font-semibold text-slate-900">{heading}</h3>
+              <div className="mt-8 grid gap-6 lg:gap-8 md:grid-cols-2">
+                {PLANS.filter((plan) => plan.group === group).map((plan) => (
+                  <div
+                    key={plan.id}
+                    className={[
+                      "relative flex flex-col rounded-2xl shadow-sm hover:shadow-lg transition-shadow hover:-translate-y-1",
+                      plan.highlight ? "border-2 border-primary-500 bg-primary-50/80" : "border border-slate-200 bg-white",
+                    ].join(" ")}
+                  >
+                    <div className="p-6 sm:p-7 flex-1 flex flex-col">
+                      <h4 className="text-lg font-semibold text-slate-900">
+                        {plan.id === "free" ? "Free" : `LootScout ${plan.name}`}
+                      </h4>
+                      <p className="mt-1 text-sm text-slate-500">{plan.tagline}</p>
+                      <div className="mt-4 flex items-baseline gap-1">
+                        <span className={`text-4xl font-bold ${plan.paidTier ? "text-primary-600" : "text-slate-900"}`}>
+                          {plan.price}
                         </span>
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <button className="mt-6 inline-flex justify-center rounded-lg bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white hover:bg-slate-800 transition-colors">
-                    Get Started
-                  </button>
-                </div>
-              </div>
-
-              {/* Plus - Most Popular */}
-              <div className="relative flex flex-col rounded-2xl border-2 border-primary-500 bg-primary-50/80 shadow-lg hover:shadow-xl transition-shadow hover:-translate-y-1">
-                <div className="absolute -top-3 right-4 rounded-full bg-primary-600 px-3 py-1 text-xs font-semibold text-white shadow-md">
-                  Most Popular
-                </div>
-                <div className="p-6 sm:p-7 flex-1 flex flex-col">
-                  <h4 className="text-lg font-semibold text-slate-900">LootScout Plus</h4>
-                  <p className="mt-1 text-sm text-slate-600">For active collectors</p>
-                  <div className="mt-4 flex flex-col gap-1">
-                    <span className="text-gray-400 line-through text-sm">$9.99</span>
-                    <div className="flex items-baseline gap-1">
-                      <span className="text-4xl font-bold text-primary-600">$4.99</span>
-                      <span className="text-sm text-slate-700">/month</span>
+                        <span className="text-sm text-slate-700">/month</span>
+                      </div>
+                      <ul className="mt-6 space-y-2 text-sm text-slate-700">
+                        {COMPARISON_ROWS.filter((row) => row.values[plan.id] !== "—").map((row) => (
+                          <li key={row.label} className="flex gap-2">
+                            <span className="mt-0.5 text-emerald-500" aria-hidden>
+                              ✓
+                            </span>
+                            <span>
+                              {row.label}: <strong className="font-semibold">{row.values[plan.id]}</strong>
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                      <Link
+                        href="/pricing"
+                        className={`mt-6 inline-flex justify-center rounded-lg px-4 py-2.5 text-sm font-semibold text-white transition-colors ${
+                          plan.highlight ? "bg-primary-600 hover:bg-primary-700" : "bg-slate-900 hover:bg-slate-800"
+                        }`}
+                      >
+                        {plan.paidTier ? `Get ${plan.name}` : "Get Started"}
+                      </Link>
                     </div>
                   </div>
-                  <ul className="mt-6 space-y-2 text-sm text-slate-800">
-                    {[
-                      "Everything in Free, plus:",
-                      "Up to 25 active listings",
-                      "CSV collection import",
-                      "Price alerts",
-                      "Full transaction analytics",
-                      "Priority support",
-                      "Early access to new features",
-                    ].map((feature) => (
-                      <li key={feature} className="flex gap-2">
-                        <span className="mt-0.5 text-emerald-500" aria-hidden>
-                          ✓
-                        </span>
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <button className="mt-6 inline-flex justify-center rounded-lg bg-primary-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-primary-700 transition-colors">
-                    Start Plus
-                  </button>
-                </div>
+                ))}
               </div>
+            </FadeInSection>
+          ))}
 
-              {/* Pro */}
-              <div className="relative flex flex-col rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-lg transition-shadow hover:-translate-y-1">
-                <div className="p-6 sm:p-7 flex-1 flex flex-col">
-                  <h4 className="text-lg font-semibold text-slate-900">LootScout Pro</h4>
-                  <p className="mt-1 text-sm text-slate-500">For serious collectors and traders</p>
-                  <div className="mt-4 flex flex-col gap-1">
-                    <span className="text-gray-400 line-through text-sm">$21.99</span>
-                    <div className="flex items-baseline gap-1">
-                      <span className="text-4xl font-bold text-primary-600">$14.99</span>
-                      <span className="text-sm text-slate-700">/month</span>
-                    </div>
-                  </div>
-                  <ul className="mt-6 space-y-2 text-sm text-slate-700">
-                    {[
-                      "Everything in Plus, plus:",
-                      "Up to 50 active listings",
-                      "Bulk listing tools",
-                      "Advanced analytics dashboard",
-                      "Up to 10 peer trades per month",
-                      "Collection portfolio tracking",
-                    ].map((feature) => (
-                      <li key={feature} className="flex gap-2">
-                        <span className="mt-0.5 text-emerald-500" aria-hidden>
-                          ✓
-                        </span>
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <button className="mt-6 inline-flex justify-center rounded-lg bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white hover:bg-slate-800 transition-colors">
-                    Start Pro
-                  </button>
-                </div>
-              </div>
-            </div>
-          </FadeInSection>
-
-          {/* Shop Plans */}
-          <FadeInSection>
-            <h3 className="mt-16 text-2xl font-semibold text-slate-900">
-              Shop Plans
-            </h3>
-            <div className="mt-8 grid gap-6 lg:gap-8 md:grid-cols-2">
-              {/* Pro Shop */}
-              <div className="relative flex flex-col rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-lg transition-shadow hover:-translate-y-1">
-                <div className="p-6 sm:p-7 flex-1 flex flex-col">
-                  <h4 className="text-lg font-semibold text-slate-900">LootScout Pro Shop</h4>
-                  <p className="mt-1 text-sm text-slate-500">For card vendors and small businesses</p>
-                  <div className="mt-4 flex flex-col gap-1">
-                    <span className="text-gray-400 line-through text-sm">$49.99</span>
-                    <div className="flex items-baseline gap-1">
-                      <span className="text-4xl font-bold text-primary-600">$29</span>
-                      <span className="text-sm text-slate-700">/month</span>
-                    </div>
-                  </div>
-                  <ul className="mt-6 space-y-2 text-sm text-slate-700">
-                    {[
-                      "Everything in Pro, plus:",
-                      "Up to 150 active listings",
-                      "Shop profile with custom branding",
-                      "POS checkout & trade-in tools",
-                      "Kiosk mode for in-store displays",
-                      "Inventory management",
-                      "eBay & TCGplayer CSV export (Scan Station and shop inventory)",
-                      "Sales analytics dashboard",
-                      "Up to 20 peer trades per month",
-                    ].map((feature) => (
-                      <li key={feature} className="flex gap-2">
-                        <span className="mt-0.5 text-emerald-500" aria-hidden>
-                          ✓
-                        </span>
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <button className="mt-6 inline-flex justify-center rounded-lg bg-primary-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-primary-700 transition-colors">
-                    Start Pro Shop
-                  </button>
-                </div>
-              </div>
-
-              {/* Enterprise */}
-              <div className="relative flex flex-col rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-lg transition-shadow hover:-translate-y-1">
-                <div className="p-6 sm:p-7 flex-1 flex flex-col">
-                  <h4 className="text-lg font-semibold text-slate-900">LootScout Enterprise</h4>
-                  <p className="mt-1 text-sm text-slate-500">For established collectible shops and chains</p>
-                  <p className="mt-2 text-xs text-amber-900 bg-amber-50 border border-amber-200/80 rounded-lg px-2.5 py-1.5 leading-snug">
-                    Roadmap: some capabilities below are rolling out over time; availability may vary.
-                  </p>
-                  <div className="mt-4 flex flex-col gap-1">
-                    <span className="text-gray-400 line-through text-sm">$149.99</span>
-                    <div className="flex items-baseline gap-1">
-                      <span className="text-4xl font-bold text-primary-600">$99</span>
-                      <span className="text-sm text-slate-700">/month</span>
-                    </div>
-                  </div>
-                  <ul className="mt-6 space-y-2 text-sm text-slate-700">
-                    {[
-                      "Everything in Pro Shop, plus:",
-                      "Unlimited staff accounts",
-                      "Multi-location support",
-                      "API access",
-                      "Customer rewards program",
-                      "Priority support",
-                      "Custom integrations",
-                    ].map((feature) => (
-                      <li key={feature} className="flex gap-2">
-                        <span className="mt-0.5 text-emerald-500" aria-hidden>
-                          ✓
-                        </span>
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <button className="mt-6 inline-flex justify-center rounded-lg bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white hover:bg-slate-800 transition-colors">
-                    Contact Sales
-                  </button>
-                </div>
-              </div>
-            </div>
-          </FadeInSection>
+          <p className="mt-8 text-center text-sm text-slate-500">{PLAN_CHANGE_NOTE}</p>
 
           {/* FAQ */}
           <FadeInSection>
@@ -809,10 +665,10 @@ export default function Home() {
                 <div className="space-y-4">
                   <h4 className="text-xs font-semibold uppercase tracking-wide text-slate-500">Pricing</h4>
                   <div>
-                    <h4 className="font-semibold text-slate-900">Why the discount?</h4>
+                    <h4 className="font-semibold text-slate-900">What&apos;s the difference between plans?</h4>
                     <p className="mt-1">
-                      We&apos;re in beta! Help us build the best collectibles marketplace and lock in this pricing forever—even after we raise
-                      prices for new users.
+                      Every plan gets the full app. Paid plans raise the monthly limits (listings, trades, photo-upload scans, CSV imports and
+                      exports) and add AI price insights; the Shop plans add in-person POS sales, vendor show mode and shop exports.
                     </p>
                   </div>
                   <div>
@@ -841,10 +697,10 @@ export default function Home() {
                     </p>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-slate-900">Is this really beta pricing forever?</h4>
+                    <h4 className="font-semibold text-slate-900">Will prices or plans change?</h4>
                     <p className="mt-1">
-                      Yes. If you subscribe during beta, you keep this price as long as you stay subscribed. When we launch publicly, new users will
-                      pay the higher prices.
+                      They may. Plan prices, limits and features can change over time; we&apos;ll give notice before a change affects your
+                      subscription.
                     </p>
                   </div>
                 </div>
@@ -882,7 +738,8 @@ export default function Home() {
                   <div>
                     <h4 className="font-semibold text-slate-900">Is the card scanner free?</h4>
                     <p className="mt-1">
-                      Yes — single and batch scanning are included for every account; there is no separate scanner subscription.{" "}
+                      Yes — single and batch scanning with the live camera are free and unlimited on every plan; there is no separate
+                      scanner subscription. Uploaded images (including the Desktop Scan Station) use a monthly allowance that depends on your plan.{" "}
                       <Link href="/faq#scanner-free" className="text-primary-600 font-medium hover:underline">
                         Details →
                       </Link>

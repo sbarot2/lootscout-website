@@ -58,7 +58,7 @@ const troubleshooting: { id: string; q: string; a: string }[] = [
   {
     id: "listing-cap",
     q: "I hit my listing limit.",
-    a: "Each tier has a different active-listing cap (Free, Plus, Pro, Pro Shop, Enterprise). To raise it, view the plans on the pricing page and subscribe on the web — your subscription syncs back into the app automatically within a minute.",
+    a: "Each tier has a different active-listing cap (Free, Collector, Shop, Enterprise). To raise it, view the plans on the pricing page and subscribe on the web — your subscription syncs back into the app automatically within a minute.",
   },
   {
     id: "scanner-mismatch",

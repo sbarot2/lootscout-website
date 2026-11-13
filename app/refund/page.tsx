@@ -30,7 +30,7 @@ export default function RefundPage() {
           <section>
             <h2 className="text-xl font-semibold text-slate-900">Subscription Refunds</h2>
             <ul className="mt-2 list-disc list-inside space-y-1">
-              <li>Stripe subscriptions (Plus, Pro, Pro Shop, Enterprise) can be canceled anytime from your account settings or via the billing portal.</li>
+              <li>Stripe subscriptions (Collector, Shop, Enterprise) can be canceled anytime from your account settings or via the billing portal.</li>
               <li>No refunds for partial months. If you cancel mid-cycle, you retain access until the end of the current billing period.</li>
               <li>We do not provide prorated refunds for unused time in a billing period.</li>
             </ul>

@@ -28,7 +28,7 @@ const qa = [
   {
     id: "marketplace-export",
     q: "Which plans get the eBay and TCGplayer CSV export?",
-    a: "Pro Shop and Enterprise. The exports turn a reviewed batch — or your existing shop inventory — into a ready-to-upload eBay File Exchange file or a TCGplayer seller file, with your own scan photos attached. Everything else in the Desktop Scan Station, including reading scans and adding them to your collection, is available on every plan.",
+    a: "Shop and Enterprise. The exports turn a reviewed batch — or your existing shop inventory — into a ready-to-upload eBay File Exchange file or a TCGplayer seller file, with your own scan photos attached. Everything else in the Desktop Scan Station, including reading scans and adding them to your collection, is available on every plan; imported scans count toward your plan's monthly photo-upload allowance (10 on Free, 100 on Collector, 10,000 on Shop, unlimited on Enterprise).",
   },
   {
     id: "public-shop",
@@ -58,7 +58,7 @@ const qa = [
   {
     id: "scanner-free",
     q: "Does the card scanner cost extra?",
-    a: "No. Single-card and batch scanning are included for every account — there is no separate scanner subscription on top of your tier.",
+    a: "No. Single-card and batch scanning with the live camera are free and unlimited on every plan — there is no separate scanner subscription on top of your tier. Scanning uploaded or picked images (including the Desktop Scan Station) uses a monthly photo-upload allowance: 10 on Free, 100 on Collector, 10,000 on Shop, unlimited on Enterprise.",
   },
   {
     id: "scanner-batch",
@@ -77,8 +77,8 @@ const qa = [
   },
   {
     id: "pricing-beta",
-    q: "Why is pricing labeled beta?",
-    a: "Plans and limits can evolve while we refine the product. Lock-in messaging on the homepage describes how beta subscribers may keep promotional rates; see the pricing section for details.",
+    q: "Can plan prices or limits change?",
+    a: "Yes. Plan prices, limits and features may change as we refine the product; we'll give notice before a price change applies to your subscription. Current plans and limits are on the pricing page.",
   },
 ] as const;
 

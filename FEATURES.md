@@ -305,6 +305,34 @@ Follow that document for routes (`/pickup`, `/kiosk`, etc.) and QR deep link sha
 2. **Subscription / billing** may open Stripe customer portal from Edge Functions.
 3. **Usage limits** (e.g. active listings) refresh on focus in supported builds.
 
+### Plans (usage-based — updated 2026-11-13)
+
+Every feature works on every plan. Plans differ by **how much** you can do each month; the Shop
+plans also add the shop tools (in-person POS sales, vendor show tools, transaction and
+eBay / TCGplayer exports). Prices and plan features may change.
+
+| | Free | Collector | Shop | Enterprise |
+|---|---|---|---|---|
+| Price | $0 | $14.99/mo | $29/mo | $99/mo |
+| Active listings | 5 | 50 | 150 | Unlimited |
+| Peer trades / month | 5 | 10 | 20 | Unlimited |
+| CSV imports / month | 2 | 5 | 10 | Unlimited |
+| Exports / month (collection, transaction, eBay / TCGplayer) | 2 | 5 | 10 | Unlimited |
+| Photo-upload scans / month (Scan Station, photo library) | 10 | 100 | 10,000 | Unlimited |
+| Live camera card scanning | Unlimited | Unlimited | Unlimited | Unlimited |
+| Price alerts | Unlimited | Unlimited | Unlimited | Unlimited |
+| Catalog search | Unlimited | Unlimited | Unlimited | Unlimited |
+| AI price insights | — | ✓ | ✓ | ✓ |
+| In-person POS sales | — | — | ✓ | ✓ |
+| Vendor show tools | — | — | ✓ | ✓ |
+| Transaction + eBay / TCGplayer export | — | — | ✓ | ✓ |
+| Custom default buy / trade-in % | — | — | — | ✓ (with 100+ active listings) |
+
+- **Monthly limits reset on the 1st** (UTC). Your plan card on **Profile** shows what's left this month; the CSV import sheet and Scan Station show their own counts.
+- **At a limit** the app shows **Upgrade** (on iPhone this goes through the App Store).
+- **Free intro access:** new accounts get Enterprise free for their first 30 days.
+- **Photo-upload scans** count each card once (a front + back pair is one scan). Scanning with the live camera is never counted.
+
 ---
 
 ## 10. AI & analytics (where enabled)

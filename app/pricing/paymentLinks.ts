@@ -2,10 +2,14 @@
 // Stripe Payment Link URLs — one per paid tier (Stripe live mode)
 // ============================================================================
 //
+// Keys are the app's internal tier ids: 'pro' is the Collector plan,
+// 'pro_shop' is the Shop plan. (The old 'plus' plan was retired 2026-11-13
+// and is no longer sold, so it has no link here.)
+//
 // To populate:
 //   1. Stripe Dashboard → Payment Links → New
 //   2. Product: pick the LootScout product matching the tier
-//      (Plus, Pro, Pro Shop, Enterprise)
+//      (Collector, Shop, Enterprise)
 //   3. Price: pick the recurring monthly price matching
 //      STRIPE_PRICE_ID_* in Supabase secrets
 //   4. After Payment → Don't show confirmation page → Redirect to
@@ -22,7 +26,6 @@
 // the pricing page (falls back to "Email support" CTA for that tier only).
 
 export const paymentLinks = {
-  plus: 'https://buy.stripe.com/eVqeVfctb0gRaWz1xf2Nq00',
   pro: 'https://buy.stripe.com/7sY14p78RgfP9Svfo52Nq03',
   pro_shop: 'https://buy.stripe.com/dRmaEZbp7aVvc0Da3L2Nq04',
   enterprise: 'https://buy.stripe.com/28E3cx78RaVvaWz0tb2Nq05',

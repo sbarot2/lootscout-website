@@ -178,13 +178,15 @@ export default function TermsPage() {
               </h2>
               <p className="mt-2">
                 <strong>7.1 Free and paid tiers.</strong> LootScout offers a
-                free tier and paid tiers (Plus, Pro, Pro Shop, Enterprise).
-                Pricing, listing limits, and feature differences are described
+                free tier and paid tiers (Collector, Shop, Enterprise).
+                Pricing, usage limits, and feature differences are described
                 at{" "}
-                <Link href="/" className="text-primary-600 hover:underline">
-                  lootscout.io
+                <Link href="/pricing" className="text-primary-600 hover:underline">
+                  lootscout.io/pricing
                 </Link>
-                .
+                . Plan prices, limits, and features are subject to change with
+                notice. We will give notice of a price change before it applies
+                to your subscription.
               </p>
               <p className="mt-3">
                 <strong>7.2 Billing.</strong> Except for subscriptions purchased
@@ -203,9 +205,9 @@ export default function TermsPage() {
                 required by law.
               </p>
               <p className="mt-3">
-                <strong>7.4 Promo codes and beta pricing.</strong> Beta pricing
-                and promotional codes are subject to the specific terms shown at
-                the time of offer and may change.
+                <strong>7.4 Promo codes and introductory offers.</strong>{" "}
+                Introductory offers and promotional codes are subject to the
+                specific terms shown at the time of offer and may change.
               </p>
               <p className="mt-3">
                 <strong>7.5 Taxes.</strong> You are responsible for any sales,

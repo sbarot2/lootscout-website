@@ -122,7 +122,7 @@ export default function FeaturesPage() {
                 <strong>Map:</strong> Browse nearby listings on an interactive map to see what&rsquo;s for sale around you, then meet up in person.
               </p>
               <p>
-                <strong>Wishlist &amp; price alerts:</strong> Add cards to your wishlist and get notified when a match is listed near you. Set price alerts (Plus and up) to watch the market and hear about moves on items you care about.
+                <strong>Wishlist &amp; price alerts:</strong> Add cards to your wishlist and get notified when a match is listed near you. Set price alerts (unlimited on every plan) to watch the market and hear about moves on items you care about.
               </p>
               <p>
                 See also:{" "}
@@ -162,7 +162,7 @@ export default function FeaturesPage() {
                 Recent builds polish <strong>add-to-collection</strong> from scanner and product flows, including safe-area and scroll behavior so primary actions stay clear of the home indicator.
               </p>
               <p>
-                <strong>CSV import</strong> (when enabled): bring an existing spreadsheet from another tool — you don&apos;t have to re-enter your
+                <strong>CSV import</strong> (every plan, with a monthly allowance — 2 imports a month on Free): bring an existing spreadsheet from another tool — you don&apos;t have to re-enter your
                 whole collection. Map columns, preview matching, confirm bulk import, resolve duplicates per app messaging.
                 Shop owners can tick <strong>Also list imported items for sale</strong> to put the imported cards up
                 for sale in the same pass, priced at the matched market price (or your purchase price when there is no
@@ -188,7 +188,8 @@ export default function FeaturesPage() {
                 <strong>List for sale</strong> from a collection item — listing is prefilled from condition, variant, and catalog links; fixed price vs offer-only where supported.
               </p>
               <p>
-                <strong>Export CSV</strong> (Plus / Pro): download your full
+                <strong>Export CSV</strong> (every plan, with a monthly export
+                allowance — 2 exports a month on Free): download your full
                 collection — or a single folder — as a spreadsheet with product
                 name, set, card number, condition, variant, quantity, purchase
                 price, current market value, gain/loss, notes, and date added.
@@ -237,7 +238,12 @@ export default function FeaturesPage() {
                 <em>no match</em> instead of a confident wrong card.
               </p>
               <p>
-                <strong>Cost:</strong> Scanning is <strong>free for every account</strong> — no separate scanner fee.
+                <strong>Cost:</strong> Live camera scanning is <strong>free and unlimited on every plan</strong> — no separate scanner fee.
+                Scanning uploaded or picked images (including the{" "}
+                <a href="#scan-station" className="text-primary-600 font-medium hover:underline">
+                  Desktop Scan Station
+                </a>
+                ) uses a monthly photo-upload allowance: 10 on Free, 100 on Collector, 10,000 on Shop, unlimited on Enterprise.
               </p>
               <p>
                 <Link href="/faq" className="text-primary-600 font-medium hover:underline">
@@ -277,7 +283,7 @@ export default function FeaturesPage() {
                 put it.
               </p>
               <p>
-                <strong>eBay &amp; TCGplayer CSV export</strong> (Pro Shop /
+                <strong>eBay &amp; TCGplayer CSV export</strong> (Shop /
                 Enterprise): export the same reviewed batch as a ready-to-upload{" "}
                 <strong>eBay File Exchange</strong> file or a{" "}
                 <strong>TCGplayer</strong> seller file, with your own scan photos
@@ -305,6 +311,12 @@ export default function FeaturesPage() {
                 review, add, list, and export flow works, reading scans with your
                 device&rsquo;s own on-device text recognition and handing exports
                 off through the share sheet.
+              </p>
+              <p>
+                <strong>Allowance:</strong> the Scan Station is on every plan.
+                Each card you import counts once toward your monthly
+                photo-upload scans (a front + back pair is one scan): 10 on
+                Free, 100 on Collector, 10,000 on Shop, unlimited on Enterprise.
               </p>
             </Section>
 
@@ -485,7 +497,7 @@ export default function FeaturesPage() {
                 (when you entered your starting cash), and the items that went out and came in, with their market value.
               </p>
               <p>
-                <strong>Transactions CSV export</strong> (Pro Shop /
+                <strong>Transactions CSV export</strong> (Shop /
                 Enterprise): from the shop dashboard, export your
                 transactions for any date range with date, type, counterparty,
                 line items, revenue, cost basis, gross profit, discount, cash
@@ -493,7 +505,7 @@ export default function FeaturesPage() {
                 clean records.
               </p>
               <p>
-                <strong>Inventory export to eBay / TCGplayer</strong> (Pro Shop /
+                <strong>Inventory export to eBay / TCGplayer</strong> (Shop /
                 Enterprise): from the shop dashboard in a browser, export your
                 inventory as an eBay File Exchange or TCGplayer seller file —
                 the same exporters the{" "}
@@ -522,6 +534,19 @@ export default function FeaturesPage() {
                 <strong>Manage</strong> opens the App Store subscription
                 screen for IAP customers, or the Stripe customer portal for
                 everyone else.
+              </p>
+              <p>
+                <strong>Plans:</strong> Free, Collector, Shop and Enterprise.
+                Every plan gets the full app; paid plans raise the monthly
+                limits (active listings, peer trades, photo-upload scans, CSV
+                imports and exports) and add AI price insights, and the Shop
+                plans add in-person POS sales, vendor show mode and shop
+                exports. Monthly allowances reset on the 1st (UTC). Prices and
+                plan features may change — see{" "}
+                <Link href="/pricing" className="text-primary-600 hover:underline">
+                  pricing
+                </Link>{" "}
+                for current limits.
               </p>
               <p>
                 <strong>Follow &amp; discover collectors:</strong> Search for
