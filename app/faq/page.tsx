@@ -38,7 +38,7 @@ const qa = [
   {
     id: "shop-sort-filter",
     q: "Can I sort or filter a shop's inventory?",
-    a: "Yes. On any shop page, Sort orders the listings by price (low to high or high to low) and Filter narrows them by game or category, sealed, raw or graded, condition, and price range — showing only what that shop actually stocks. It works for everyone, signed in or not, and together with the shop's search box.",
+    a: "Yes. On any shop page, Sort orders the listings by price (low to high or high to low) and Filter narrows them by game or category, sealed, raw or graded, condition, and price range — showing only what that shop actually stocks. It works for everyone, signed in or not, and together with the shop's search box. The same Sort and Filter buttons are on a user's profile listings in the app and in kiosk mode.",
   },
   {
     id: "csv-import",

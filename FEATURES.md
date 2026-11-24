@@ -251,13 +251,14 @@ Summarized in **`docs/features-kiosk-shop-pickup-cart.md`**.
 - **Kiosk** tablet flow with QR listings.
 - **Trade / sale drafts:** scan **listing QR** to append lines where enabled.
 
-### Sort and filter a shop's inventory
+### Sort and filter a shop's inventory, a user's listings, or the kiosk
 
-**Who:** anyone viewing a shop page, signed in or not (including the owner). **Where:** the **Sort** and **Filter** buttons beside the **Listings** heading.
+**Who:** anyone viewing a shop page, signed in or not (including the owner); anyone viewing a user's profile listings (including your own); visitors at a shop's **kiosk**. **Where:** the **Sort** and **Filter** buttons beside the **Listings** heading (shop page and profile), or beside the search box (kiosk).
 
-1. **Sort** cycles: newest first (default) → price low to high → price high to low → back to newest. It sorts by the price shown on each tile (the live market price for "Keep at market price" listings). **Make an offer** listings always go last.
-2. **Filter** opens a sheet with only the options this shop actually stocks, each with a count: **Category / game** (Pokemon, One Piece, Sports cards, Video games, …), **Sealed only**, **Raw / graded**, **Condition** (NM/LP/MP/HP/DMG), and a **price range** (a range hides offer-only listings). Tap **Show N listings** to apply; the **Filter** button shows how many filters are on. **Clear** resets them; if nothing matches, the grid offers **Clear filters**.
+1. **Sort** cycles: newest first (default) → price low to high → price high to low → back to newest. It sorts by the price shown on each tile (on the shop page and profile, the live market price for "Keep at market price" listings; the kiosk tiles show the listing's set price, and that is what it sorts by). **Make an offer** / **Offers welcome** listings always go last.
+2. **Filter** opens a sheet with only the options these listings actually include, each with a count: **Category / game** (Pokemon, One Piece, Sports cards, Video games, …), **Sealed only**, **Raw / graded**, **Condition** (NM/LP/MP/HP/DMG), and a **price range** (a range hides offer-only listings). Tap **Show N listings** to apply; the **Filter** button shows how many filters are on. **Clear** resets them; if nothing matches, the list offers **Clear filters**.
 3. Sort and filter work together with the search box. On your own shop, **Select all** selects only the listings currently shown.
+4. **Kiosk:** the sort and filters belong to the visitor at the tablet — when the **Still here?** prompt goes unanswered and the guest cart is cleared, the grid also returns to newest first with no filters. (The kiosk's sort was previously a menu with Name A–Z and Category options; it is now the same single price-sort button, and Category is covered by **Filter**.)
 
 ### Shop QR sign
 

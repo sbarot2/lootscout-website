@@ -453,7 +453,9 @@ export default function FeaturesPage() {
                 category, sealed, raw or graded, condition, and price range &mdash; showing only the options that shop
                 actually stocks, with a count on each. It works for every visitor, signed in or not, and alongside the
                 search box. On your own shop, <strong>Select all</strong> in Bulk Actions selects just the listings
-                currently shown, so clearing out a whole filtered slice is a couple of taps.
+                currently shown, so clearing out a whole filtered slice is a couple of taps. The same <strong>Sort</strong> and{" "}
+                <strong>Filter</strong> buttons are on a user&rsquo;s profile listings and in kiosk mode, where they reset for
+                the next visitor.
               </p>
               <p>
                 <strong>Print your shop as a QR sign:</strong> from the shop
