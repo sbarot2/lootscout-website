@@ -86,7 +86,7 @@ export const COMPARISON_ROWS: readonly ComparisonRow[] = [
   },
   {
     label: "Peer trades / month",
-    values: { free: "5", pro: "10", pro_shop: "20", enterprise: UNLIMITED },
+    values: { free: "5", pro: "10", pro_shop: "50", enterprise: UNLIMITED },
   },
   { label: "Trade-ins", values: everyPlan(YES) },
   { label: "Price alerts", values: everyPlan(UNLIMITED) },

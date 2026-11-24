@@ -333,7 +333,7 @@ eBay / TCGplayer exports). Prices and plan features may change.
 |---|---|---|---|---|
 | Price | $0 | $14.99/mo | $29/mo | $99/mo |
 | Active listings | 5 | 50 | 150 | Unlimited |
-| Peer trades / month | 5 | 10 | 20 | Unlimited |
+| Peer trades / month | 5 | 10 | 50 | Unlimited |
 | CSV imports / month | 2 | 5 | 10 | Unlimited |
 | Exports / month (collection, transaction, eBay / TCGplayer) | 2 | 5 | 10 | Unlimited |
 | Photo-upload scans / month (Scan Station, photo library) | 10 | 100 | 10,000 | Unlimited |
